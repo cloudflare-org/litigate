@@ -75,16 +75,16 @@ export default function Home() {
                         <div><span className="text-label">Landmark Outcomes</span><h2>Selected Cases</h2></div>
                         <Link href="/cases" className="btn btn-sm">View All Cases</Link>
                     </div>
-                    <div className="cases-teaser-list">
+                    <div className="timeline">
                         {cases.slice(0, 3).map((c) => (
-                            <Link href={`/cases/${c.slug}`} className="case-teaser-item" key={c.slug}>
-                                <div className="case-teaser-left">
-                                    <div className="case-teaser-year">{c.year} &middot; {c.category}</div>
-                                    <div className="case-teaser-title">{c.title}</div>
-                                    <div className="case-teaser-tags">{c.tags.map((t, i) => <span className="case-tag" key={i}>{t}</span>)}</div>
-                                </div>
-                                <div className="case-teaser-arrow">&#8594;</div>
-                            </Link>
+                            <div className="timeline-item" key={c.slug}>
+                                <div className="timeline-marker" />
+                                <Link href={`/cases/${c.slug}`} className="timeline-card">
+                                    <div className="timeline-year">{c.year} &middot; {c.category}</div>
+                                    <div className="timeline-title">{c.title}</div>
+                                    <div className="timeline-tags">{c.tags.map((t, i) => <span className="case-tag" key={i}>{t}</span>)}</div>
+                                </Link>
+                            </div>
                         ))}
                     </div>
                 </div>
