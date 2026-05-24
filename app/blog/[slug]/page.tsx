@@ -1,269 +1,120 @@
 "use client";
-import { useEffect, useState } from "react";
+import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import siteData from "@/data/siteData.json";
-import {
-    BASE_CSS,
-    NAV_CSS,
-    FOOTER_CSS,
-    BTN_CSS,
-    PAGE_HERO_CSS,
-    SECTION_CSS,
-    CTA_STRIP_CSS,
-} from "@/components/LexiStyles";
 
-export default function BlogPostPage() {
-    const { company, contact, footer, nav, blog } = siteData;
-    const [scrolled, setScrolled] = useState(false);
+const { blog } = siteData;
+
+export default function BlogSinglePage() {
     const params = useParams();
     const slug = params?.slug as string;
-
     const post = blog.find((b) => b.slug === slug);
-    const morePosts = blog.filter((b) => b.slug !== slug).slice(0, 2);
-
-    useEffect(() => {
-        const fn = () => setScrolled(window.scrollY > 80);
-        window.addEventListener("scroll", fn);
-        return () => window.removeEventListener("scroll", fn);
-    }, []);
-
-    if (!post) {
-        return (
-            <>
-                <style>{BASE_CSS}</style>
-                <style>{NAV_CSS}</style>
-                <style>{BTN_CSS}</style>
-                <div className="content">
-                    <nav className={scrolled ? "active" : ""}>
-                        <Link href="/" className="logo">{company.name}</Link>
-                        <ul className="nav-menu">
-                            {nav.map((l) => (
-                                <li key={l.href}><Link href={l.href}>{l.name}</Link></li>
-                            ))}
-                            <li><Link href="/contact"><button className="nav-cta">Enquire</button></Link></li>
-                        </ul>
-                    </nav>
-                    <div style={{ minHeight: "60vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "var(--space-xl)", padding: "var(--space-3xl)" }}>
-                        <p className="text-label">404</p>
-                        <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,6vw,3.5rem)", textAlign: "center" }}>Post Not Found</h1>
-                        <p style={{ color: "var(--color-text-secondary)", textAlign: "center", maxWidth: "480px" }}>This insight is not available or has been removed.</p>
-                        <Link href="/blog" className="btn">Back to Insights</Link>
-                    </div>
-                </div>
-            </>
-        );
-    }
+    const others = blog.filter((b) => b.slug !== slug);
 
     return (
-        <>
-            <style>{BASE_CSS}</style>
-            <style>{NAV_CSS}</style>
-            <style>{FOOTER_CSS}</style>
-            <style>{BTN_CSS}</style>
-            <style>{PAGE_HERO_CSS}</style>
-            <style>{SECTION_CSS}</style>
-            <style>{CTA_STRIP_CSS}</style>
-            <style>{`
-        .article-wrap {
-          max-width: 720px;
-          margin: 0 auto;
-        }
-        .article-meta {
-          display: flex;
-          align-items: center;
-          gap: var(--space-lg);
-          margin-bottom: var(--space-3xl);
-          flex-wrap: wrap;
-        }
-        .article-cat {
-          font-size: .7rem;
-          text-transform: uppercase;
-          letter-spacing: .12em;
-          color: var(--color-accent-primary);
-          font-weight: 600;
-          background: rgba(132,204,22,.1);
-          border: 1px solid rgba(132,204,22,.2);
-          padding: .25rem .875rem;
-          border-radius: .25rem;
-        }
-        .article-date-read {
-          font-size: .8rem;
-          color: var(--color-text-tertiary);
-          display: flex;
-          align-items: center;
-          gap: var(--space-sm);
-        }
-        .article-body {
-          color: var(--color-text-secondary);
-          font-size: 1.1rem;
-          line-height: 2;
-          margin-bottom: var(--space-4xl);
-        }
-        .more-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: var(--space-2xl);
-          margin-top: var(--space-3xl);
-        }
-        .more-card {
-          background: var(--color-surface-2);
-          border: 1px solid var(--color-border);
-          border-radius: .75rem;
-          overflow: hidden;
-          text-decoration: none;
-          display: block;
-          transition: all .3s;
-        }
-        .more-card:hover {
-          border-color: var(--color-accent-primary);
-          transform: translateY(-4px);
-        }
-        .more-card-img {
-          height: 120px;
-          background: linear-gradient(135deg, var(--color-surface-3), var(--color-surface-1));
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 2.5rem;
-          border-bottom: 1px solid var(--color-border);
-        }
-        .more-card-body {
-          padding: var(--space-xl);
-        }
-        .more-card-cat {
-          font-size: .7rem;
-          text-transform: uppercase;
-          letter-spacing: .1em;
-          color: var(--color-accent-primary);
-          font-weight: 600;
-          margin-bottom: var(--space-sm);
-        }
-        .more-card-title {
-          font-family: var(--font-display);
-          font-size: 1rem;
-          color: var(--color-text-primary);
-          line-height: 1.4;
-          margin-bottom: var(--space-sm);
-        }
-        .more-card-meta {
-          font-size: .75rem;
-          color: var(--color-text-tertiary);
-        }
-        @media(max-width: 768px) {
-          .more-grid { grid-template-columns: 1fr; }
-        }
-      `}</style>
+        <div className="content">
+            <LexiNav />
 
-            <div className="content">
-                {/* NAV */}
-                <nav className={scrolled ? "active" : ""}>
-                    <Link href="/" className="logo">{company.name}</Link>
-                    <ul className="nav-menu">
-                        {nav.map((l) => (
-                            <li key={l.href}>
-                                <Link href={l.href}>{l.name}</Link>
-                            </li>
-                        ))}
-                        <li><Link href="/contact"><button className="nav-cta">Enquire</button></Link></li>
-                    </ul>
-                </nav>
-
-                {/* HERO */}
-                <div className="page-hero">
-                    <div className="page-hero-inner">
-                        <span className="text-label">{post.category}</span>
-                        <h1>{post.title}</h1>
-                    </div>
+            {!post ? (
+                <div style={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "var(--space-xl)", paddingTop: "120px" }}>
+                    <h2 style={{ color: "var(--color-text-secondary)" }}>Article not found</h2>
+                    <Link href="/blog" className="btn">Back to Insights</Link>
                 </div>
+            ) : (
+                <>
+                    <div className="page-hero">
+                        <div className="page-hero-inner">
+                            <span className="text-label">{post.category}</span>
+                            <h1>{post.title}</h1>
+                            <p className="hero-sub">{post.date} &middot; {post.readTime} read</p>
+                        </div>
+                    </div>
 
-                {/* ARTICLE */}
-                <section className="section">
-                    <div className="section-inner">
-                        <div className="article-wrap">
-                            <div className="article-meta">
-                                <span className="article-cat">{post.category}</span>
-                                <div className="article-date-read">
-                                    <span>{post.date}</span>
-                                    <span>&middot;</span>
-                                    <span>{post.readTime} read</span>
-                                </div>
+                    {/* Hero image */}
+                    {post.image && (
+                        <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 var(--space-3xl)" }}>
+                            <div style={{ height: "480px", borderRadius: "1rem", overflow: "hidden", border: "1px solid var(--color-border)" }}>
+                                <img src={post.image} alt={post.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                             </div>
-                            <p className="article-body">{post.content}</p>
-                            <Link href="/blog" className="btn">&#8592; Back to Insights</Link>
                         </div>
-                    </div>
-                </section>
+                    )}
 
-                {/* MORE INSIGHTS */}
-                <section className="section" style={{ borderTop: "1px solid var(--color-border)", paddingTop: "var(--space-4xl)" }}>
-                    <div className="section-inner">
-                        <div className="section-header">
-                            <span className="text-label">Keep Reading</span>
-                            <h2>More Insights</h2>
-                            <div className="divider" />
-                        </div>
-                        <div className="more-grid">
-                            {morePosts.map((mp) => (
-                                <Link href={`/blog/${mp.slug}`} className="more-card" key={mp.slug}>
-                                    <div className="more-card-img">{mp.emoji}</div>
-                                    <div className="more-card-body">
-                                        <div className="more-card-cat">{mp.category}</div>
-                                        <div className="more-card-title">{mp.title}</div>
-                                        <div className="more-card-meta">{mp.date} &middot; {mp.readTime} read</div>
+                    {/* Article body */}
+                    <div style={{ padding: "var(--space-5xl) var(--space-3xl)", maxWidth: "1400px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 300px", gap: "var(--space-4xl)", alignItems: "start" }}>
+                        <article>
+                            {/* Excerpt callout */}
+                            <div style={{ padding: "var(--space-2xl)", background: "rgba(132,204,22,.06)", border: "1px solid rgba(132,204,22,.15)", borderRadius: ".75rem", marginBottom: "var(--space-3xl)" }}>
+                                <p style={{ color: "var(--color-text-secondary)", fontSize: "1.05rem", lineHeight: "1.8", fontStyle: "italic" }}>{post.excerpt}</p>
+                            </div>
+
+                            {/* Full content */}
+                            <div style={{ color: "var(--color-text-secondary)", lineHeight: "2", fontSize: "1.05rem" }}>
+                                {post.content.split("\n\n").map((para, i) => (
+                                    <p key={i} style={{ marginBottom: "var(--space-xl)" }}>{para}</p>
+                                ))}
+                            </div>
+
+                            {/* Disclaimer */}
+                            <div style={{ marginTop: "var(--space-3xl)", paddingTop: "var(--space-2xl)", borderTop: "1px solid var(--color-border)" }}>
+                                <p style={{ color: "var(--color-text-tertiary)", fontSize: ".8rem", lineHeight: "1.6" }}>This article represents the personal analysis of the author and does not constitute legal advice. It should not be relied upon as a substitute for specific legal counsel on your particular circumstances. If you have a legal matter you wish to discuss, please contact us directly.</p>
+                            </div>
+                        </article>
+
+                        {/* Sidebar */}
+                        <aside style={{ position: "sticky", top: "120px", display: "flex", flexDirection: "column", gap: "var(--space-xl)" }}>
+                            <div style={{ padding: "var(--space-2xl)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: ".75rem" }}>
+                                <h4 style={{ fontFamily: "var(--font-body)", fontSize: ".75rem", textTransform: "uppercase", letterSpacing: ".15em", fontWeight: 600, color: "var(--color-accent-primary)", marginBottom: "var(--space-xl)" }}>Article Details</h4>
+                                {[{ label: "Category", value: post.category }, { label: "Published", value: post.date }, { label: "Reading Time", value: post.readTime }].map((d, i) => (
+                                    <div key={i} style={{ marginBottom: "var(--space-lg)" }}>
+                                        <div style={{ fontSize: ".75rem", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: ".1em", marginBottom: ".25rem" }}>{d.label}</div>
+                                        <div style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--color-text-primary)" }}>{d.value}</div>
                                     </div>
-                                </Link>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                            <Link href="/contact" className="btn btn-primary" style={{ textAlign: "center", width: "100%" }}>Discuss This Topic</Link>
+                            <Link href="/blog" className="btn" style={{ textAlign: "center", width: "100%" }}>All Insights</Link>
+                        </aside>
                     </div>
-                </section>
 
-                {/* CTA */}
-                <div className="cta-strip">
-                    <div className="cta-strip-inner">
-                        <div className="cta-strip-content">
-                            <h2>Ready to Discuss Your Matter?</h2>
-                            <p>All enquiries are treated with absolute confidentiality. We respond to retained clients within the hour and to new enquiries within 24 hours.</p>
-                            <Link href="/contact" className="btn">Make a Confidential Enquiry</Link>
+                    {/* More insights */}
+                    <section style={{ padding: "var(--space-5xl) var(--space-3xl)", background: "linear-gradient(180deg,var(--color-bg-tertiary),transparent)" }}>
+                        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+                            <span className="text-label" style={{ display: "block", marginBottom: "var(--space-lg)" }}>More Insights</span>
+                            <h2 style={{ marginBottom: "var(--space-2xl)" }}>Further Reading</h2>
+                            <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "var(--space-2xl)" }}>
+                                {others.map((a) => (
+                                    <Link key={a.slug} href={`/blog/${a.slug}`} style={{ display: "block", textDecoration: "none", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: ".75rem", overflow: "hidden", transition: "all .3s" }}
+                                        onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--color-accent-primary)"; el.style.transform = "translateY(-4px)"; }}
+                                        onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--color-border)"; el.style.transform = "translateY(0)"; }}
+                                    >
+                                        <div style={{ height: "160px", background: "var(--color-surface-3)", overflow: "hidden" }}>
+                                            {a.image ? <img src={a.image} alt={a.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /> : <div style={{ width: "100%", height: "100%", background: "linear-gradient(135deg,var(--color-surface-3),var(--color-surface-1))" }} />}
+                                        </div>
+                                        <div style={{ padding: "var(--space-xl)" }}>
+                                            <div style={{ fontSize: ".7rem", textTransform: "uppercase", letterSpacing: ".12em", color: "var(--color-accent-primary)", fontWeight: 600, marginBottom: "var(--space-sm)" }}>{a.category}</div>
+                                            <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--color-text-primary)", lineHeight: "1.4", marginBottom: "var(--space-sm)" }}>{a.title}</h3>
+                                            <div style={{ fontSize: ".75rem", color: "var(--color-text-tertiary)" }}>{a.date} &middot; {a.readTime} read</div>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
+                    </section>
+                </>
+            )}
+
+            <div className="cta-strip">
+                <div className="cta-strip-inner">
+                    <div className="cta-strip-content">
+                        <h2>Have a Question About This Topic?</h2>
+                        <p>Our partners are available to discuss how these legal developments may affect your specific situation. All conversations are strictly confidential.</p>
+                        <Link href="/contact" className="btn">Speak to a Partner</Link>
                     </div>
                 </div>
-
-                {/* FOOTER */}
-                <footer className="lexi-footer">
-                    <div className="footer-grid">
-                        <div className="footer-brand footer-col">
-                            <h4 style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", textTransform: "none", letterSpacing: "-.02em", color: "var(--color-text-primary)" }}>{company.name}</h4>
-                            <p>{company.description}</p>
-                        </div>
-                        <div className="footer-col">
-                            <h4>Practice Areas</h4>
-                            <ul>{footer.servicesLinks.map((s, i) => <li key={i}><Link href="/services">{s}</Link></li>)}</ul>
-                        </div>
-                        <div className="footer-col">
-                            <h4>The Firm</h4>
-                            <ul>{nav.map((l) => <li key={l.href}><Link href={l.href}>{l.name}</Link></li>)}</ul>
-                        </div>
-                        <div className="footer-col">
-                            <h4>Contact</h4>
-                            <ul>
-                                <li><a href={`tel:${contact.phone}`}>{contact.phone}</a></li>
-                                <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
-                                <li style={{ color: "var(--color-text-secondary)", fontSize: ".875rem" }}>{contact.address.street}, {contact.address.city}</li>
-                                <li style={{ color: "var(--color-text-secondary)", fontSize: ".875rem" }}>{contact.hours.footerDisplay}</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="footer-bottom">
-                        <div>&#169; {new Date().getFullYear()} {footer.copyright}</div>
-                        <div className="footer-socials">
-                            <a href="#">LinkedIn</a>
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms</a>
-                        </div>
-                    </div>
-                </footer>
             </div>
-        </>
+
+            <LexiFooter />
+        </div>
     );
 }

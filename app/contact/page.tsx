@@ -1,520 +1,131 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import siteData from "@/data/siteData.json";
-import {
-    BASE_CSS,
-    NAV_CSS,
-    FOOTER_CSS,
-    BTN_CSS,
-    PAGE_HERO_CSS,
-    SECTION_CSS,
-} from "@/components/LexiStyles";
+
+const { contact, services } = siteData;
+
+const offices = [
+  { flag: "🇬🇧", city: "London", address: `${contact.address.street}\n${contact.address.city}, ${contact.address.country} ${contact.address.postcode}`, phone: contact.phone, email: contact.email },
+  { flag: "🇺🇸", city: "New York", address: "Madison Avenue\nNew York, NY 10065", phone: "+1 (212) 555-1000", email: "ny@lexiglobalfirm.com" },
+  { flag: "🇸🇬", city: "Singapore", address: "Marina Bay\nSingapore 018956", phone: "+65 (6) 555-1000", email: "sg@lexiglobalfirm.com" },
+];
 
 export default function ContactPage() {
-    const { company, contact, footer, nav, services } = siteData;
-    const [scrolled, setScrolled] = useState(false);
-    const [formState, setFormState] = useState({ name: "", email: "", phone: "", service: "", message: "" });
-    const [submitted, setSubmitted] = useState(false);
-    const pathname = usePathname();
+  const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); alert("Thank you for your enquiry. A partner will review your message and respond within 24 hours."); };
 
-    useEffect(() => {
-        const fn = () => setScrolled(window.scrollY > 80);
-        window.addEventListener("scroll", fn);
-        return () => window.removeEventListener("scroll", fn);
-    }, []);
+  const inputStyle: React.CSSProperties = { width: "100%", padding: "var(--space-md) var(--space-lg)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: ".5rem", color: "var(--color-text-primary)", fontFamily: "var(--font-body)", fontSize: ".95rem", outline: "none", transition: "border-color .3s" };
+  const labelStyle: React.CSSProperties = { display: "block", fontSize: ".75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: ".1em", color: "var(--color-text-secondary)", fontFamily: "var(--font-body)", marginBottom: "var(--space-sm)" };
 
-    function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-        setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    }
+  return (
+    <div className="content">
+      <LexiNav />
 
-    function handleSubmit(e: React.FormEvent) {
-        e.preventDefault();
-        setSubmitted(true);
-    }
+      <div className="page-hero">
+        <div className="page-hero-inner">
+          <span className="text-label">Get In Touch</span>
+          <h1>Contact</h1>
+          <p className="hero-sub">All enquiries are treated with absolute confidentiality. A partner will review your message personally and respond within 24 hours.</p>
+        </div>
+      </div>
 
-    const offices = [
-        {
-            city: "London",
-            phone: contact.phone,
-            email: contact.email,
-            address: `${contact.address.street}, ${contact.address.city} ${contact.address.postcode}`,
-            flag: "🇬🇧",
-        },
-        {
-            city: "New York",
-            phone: "+1 212 555 1000",
-            email: "ny@lexiglobalfirm.com",
-            address: "Madison Avenue, New York NY 10065",
-            flag: "🇺🇸",
-        },
-        {
-            city: "Singapore",
-            phone: "+65 6555 1000",
-            email: "sg@lexiglobalfirm.com",
-            address: "Marina Bay, Singapore 018956",
-            flag: "🇸🇬",
-        },
-    ];
+      {/* Main contact section */}
+      <section style={{ padding: "var(--space-5xl) var(--space-3xl)", maxWidth: "1400px", margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "var(--space-5xl)" }}>
 
-    return (
-        <>
-            <style>{BASE_CSS}</style>
-            <style>{NAV_CSS}</style>
-            <style>{FOOTER_CSS}</style>
-            <style>{BTN_CSS}</style>
-            <style>{PAGE_HERO_CSS}</style>
-            <style>{SECTION_CSS}</style>
-            <style>{`
-        .contact-layout {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: var(--space-4xl);
-          align-items: start;
-        }
-        .contact-form-wrap {
-          background: var(--color-surface-2);
-          border: 1px solid var(--color-border);
-          border-radius: 1rem;
-          padding: var(--space-3xl);
-        }
-        .contact-form-title {
-          font-family: var(--font-display);
-          font-size: 1.5rem;
-          color: var(--color-text-primary);
-          margin-bottom: var(--space-2xl);
-        }
-        .form-group {
-          margin-bottom: var(--space-xl);
-        }
-        .form-label {
-          display: block;
-          font-size: .75rem;
-          text-transform: uppercase;
-          letter-spacing: .12em;
-          font-weight: 600;
-          color: var(--color-text-secondary);
-          margin-bottom: var(--space-sm);
-        }
-        .form-input,
-        .form-select,
-        .form-textarea {
-          width: 100%;
-          background: var(--color-surface-1);
-          border: 1px solid var(--color-border);
-          border-radius: .5rem;
-          padding: var(--space-md) var(--space-lg);
-          color: var(--color-text-primary);
-          font-family: var(--font-body);
-          font-size: .9rem;
-          transition: border-color .3s;
-          outline: none;
-          appearance: none;
-        }
-        .form-input:focus,
-        .form-select:focus,
-        .form-textarea:focus {
-          border-color: var(--color-accent-primary);
-          background: rgba(132,204,22,.03);
-        }
-        .form-input::placeholder,
-        .form-textarea::placeholder {
-          color: var(--color-text-tertiary);
-        }
-        .form-select option {
-          background: var(--color-bg-secondary);
-          color: var(--color-text-primary);
-        }
-        .form-textarea {
-          resize: vertical;
-          min-height: 140px;
-          line-height: 1.6;
-        }
-        .form-submit {
-          width: 100%;
-          padding: var(--space-lg) var(--space-2xl);
-          background: var(--color-accent-primary);
-          border: none;
-          border-radius: .5rem;
-          color: var(--color-bg-primary);
-          font-family: var(--font-body);
-          font-size: .9rem;
-          font-weight: 700;
-          cursor: pointer;
-          transition: all .3s;
-          text-transform: uppercase;
-          letter-spacing: .08em;
-          margin-top: var(--space-md);
-        }
-        .form-submit:hover {
-          background: var(--color-accent-secondary);
-          transform: translateY(-2px);
-          box-shadow: 0 12px 24px rgba(132,204,22,.2);
-        }
-        .form-success {
-          text-align: center;
-          padding: var(--space-3xl) var(--space-xl);
-        }
-        .form-success-icon {
-          font-size: 3rem;
-          margin-bottom: var(--space-xl);
-        }
-        .form-success h3 {
-          font-family: var(--font-display);
-          font-size: 1.5rem;
-          color: var(--color-text-primary);
-          margin-bottom: var(--space-lg);
-        }
-        .form-success p {
-          color: var(--color-text-secondary);
-          font-size: .95rem;
-          line-height: 1.7;
-        }
-        .contact-info-wrap {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-2xl);
-        }
-        .contact-note {
-          background: rgba(132,204,22,.05);
-          border: 1px solid rgba(132,204,22,.15);
-          border-radius: .75rem;
-          padding: var(--space-2xl);
-        }
-        .contact-note p {
-          color: var(--color-text-secondary);
-          font-size: .95rem;
-          line-height: 1.8;
-          margin: 0;
-        }
-        .contact-info-card {
-          background: var(--color-surface-2);
-          border: 1px solid var(--color-border);
-          border-radius: .75rem;
-          padding: var(--space-xl) var(--space-2xl);
-          display: flex;
-          gap: var(--space-lg);
-          align-items: flex-start;
-          transition: border-color .3s;
-        }
-        .contact-info-card:hover {
-          border-color: rgba(132,204,22,.3);
-        }
-        .contact-info-icon {
-          width: 44px;
-          height: 44px;
-          background: rgba(132,204,22,.1);
-          border: 1px solid rgba(132,204,22,.2);
-          border-radius: .5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.1rem;
-          flex-shrink: 0;
-        }
-        .contact-info-label {
-          font-size: .7rem;
-          text-transform: uppercase;
-          letter-spacing: .12em;
-          font-weight: 600;
-          color: var(--color-accent-primary);
-          margin-bottom: .25rem;
-        }
-        .contact-info-value {
-          color: var(--color-text-primary);
-          font-size: .9rem;
-          line-height: 1.6;
-          text-decoration: none;
-        }
-        .contact-info-value:hover {
-          color: var(--color-accent-primary);
-        }
-        .offices-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: var(--space-2xl);
-          margin-top: var(--space-4xl);
-        }
-        .office-card {
-          background: var(--color-surface-2);
-          border: 1px solid var(--color-border);
-          border-radius: 1rem;
-          padding: var(--space-2xl);
-          transition: all .3s;
-        }
-        .office-card:hover {
-          border-color: rgba(132,204,22,.3);
-          transform: translateY(-4px);
-        }
-        .office-flag {
-          font-size: 1.75rem;
-          margin-bottom: var(--space-lg);
-        }
-        .office-city {
-          font-family: var(--font-display);
-          font-size: 1.3rem;
-          color: var(--color-text-primary);
-          margin-bottom: var(--space-xl);
-        }
-        .office-detail {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-md);
-        }
-        .office-detail-item {
-          display: flex;
-          gap: var(--space-md);
-          align-items: flex-start;
-        }
-        .office-detail-icon {
-          font-size: .9rem;
-          flex-shrink: 0;
-          margin-top: .1rem;
-          color: var(--color-accent-primary);
-        }
-        .office-detail-text {
-          color: var(--color-text-secondary);
-          font-size: .875rem;
-          line-height: 1.5;
-          text-decoration: none;
-        }
-        .office-detail-text:hover {
-          color: var(--color-accent-primary);
-        }
-        @media(max-width: 1024px) {
-          .contact-layout { grid-template-columns: 1fr; }
-          .offices-grid { grid-template-columns: 1fr; }
-        }
-        @media(max-width: 768px) {
-          .contact-form-wrap { padding: var(--space-2xl); }
-          .offices-grid { grid-template-columns: 1fr; }
-        }
-      `}</style>
-
-            <div className="content">
-                {/* NAV */}
-                <nav className={scrolled ? "active" : ""}>
-                    <Link href="/" className="logo">{company.name}</Link>
-                    <ul className="nav-menu">
-                        {nav.map((l) => (
-                            <li key={l.href}>
-                                <Link href={l.href} className={pathname === l.href ? "active-link" : ""}>{l.name}</Link>
-                            </li>
-                        ))}
-                        <li><Link href="/contact"><button className="nav-cta">Enquire</button></Link></li>
-                    </ul>
-                </nav>
-
-                {/* HERO */}
-                <div className="page-hero">
-                    <div className="page-hero-inner">
-                        <span className="text-label">Get in Touch</span>
-                        <h1>Contact</h1>
-                        <p className="hero-sub">All enquiries are treated with absolute confidentiality.</p>
-                    </div>
+          {/* Form */}
+          <div>
+            <h2 style={{ marginBottom: "var(--space-2xl)" }}>Send Us a Message</h2>
+            <form onSubmit={handleSubmit}>
+              {[
+                { label: "Full Name *", name: "name", type: "text", placeholder: "Your full name", required: true },
+                { label: "Email Address *", name: "email", type: "email", placeholder: "your@email.com", required: true },
+                { label: "Phone Number", name: "phone", type: "tel", placeholder: "+44 XXX XXX XXXX", required: false },
+              ].map((f) => (
+                <div key={f.name} style={{ marginBottom: "var(--space-xl)" }}>
+                  <label style={labelStyle}>{f.label}</label>
+                  <input type={f.type} name={f.name} required={f.required} value={(form as Record<string, string>)[f.name]} onChange={handleChange} placeholder={f.placeholder} style={inputStyle}
+                    onFocus={e => e.target.style.borderColor = "var(--color-accent-primary)"}
+                    onBlur={e => e.target.style.borderColor = "var(--color-border)"}
+                  />
                 </div>
+              ))}
+              <div style={{ marginBottom: "var(--space-xl)" }}>
+                <label style={labelStyle}>Service Required *</label>
+                <select name="service" required value={form.service} onChange={handleChange} style={{ ...inputStyle, cursor: "pointer" }}
+                  onFocus={e => e.target.style.borderColor = "var(--color-accent-primary)"}
+                  onBlur={e => e.target.style.borderColor = "var(--color-border)"}
+                >
+                  <option value="" style={{ background: "var(--color-bg-secondary)" }}>Select a practice area</option>
+                  {services.map((s) => <option key={s.id} value={s.id} style={{ background: "var(--color-bg-secondary)" }}>{s.title}</option>)}
+                </select>
+              </div>
+              <div style={{ marginBottom: "var(--space-xl)" }}>
+                <label style={labelStyle}>Message *</label>
+                <textarea name="message" required rows={7} value={form.message} onChange={handleChange} placeholder="Please describe your matter briefly. All information is treated in strict confidence." style={{ ...inputStyle, resize: "none" }}
+                  onFocus={e => e.target.style.borderColor = "var(--color-accent-primary)"}
+                  onBlur={e => e.target.style.borderColor = "var(--color-border)"}
+                />
+              </div>
+              <button type="submit" className="btn btn-primary" style={{ fontSize: ".9rem", padding: "var(--space-lg) var(--space-3xl)" }}>
+                Send Enquiry &#8594;
+              </button>
+            </form>
+          </div>
 
-                {/* CONTACT FORM + INFO */}
-                <section className="section">
-                    <div className="section-inner">
-                        <div className="contact-layout">
-                            {/* FORM */}
-                            <div className="contact-form-wrap">
-                                {submitted ? (
-                                    <div className="form-success">
-                                        <div className="form-success-icon">&#10003;</div>
-                                        <h3>Enquiry Received</h3>
-                                        <p>Thank you for your enquiry. A member of our team will respond within 24 hours. All communications are treated with absolute confidentiality.</p>
-                                    </div>
-                                ) : (
-                                    <>
-                                        <h2 className="contact-form-title">Make an Enquiry</h2>
-                                        <form onSubmit={handleSubmit}>
-                                            <div className="form-group">
-                                                <label className="form-label" htmlFor="name">Full Name</label>
-                                                <input
-                                                    id="name"
-                                                    name="name"
-                                                    type="text"
-                                                    className="form-input"
-                                                    placeholder="Your full name"
-                                                    value={formState.name}
-                                                    onChange={handleChange}
-                                                    required
-                                                />
-                                            </div>
-                                            <div className="form-group">
-                                                <label className="form-label" htmlFor="email">Email Address</label>
-                                                <input
-                                                    id="email"
-                                                    name="email"
-                                                    type="email"
-                                                    className="form-input"
-                                                    placeholder="your@email.com"
-                                                    value={formState.email}
-                                                    onChange={handleChange}
-                                                    required
-                                                />
-                                            </div>
-                                            <div className="form-group">
-                                                <label className="form-label" htmlFor="phone">Phone Number</label>
-                                                <input
-                                                    id="phone"
-                                                    name="phone"
-                                                    type="tel"
-                                                    className="form-input"
-                                                    placeholder="+44 or international"
-                                                    value={formState.phone}
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                            <div className="form-group">
-                                                <label className="form-label" htmlFor="service">Area of Interest</label>
-                                                <select
-                                                    id="service"
-                                                    name="service"
-                                                    className="form-select"
-                                                    value={formState.service}
-                                                    onChange={handleChange}
-                                                >
-                                                    <option value="">Select a practice area</option>
-                                                    {services.map((s) => (
-                                                        <option key={s.id} value={s.id}>{s.title}</option>
-                                                    ))}
-                                                    <option value="other">Other / Not sure</option>
-                                                </select>
-                                            </div>
-                                            <div className="form-group">
-                                                <label className="form-label" htmlFor="message">Your Message</label>
-                                                <textarea
-                                                    id="message"
-                                                    name="message"
-                                                    className="form-textarea"
-                                                    placeholder="Please describe your matter briefly. All information is treated in strict confidence."
-                                                    value={formState.message}
-                                                    onChange={handleChange}
-                                                    required
-                                                />
-                                            </div>
-                                            <button type="submit" className="form-submit">Send Enquiry</button>
-                                        </form>
-                                    </>
-                                )}
-                            </div>
+          {/* Info */}
+          <div>
+            <h2 style={{ marginBottom: "var(--space-lg)" }}>Get In Touch</h2>
+            <p style={{ color: "var(--color-text-secondary)", marginBottom: "var(--space-3xl)", lineHeight: "1.8" }}>We accept new clients by referral only. If you have been referred to us, or wish to make a confidential enquiry, please complete the form and a partner will respond within 24 hours. We do not use automated responses.</p>
 
-                            {/* INFO */}
-                            <div className="contact-info-wrap">
-                                <div className="contact-note">
-                                    <p>We accept new clients by referral only. If you have been referred to us, or wish to make a confidential enquiry, please complete the form and we will respond within 24 hours.</p>
-                                </div>
-
-                                <div className="contact-info-card">
-                                    <div className="contact-info-icon">&#128222;</div>
-                                    <div>
-                                        <div className="contact-info-label">Phone</div>
-                                        <a href={`tel:${contact.phone}`} className="contact-info-value">{contact.phone}</a>
-                                    </div>
-                                </div>
-
-                                <div className="contact-info-card">
-                                    <div className="contact-info-icon">&#9993;</div>
-                                    <div>
-                                        <div className="contact-info-label">Email</div>
-                                        <a href={`mailto:${contact.email}`} className="contact-info-value">{contact.email}</a>
-                                    </div>
-                                </div>
-
-                                <div className="contact-info-card">
-                                    <div className="contact-info-icon">&#128205;</div>
-                                    <div>
-                                        <div className="contact-info-label">Address</div>
-                                        <div className="contact-info-value">{contact.address.street}<br />{contact.address.city}, {contact.address.postcode}</div>
-                                    </div>
-                                </div>
-
-                                <div className="contact-info-card">
-                                    <div className="contact-info-icon">&#128336;</div>
-                                    <div>
-                                        <div className="contact-info-label">Hours</div>
-                                        <div className="contact-info-value">
-                                            {contact.hours.weekdays}<br />
-                                            {contact.hours.saturday}<br />
-                                            {contact.hours.sunday}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* OFFICES */}
-                        <div style={{ marginTop: "var(--space-5xl)", borderTop: "1px solid var(--color-border)", paddingTop: "var(--space-4xl)" }}>
-                            <div className="section-header">
-                                <span className="text-label">Global Presence</span>
-                                <h2>Our Offices</h2>
-                                <div className="divider" />
-                            </div>
-                            <div className="offices-grid">
-                                {offices.map((office) => (
-                                    <div className="office-card" key={office.city}>
-                                        <div className="office-flag">{office.flag}</div>
-                                        <div className="office-city">{office.city}</div>
-                                        <div className="office-detail">
-                                            <div className="office-detail-item">
-                                                <span className="office-detail-icon">&#128222;</span>
-                                                <a href={`tel:${office.phone}`} className="office-detail-text">{office.phone}</a>
-                                            </div>
-                                            <div className="office-detail-item">
-                                                <span className="office-detail-icon">&#9993;</span>
-                                                <a href={`mailto:${office.email}`} className="office-detail-text">{office.email}</a>
-                                            </div>
-                                            <div className="office-detail-item">
-                                                <span className="office-detail-icon">&#128205;</span>
-                                                <span className="office-detail-text">{office.address}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* FOOTER */}
-                <footer className="lexi-footer">
-                    <div className="footer-grid">
-                        <div className="footer-brand footer-col">
-                            <h4 style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", textTransform: "none", letterSpacing: "-.02em", color: "var(--color-text-primary)" }}>{company.name}</h4>
-                            <p>{company.description}</p>
-                        </div>
-                        <div className="footer-col">
-                            <h4>Practice Areas</h4>
-                            <ul>{footer.servicesLinks.map((s, i) => <li key={i}><Link href="/services">{s}</Link></li>)}</ul>
-                        </div>
-                        <div className="footer-col">
-                            <h4>The Firm</h4>
-                            <ul>{nav.map((l) => <li key={l.href}><Link href={l.href}>{l.name}</Link></li>)}</ul>
-                        </div>
-                        <div className="footer-col">
-                            <h4>Contact</h4>
-                            <ul>
-                                <li><a href={`tel:${contact.phone}`}>{contact.phone}</a></li>
-                                <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
-                                <li style={{ color: "var(--color-text-secondary)", fontSize: ".875rem" }}>{contact.address.street}, {contact.address.city}</li>
-                                <li style={{ color: "var(--color-text-secondary)", fontSize: ".875rem" }}>{contact.hours.footerDisplay}</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="footer-bottom">
-                        <div>&#169; {new Date().getFullYear()} {footer.copyright}</div>
-                        <div className="footer-socials">
-                            <a href="#">LinkedIn</a>
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms</a>
-                        </div>
-                    </div>
-                </footer>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-lg)" }}>
+              {[
+                { icon: "📍", title: "London Office", content: `${contact.address.street}\n${contact.address.city}, ${contact.address.country}\n${contact.address.postcode}`, href: undefined },
+                { icon: "📞", title: "Phone", content: contact.phone, href: `tel:${contact.phone}` },
+                { icon: "✉️", title: "Email", content: contact.email, href: `mailto:${contact.email}` },
+                { icon: "🕐", title: "Office Hours", content: `${contact.hours.weekdays}\n${contact.hours.saturday}\n${contact.hours.sunday}`, href: undefined },
+              ].map((item, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "var(--space-lg)", padding: "var(--space-xl)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: ".75rem" }}>
+                  <div style={{ width: "44px", height: "44px", background: "rgba(132,204,22,.12)", border: "1px solid rgba(132,204,22,.3)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem", flexShrink: 0 }}>{item.icon}</div>
+                  <div>
+                    <h4 style={{ color: "var(--color-text-primary)", marginBottom: "var(--space-xs)", fontSize: "1rem" }}>{item.title}</h4>
+                    {item.href
+                      ? <a href={item.href} style={{ color: "var(--color-text-secondary)", fontSize: ".9rem", textDecoration: "none", whiteSpace: "pre-line" }}>{item.content}</a>
+                      : <p style={{ color: "var(--color-text-secondary)", fontSize: ".9rem", whiteSpace: "pre-line" }}>{item.content}</p>
+                    }
+                  </div>
+                </div>
+              ))}
             </div>
-        </>
-    );
+          </div>
+        </div>
+      </section>
+
+      {/* Offices */}
+      <section style={{ padding: "var(--space-5xl) var(--space-3xl)", background: "linear-gradient(180deg,var(--color-bg-tertiary),transparent)" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "var(--space-4xl)" }}>
+            <span className="text-label" style={{ display: "block", marginBottom: "var(--space-md)" }}>Global Presence</span>
+            <h2>Our Offices</h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "var(--space-2xl)" }}>
+            {offices.map((o, i) => (
+              <div key={i} style={{ padding: "var(--space-3xl)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: ".75rem" }}>
+                <div style={{ fontSize: "2rem", marginBottom: "var(--space-lg)" }}>{o.flag}</div>
+                <h3 style={{ marginBottom: "var(--space-md)" }}>{o.city}</h3>
+                <p style={{ color: "var(--color-text-secondary)", fontSize: ".9rem", lineHeight: "1.7", whiteSpace: "pre-line", marginBottom: "var(--space-md)" }}>{o.address}</p>
+                <a href={`tel:${o.phone}`} style={{ display: "block", color: "var(--color-accent-primary)", textDecoration: "none", fontSize: ".9rem", marginBottom: "var(--space-sm)" }}>{o.phone}</a>
+                <a href={`mailto:${o.email}`} style={{ display: "block", color: "var(--color-accent-primary)", textDecoration: "none", fontSize: ".9rem" }}>{o.email}</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <LexiFooter />
+    </div>
+  );
 }

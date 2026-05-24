@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    reactCompiler: true,
+    reactCompiler: false,
+    turbopack: {
+        root: __dirname,
+    },
 };
 
 export default nextConfig;
