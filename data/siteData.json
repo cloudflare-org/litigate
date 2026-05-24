@@ -1,0 +1,393 @@
+{
+  "company": {
+    "name": "Lexi Global Firm",
+    "nameShort": "LEXI GLOBAL",
+    "nameSub": "FIRM",
+    "tagline": "Counsel Without Compromise",
+    "description": "Lexi Global Firm operates at the intersection of law, power, and discretion. We do not advertise outcomes. We deliver them.",
+    "foundedYear": 1998,
+    "yearsExperience": 26,
+    "casesWon": "500+",
+    "successRate": "98%",
+    "heroSubtitle": "By Referral Only. Since 1998.",
+    "heroBody": "Lexi Global Firm serves a select group of clients who require the highest level of legal counsel and the strictest standards of confidentiality. We do not seek publicity. We seek results."
+  },
+  "contact": {
+    "phone": "+44 XXX XXX XXXX",
+    "email": "enquiries@lexiglobalfirm.com",
+    "address": {
+      "street": "One Bishopsgate",
+      "city": "London",
+      "country": "UK",
+      "postcode": "EC2N 4AE"
+    },
+    "hours": {
+      "weekdays": "Monday to Friday: 8:00 AM to 8:00 PM",
+      "saturday": "Saturday: By appointment only",
+      "sunday": "Sunday: Closed",
+      "headerDisplay": "Mon to Fri: 8:00 AM to 8:00 PM",
+      "footerDisplay": "Mon to Fri: 8:00 AM to 8:00 PM\nSat: By appointment"
+    }
+  },
+  "meta": {
+    "title": "Lexi Global Firm | Elite Legal Counsel",
+    "description": "Lexi Global Firm provides discreet, world-class legal counsel to high-net-worth individuals, corporations, and institutions across every jurisdiction."
+  },
+  "nav": [
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "About",
+      "href": "/about"
+    },
+    {
+      "name": "Services",
+      "href": "/services"
+    },
+    {
+      "name": "Cases",
+      "href": "/cases"
+    },
+    {
+      "name": "Team",
+      "href": "/team"
+    },
+    {
+      "name": "Insights",
+      "href": "/blog"
+    },
+    {
+      "name": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "about": {
+    "heroSubtitle": "Discretion is not a feature. It is the foundation.",
+    "storyTitle": "Built on Silence. Proven by Results.",
+    "storyParagraphs": [
+      "Lexi Global Firm was founded in 1998 by a group of senior partners who shared a single conviction: that the most consequential legal work is never discussed in public.",
+      "Over the past 26 years we have advised heads of state, sovereign wealth funds, multinational corporations, and private individuals navigating matters of extraordinary complexity and sensitivity.",
+      "We do not publish client lists. We do not issue press releases about our victories. Our reputation is built entirely on the trust of those we serve and the results we achieve on their behalf.",
+      "Our practice spans every major jurisdiction. Our counsel is available around the clock. And our commitment to each client is absolute."
+    ],
+    "values": [
+      {
+        "icon": "🔒",
+        "title": "Absolute Discretion",
+        "desc": "Every engagement is governed by the strictest confidentiality protocols. Nothing leaves our walls without your explicit consent."
+      },
+      {
+        "icon": "⚖️",
+        "title": "Uncompromising Excellence",
+        "desc": "We hold ourselves to a standard that most firms cannot reach. Every brief is treated as the most important matter we have ever handled."
+      },
+      {
+        "icon": "🌍",
+        "title": "Global Reach",
+        "desc": "With counsel qualified across more than 40 jurisdictions, we operate wherever your matter requires, without limitation."
+      },
+      {
+        "icon": "🎯",
+        "title": "Decisive Action",
+        "desc": "We do not deliberate when clarity is needed. We advise with precision and act with purpose."
+      }
+    ],
+    "highlights": [
+      "Retained by clients in over 60 countries",
+      "Partner-led on every matter, without exception",
+      "24-hour response guarantee for retained clients",
+      "Zero public disclosure policy"
+    ]
+  },
+  "team": [
+    {
+      "slug": "victoria-chen",
+      "name": "Victoria Chen",
+      "role": "Senior Partner",
+      "specialty": "International Arbitration",
+      "emoji": "👩‍💼",
+      "email": "v.chen@lexiglobalfirm.com",
+      "phone": "+44 XXX XXX XXXX",
+      "bio": "Victoria leads our international arbitration practice with 28 years of experience across ICC, LCIA, and UNCITRAL proceedings. She has represented sovereign states, state-owned enterprises, and Fortune 100 corporations in disputes exceeding $1 billion in value. Her approach is methodical, her preparation exhaustive, and her record speaks for itself.",
+      "credentials": [
+        "Called to the Bar, England and Wales",
+        "Qualified, New York State Bar",
+        "Fellow, Chartered Institute of Arbitrators",
+        "Former partner, Clifford Chance LLP"
+      ]
+    },
+    {
+      "slug": "marcus-rothschild",
+      "name": "Marcus Rothschild",
+      "role": "Managing Partner",
+      "specialty": "Corporate Litigation and Asset Recovery",
+      "emoji": "👨‍💼",
+      "email": "m.rothschild@lexiglobalfirm.com",
+      "phone": "+44 XXX XXX XXXX",
+      "bio": "Marcus oversees the firm's global operations and leads our corporate litigation and asset recovery practice. He has recovered in excess of $3.2 billion in misappropriated assets across 22 jurisdictions. His work is characterised by an ability to move quickly, coordinate across borders, and apply maximum legal pressure with surgical precision.",
+      "credentials": [
+        "Solicitor, England and Wales",
+        "Qualified, Hong Kong SAR",
+        "LLM, Harvard Law School",
+        "Former Head of Litigation, Linklaters LLP"
+      ]
+    },
+    {
+      "slug": "priya-kapoor",
+      "name": "Priya Kapoor",
+      "role": "Partner",
+      "specialty": "Investment Law and Regulatory Affairs",
+      "emoji": "👩‍💼",
+      "email": "p.kapoor@lexiglobalfirm.com",
+      "phone": "+44 XXX XXX XXXX",
+      "bio": "Priya advises institutional investors, sovereign funds, and private equity houses on cross-border investment disputes, regulatory investigations, and compliance frameworks. She has appeared before regulatory bodies in the UK, EU, US, and Singapore, and is widely regarded as one of the leading investment law practitioners of her generation.",
+      "credentials": [
+        "Solicitor, England and Wales",
+        "Qualified, Singapore Bar",
+        "BCL, University of Oxford",
+        "Former Senior Counsel, FCA"
+      ]
+    },
+    {
+      "slug": "alexandre-moreau",
+      "name": "Alexandre Moreau",
+      "role": "Partner",
+      "specialty": "Energy, Infrastructure and Construction Arbitration",
+      "emoji": "👨‍💼",
+      "email": "a.moreau@lexiglobalfirm.com",
+      "phone": "+44 XXX XXX XXXX",
+      "bio": "Alexandre is one of the foremost authorities on energy and infrastructure arbitration in Europe. He has acted as counsel and arbitrator in disputes arising from major infrastructure projects across Africa, the Middle East, and Central Asia. His command of French, English, and Arabic gives him a rare ability to operate across legal cultures without friction.",
+      "credentials": [
+        "Avocat, Paris Bar",
+        "Solicitor, England and Wales",
+        "PhD in International Law, Sciences Po Paris",
+        "Accredited Arbitrator, ICC and LCIA"
+      ]
+    },
+    {
+      "slug": "elena-vasquez",
+      "name": "Elena Vasquez",
+      "role": "Partner",
+      "specialty": "Private Wealth and Family Office Advisory",
+      "emoji": "👩‍💼",
+      "email": "e.vasquez@lexiglobalfirm.com",
+      "phone": "+44 XXX XXX XXXX",
+      "bio": "Elena advises ultra-high-net-worth families, family offices, and private foundations on wealth structuring, succession planning, and the resolution of complex family disputes. She is known for her ability to navigate the intersection of law, family dynamics, and cross-border tax considerations with exceptional sensitivity and technical precision.",
+      "credentials": [
+        "Solicitor, England and Wales",
+        "Qualified, British Virgin Islands",
+        "LLM in Private International Law, King's College London",
+        "Member, Society of Trust and Estate Practitioners"
+      ]
+    },
+    {
+      "slug": "james-okafor",
+      "name": "James Okafor",
+      "role": "Senior Associate",
+      "specialty": "White Collar Crime and Regulatory Defence",
+      "emoji": "👨‍💼",
+      "email": "j.okafor@lexiglobalfirm.com",
+      "phone": "+44 XXX XXX XXXX",
+      "bio": "James specialises in white collar crime, fraud defence, and regulatory investigations. He has represented senior executives, financial institutions, and public officials in proceedings before the SFO, FCA, and international enforcement bodies. His background as a former Crown Prosecution Service barrister gives him an unmatched understanding of how prosecutions are built and how they can be dismantled.",
+      "credentials": [
+        "Barrister, England and Wales",
+        "Former Senior Barrister, Crown Prosecution Service",
+        "LLB, University of Cambridge",
+        "Accredited Mediator, CEDR"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": "international-arbitration",
+      "title": "International Arbitration",
+      "icon": "⚖️",
+      "description": "We represent clients in the world's most complex cross-border disputes before all major arbitral institutions.",
+      "fullDescription": "Our international arbitration practice is one of the most active in Europe. We act as counsel in disputes before the ICC, LCIA, UNCITRAL, ICSID, and SIAC, across every sector and jurisdiction. Our team has handled disputes ranging from $50 million to over $2 billion, involving sovereign states, state-owned enterprises, and the world's largest corporations. We do not take cases we cannot win. And we prepare every case as if it will go the full distance.",
+      "details": [
+        "ICC, LCIA, UNCITRAL, ICSID and SIAC proceedings",
+        "Investor-state dispute settlement",
+        "Emergency arbitration and interim relief",
+        "Enforcement of arbitral awards across jurisdictions",
+        "Arbitration-related court proceedings",
+        "Appointment of arbitrators and challenge proceedings"
+      ]
+    },
+    {
+      "id": "corporate-litigation",
+      "title": "Corporate Litigation",
+      "icon": "📊",
+      "description": "High-stakes commercial disputes handled with the precision and discretion that complex matters demand.",
+      "fullDescription": "When a dispute threatens the existence or reputation of a business, the quality of legal counsel becomes the deciding factor. Our corporate litigation team has appeared in the Commercial Court, Court of Appeal, and Supreme Court of England and Wales, as well as in courts across the US, EU, and Asia. We handle shareholder disputes, breach of contract claims, director liability actions, and complex fraud litigation with equal facility.",
+      "details": [
+        "Commercial Court and appellate proceedings",
+        "Shareholder and partnership disputes",
+        "Director and officer liability",
+        "Breach of contract and warranty claims",
+        "Injunctions and emergency relief",
+        "Cross-border enforcement"
+      ]
+    },
+    {
+      "id": "asset-recovery",
+      "title": "Asset Recovery",
+      "icon": "🔍",
+      "description": "We locate, freeze, and recover misappropriated assets across jurisdictions with speed and legal force.",
+      "fullDescription": "Asset recovery is one of the most technically demanding areas of law. It requires the ability to move faster than the opposing party, coordinate across multiple jurisdictions simultaneously, and apply legal tools that most practitioners have never used. Our team has recovered in excess of $3.2 billion in assets for clients across 22 jurisdictions. We work with leading forensic accountants, intelligence firms, and local counsel to ensure that no asset remains beyond reach.",
+      "details": [
+        "Worldwide freezing orders and Mareva injunctions",
+        "Norwich Pharmacal and disclosure orders",
+        "Cross-border asset tracing and forensic investigation",
+        "Enforcement of foreign judgments and awards",
+        "Proceeds of crime and confiscation proceedings",
+        "Coordination with law enforcement agencies"
+      ]
+    },
+    {
+      "id": "private-wealth",
+      "title": "Private Wealth and Family Office",
+      "icon": "🏛️",
+      "description": "Discreet, comprehensive counsel for ultra-high-net-worth individuals, families, and their offices.",
+      "fullDescription": "The legal needs of ultra-high-net-worth individuals and their families are unlike those of any other client group. They require counsel who understands not only the law but the broader context of wealth, family, and legacy. Our private wealth practice advises on the full spectrum of issues that arise in this space, from succession planning and trust structuring to family disputes and the protection of reputation.",
+      "details": [
+        "Succession planning and estate structuring",
+        "Trust and foundation establishment",
+        "Family office governance and advisory",
+        "Cross-border tax and regulatory compliance",
+        "Prenuptial and postnuptial agreements",
+        "Reputation protection and privacy law"
+      ]
+    },
+    {
+      "id": "regulatory-defence",
+      "title": "Regulatory Defence",
+      "icon": "🛡️",
+      "description": "We defend individuals and institutions against regulatory investigations and enforcement actions worldwide.",
+      "fullDescription": "Regulatory investigations can destroy careers, businesses, and reputations in a matter of weeks. Our regulatory defence team has represented senior executives, financial institutions, and public officials in proceedings before the SFO, FCA, DOJ, SEC, and equivalent bodies across Europe and Asia. We engage early, we engage aggressively, and we protect our clients at every stage of the process.",
+      "details": [
+        "SFO, FCA, DOJ and SEC investigations",
+        "Dawn raid response and crisis management",
+        "Internal investigations and privilege protection",
+        "Deferred prosecution agreement negotiations",
+        "Sanctions and export control compliance",
+        "Market abuse and insider trading defence"
+      ]
+    },
+    {
+      "id": "investment-law",
+      "title": "Investment Law",
+      "icon": "💼",
+      "description": "Strategic counsel for investors navigating complex regulatory environments and cross-border disputes.",
+      "fullDescription": "Our investment law practice advises institutional investors, sovereign wealth funds, and private equity houses on the full lifecycle of cross-border investments. From structuring and regulatory approval through to dispute resolution and exit, we provide counsel that is both technically precise and commercially astute. We understand that investment decisions are made under pressure and that legal advice must be actionable, not merely accurate.",
+      "details": [
+        "Investment treaty claims and ISDS",
+        "Regulatory approval and licensing",
+        "Investment structuring and due diligence",
+        "Expropriation and political risk claims",
+        "Joint venture and shareholder agreements",
+        "Exit strategies and dispute resolution"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "slug": "sovereign-asset-recovery",
+      "year": "2024",
+      "title": "Sovereign Asset Recovery: $680M Cross-Border Recovery",
+      "category": "Asset Recovery",
+      "tags": [
+        "Asset Recovery",
+        "Multi-Jurisdiction",
+        "Sovereign Client"
+      ],
+      "summary": "Acting for a sovereign government, we coordinated asset recovery proceedings across seven jurisdictions, securing freezing orders within 48 hours of instruction and ultimately recovering $680 million in misappropriated state funds.",
+      "detail": "This matter required simultaneous proceedings in England, Switzerland, the British Virgin Islands, the Cayman Islands, Singapore, the UAE, and the United States. We obtained worldwide freezing orders from the English Commercial Court within 48 hours of instruction, coordinated with local counsel in each jurisdiction, and worked alongside a leading forensic intelligence firm to trace assets that had been deliberately obscured through a network of shell companies and nominee arrangements. The matter concluded with a negotiated settlement that returned $680 million to the client state, together with a contribution to legal costs."
+    },
+    {
+      "slug": "icc-energy-arbitration",
+      "year": "2023",
+      "title": "ICC Arbitration: $420M Energy Sector Award",
+      "category": "International Arbitration",
+      "tags": [
+        "Arbitration",
+        "Energy",
+        "ICC",
+        "Paris Seat"
+      ],
+      "summary": "We represented a major energy company in ICC arbitration proceedings arising from the termination of a long-term supply agreement, securing a final award of $420 million in our client's favour.",
+      "detail": "The dispute arose from the wrongful termination of a 15-year liquefied natural gas supply agreement. The opposing party, a state-owned energy company, argued force majeure and regulatory impossibility. We successfully demonstrated that neither defence was available on the facts, and that the termination was commercially motivated. The tribunal awarded our client $420 million in damages, together with interest and costs. The award was subsequently enforced in three jurisdictions without challenge."
+    },
+    {
+      "slug": "shareholder-derivative-defence",
+      "year": "2024",
+      "title": "Shareholder Derivative Defence: Tokyo and London",
+      "category": "Corporate Litigation",
+      "tags": [
+        "Corporate Litigation",
+        "Multi-Jurisdiction",
+        "Defence"
+      ],
+      "summary": "We successfully defended a major corporation and its board against coordinated shareholder derivative actions brought simultaneously in Tokyo and London, securing dismissal of both claims.",
+      "detail": "A group of activist shareholders brought coordinated derivative actions in the Tokyo District Court and the English Commercial Court, alleging breach of fiduciary duty by the board in connection with a major acquisition. We coordinated the defence across both jurisdictions, instructing leading local counsel in Tokyo while running the English proceedings ourselves. Both claims were dismissed at the preliminary stage. The English court awarded indemnity costs against the claimants."
+    },
+    {
+      "slug": "sec-regulatory-defence",
+      "year": "2023",
+      "title": "SEC Investigation: Favourable Resolution for Senior Executive",
+      "category": "Regulatory Defence",
+      "tags": [
+        "Regulatory",
+        "SEC",
+        "White Collar",
+        "US Federal"
+      ],
+      "summary": "We represented a senior executive of a publicly listed company under investigation by the SEC for alleged market manipulation, securing a no-action outcome after 18 months of proceedings.",
+      "detail": "Our client, the Chief Investment Officer of a major asset management firm, was the subject of a formal SEC investigation into alleged market manipulation in connection with a series of large equity trades. We engaged with the SEC's enforcement division from the outset, managing the document production process, preparing our client for testimony, and presenting a comprehensive factual and legal response to the staff's preliminary findings. After 18 months, the SEC issued a no-action letter, closing the investigation without charges."
+    }
+  ],
+  "blog": [
+    {
+      "slug": "esg-litigation-wave",
+      "category": "Market Analysis",
+      "title": "The ESG Litigation Wave: What Boards Need to Know",
+      "excerpt": "Shareholder derivative actions targeting ESG discrepancies are accelerating. We examine the legal exposure and what boards can do to protect themselves.",
+      "date": "May 2026",
+      "readTime": "8 min",
+      "emoji": "📰",
+      "content": "The past 18 months have seen a significant increase in shareholder derivative actions targeting alleged discrepancies between corporate ESG commitments and actual practice. These claims are being brought in multiple jurisdictions simultaneously, and they are becoming more sophisticated in their legal theory and more aggressive in their remedies sought. Boards that have not yet conducted a rigorous audit of their ESG disclosures are exposed. The question is no longer whether ESG litigation will affect your company, but when. In this analysis, we examine the key legal theories being deployed, the jurisdictions where exposure is greatest, and the steps that boards can take now to reduce their risk."
+    },
+    {
+      "slug": "post-libor-disputes",
+      "category": "Regulatory Update",
+      "title": "Post-LIBOR Transition: The Litigation Landscape",
+      "excerpt": "The transition away from LIBOR has created a new category of contractual dispute. We map the emerging litigation landscape and identify the key risk areas.",
+      "date": "April 2026",
+      "readTime": "6 min",
+      "emoji": "💡",
+      "content": "The cessation of LIBOR has given rise to a new and rapidly evolving category of contractual dispute. Parties to long-term financial contracts are discovering that the fallback provisions they agreed to years ago do not function as intended in a post-LIBOR world. The result is a growing body of litigation in which courts are being asked to interpret ambiguous contractual language, imply terms, and in some cases rectify agreements. We have been instructed in a number of these matters and have developed a clear view of where the legal risk lies and how it can be managed."
+    },
+    {
+      "slug": "cross-border-enforcement",
+      "category": "Case Commentary",
+      "title": "Cross-Border Enforcement: New Frontiers",
+      "excerpt": "Recent decisions in England, Singapore, and the UAE are reshaping the enforcement landscape for foreign judgments and arbitral awards.",
+      "date": "March 2026",
+      "readTime": "12 min",
+      "emoji": "🔍",
+      "content": "The enforcement of foreign judgments and arbitral awards has always been one of the most technically demanding areas of international litigation. Recent decisions in England, Singapore, and the UAE have introduced new considerations that practitioners and their clients need to understand. In England, the Supreme Court's decision in Privatbank v Kolomoisky has clarified the circumstances in which a foreign judgment obtained by fraud will be refused enforcement. In Singapore, the Court of Appeal has expanded the grounds on which enforcement of an arbitral award may be resisted on public policy grounds. And in the UAE, recent legislative changes have significantly improved the prospects for enforcement of foreign awards in the DIFC courts."
+    }
+  ],
+  "footer": {
+    "servicesLinks": [
+      "International Arbitration",
+      "Corporate Litigation",
+      "Asset Recovery",
+      "Private Wealth",
+      "Regulatory Defence",
+      "Investment Law"
+    ],
+    "copyright": "Lexi Global Firm. All rights reserved."
+  }
+}
