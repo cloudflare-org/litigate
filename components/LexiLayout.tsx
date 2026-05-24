@@ -4,8 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import siteData from "@/data/siteData.json";
 
-export const runtime = 'edge';
-
 const { company, contact, footer, nav } = siteData;
 
 export function LexiNav() {

@@ -1,9 +1,6 @@
-"use client";
-import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import Link from "next/link";
+import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import siteData from "@/data/siteData.json";
-
-export const runtime = 'edge';
 
 const { company, about } = siteData;
 
@@ -11,7 +8,6 @@ export default function AboutPage() {
     return (
         <div className="content">
             <LexiNav />
-
             <div className="page-hero">
                 <div className="page-hero-inner">
                     <span className="text-label">The Firm</span>
@@ -20,7 +16,6 @@ export default function AboutPage() {
                 </div>
             </div>
 
-            {/* STORY */}
             <section className="section">
                 <div className="section-inner" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-5xl)", alignItems: "start" }}>
                     <div>
@@ -50,7 +45,6 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* DISCRETION */}
             <section style={{ padding: "var(--space-5xl) var(--space-3xl)", background: "linear-gradient(180deg,var(--color-bg-tertiary),transparent)" }}>
                 <div style={{ maxWidth: "1400px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-5xl)", alignItems: "center" }}>
                     <div>
@@ -71,7 +65,6 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* VALUES */}
             <section className="section">
                 <div className="section-inner">
                     <div style={{ textAlign: "center", marginBottom: "var(--space-4xl)" }}>
@@ -99,7 +92,6 @@ export default function AboutPage() {
                     </div>
                 </div>
             </div>
-
             <LexiFooter />
         </div>
     );

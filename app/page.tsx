@@ -1,30 +1,14 @@
-"use client";
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import siteData from "@/data/siteData.json";
 
-export const runtime = 'edge';
+const { company, contact, footer, nav, services, cases, blog, team } = siteData;
 
 export default function Home() {
-    const { company, contact, footer, nav, services, cases, blog, team } = siteData;
-    const [scrolled, setScrolled] = useState(false);
-    useEffect(() => {
-        const fn = () => setScrolled(window.scrollY > 80);
-        window.addEventListener("scroll", fn);
-        return () => window.removeEventListener("scroll", fn);
-    }, []);
-
     return (
         <div className="content">
-            <nav className={`lexi-nav${scrolled ? " scrolled" : ""}`}>
-                <Link href="/" className="lexi-logo">{company.name}</Link>
-                <ul className="lexi-nav-menu">
-                    {nav.map((l) => <li key={l.href}><Link href={l.href}>{l.name}</Link></li>)}
-                    <li><Link href="/contact"><button className="lexi-nav-cta">Enquire</button></Link></li>
-                </ul>
-            </nav>
+            <LexiNav />
 
-            {/* HERO */}
             <section className="hero">
                 <div className="hero-content">
                     <p className="text-label" style={{ marginBottom: "var(--space-xl)" }}>{company.heroSubtitle}</p>
@@ -38,7 +22,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* STATS */}
             <div className="stats-bar">
                 <div className="stats-bar-inner">
                     <div className="stat"><div className="stat-num">$3.2B+</div><div className="stat-label">Assets Recovered</div></div>
@@ -48,7 +31,6 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* ABOUT TEASER */}
             <section className="teaser">
                 <div className="teaser-inner">
                     <div className="teaser-grid">
@@ -65,7 +47,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* SERVICES TEASER */}
             <section className="teaser teaser-alt">
                 <div className="teaser-inner">
                     <div style={{ textAlign: "center", marginBottom: "var(--space-3xl)" }}>
@@ -88,7 +69,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* CASES TEASER */}
             <section className="teaser">
                 <div className="teaser-inner">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-3xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
@@ -110,7 +90,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* TEAM TEASER */}
             <section className="teaser teaser-alt">
                 <div className="teaser-inner">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-3xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
@@ -129,7 +108,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* BLOG TEASER */}
             <section className="teaser">
                 <div className="teaser-inner">
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-3xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
@@ -153,7 +131,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* CTA */}
             <div className="cta-strip">
                 <div className="cta-strip-inner">
                     <div className="cta-strip-content">
@@ -164,27 +141,7 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* FOOTER */}
-            <footer className="lexi-footer">
-                <div className="footer-grid">
-                    <div className="footer-brand footer-col">
-                        <h4 style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", textTransform: "none", letterSpacing: "-.02em", color: "var(--color-text-primary)" }}>{company.name}</h4>
-                        <p>{company.description}</p>
-                    </div>
-                    <div className="footer-col"><h4>Practice Areas</h4><ul>{footer.servicesLinks.map((s, i) => <li key={i}><Link href="/services">{s}</Link></li>)}</ul></div>
-                    <div className="footer-col"><h4>The Firm</h4><ul>{nav.map((l) => <li key={l.href}><Link href={l.href}>{l.name}</Link></li>)}</ul></div>
-                    <div className="footer-col"><h4>Contact</h4><ul>
-                        <li><a href={`tel:${contact.phone}`}>{contact.phone}</a></li>
-                        <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
-                        <li style={{ color: "var(--color-text-secondary)", fontSize: ".875rem" }}>{contact.address.street}, {contact.address.city}</li>
-                        <li style={{ color: "var(--color-text-secondary)", fontSize: ".875rem", whiteSpace: "pre-line" }}>{contact.hours.footerDisplay}</li>
-                    </ul></div>
-                </div>
-                <div className="footer-bottom">
-                    <div>&#169; {new Date().getFullYear()} {footer.copyright}</div>
-                    <div className="footer-socials"><a href="#">LinkedIn</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
-                </div>
-            </footer>
+            <LexiFooter />
         </div>
     );
 }
