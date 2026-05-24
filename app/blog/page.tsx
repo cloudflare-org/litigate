@@ -17,7 +17,6 @@ export default function BlogPage() {
                 </div>
             </div>
 
-            {/* Disclaimer */}
             <div style={{ background: "var(--color-surface-2)", borderBottom: "1px solid var(--color-border)", padding: "var(--space-xl) var(--space-3xl)" }}>
                 <div style={{ maxWidth: "1400px", margin: "0 auto", display: "flex", alignItems: "flex-start", gap: "var(--space-lg)" }}>
                     <span style={{ color: "var(--color-accent-primary)", fontSize: "1rem", flexShrink: 0, marginTop: "2px" }}>&#9432;</span>
@@ -28,10 +27,7 @@ export default function BlogPage() {
             <section style={{ padding: "var(--space-5xl) var(--space-3xl)", maxWidth: "1400px", margin: "0 auto" }}>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "var(--space-2xl)" }}>
                     {blog.map((a) => (
-                        <Link key={a.slug} href={`/blog/${a.slug}`} style={{ display: "block", textDecoration: "none", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: ".75rem", overflow: "hidden", transition: "all .4s" }}
-                            onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--color-accent-primary)"; el.style.transform = "translateY(-8px)"; el.style.boxShadow = "0 20px 50px rgba(132,204,22,.15)"; }}
-                            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--color-border)"; el.style.transform = "translateY(0)"; el.style.boxShadow = "none"; }}
-                        >
+                        <Link key={a.slug} href={`/blog/${a.slug}`} className="blog-list-card">
                             <div style={{ height: "240px", background: "var(--color-surface-3)", overflow: "hidden", position: "relative" }}>
                                 {a.image
                                     ? <img src={a.image} alt={a.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />

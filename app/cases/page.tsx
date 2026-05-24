@@ -17,7 +17,6 @@ export default function CasesPage() {
                 </div>
             </div>
 
-            {/* Disclaimer */}
             <div style={{ background: "var(--color-surface-2)", borderBottom: "1px solid var(--color-border)", padding: "var(--space-xl) var(--space-3xl)" }}>
                 <div style={{ maxWidth: "1400px", margin: "0 auto", display: "flex", alignItems: "flex-start", gap: "var(--space-lg)" }}>
                     <span style={{ color: "var(--color-accent-primary)", fontSize: "1rem", flexShrink: 0, marginTop: "2px" }}>&#9432;</span>
@@ -28,10 +27,7 @@ export default function CasesPage() {
             <section style={{ padding: "var(--space-5xl) var(--space-3xl)", maxWidth: "1400px", margin: "0 auto" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2xl)" }}>
                     {cases.map((c) => (
-                        <Link key={c.slug} href={`/cases/${c.slug}`} style={{ display: "block", textDecoration: "none", padding: "var(--space-3xl)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", transition: "all .4s", position: "relative", overflow: "hidden" }}
-                            onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "rgba(132,204,22,.3)"; el.style.background = "var(--color-surface-3)"; el.style.transform = "translateX(4px)"; }}
-                            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--color-border)"; el.style.background = "var(--color-surface-2)"; el.style.transform = "translateX(0)"; }}
-                        >
+                        <Link key={c.slug} href={`/cases/${c.slug}`} className="case-list-card">
                             <div style={{ display: "flex", alignItems: "center", gap: "var(--space-lg)", marginBottom: "var(--space-lg)", flexWrap: "wrap" }}>
                                 <span style={{ fontSize: ".75rem", fontWeight: 600, color: "var(--color-accent-primary)", textTransform: "uppercase", letterSpacing: ".12em" }}>{c.year}</span>
                                 <span style={{ color: "var(--color-text-tertiary)" }}>&#183;</span>
