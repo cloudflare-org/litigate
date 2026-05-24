@@ -4,6 +4,8 @@ import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import Link from "next/link";
 import siteData from "@/data/siteData.json";
 
+export const runtime = 'edge';
+
 const { contact, services } = siteData;
 
 const offices = [

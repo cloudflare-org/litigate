@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import siteData from "@/data/siteData.json";
 
+export const runtime = 'edge';
+
 export default function Home() {
     const { company, contact, footer, nav, services, cases, blog, team } = siteData;
     const [scrolled, setScrolled] = useState(false);

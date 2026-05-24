@@ -3,6 +3,8 @@ import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import Link from "next/link";
 import siteData from "@/data/siteData.json";
 
+export const runtime = 'edge';
+
 const { services } = siteData;
 
 export default function ServicesPage() {

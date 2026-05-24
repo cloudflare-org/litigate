@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import siteData from "@/data/siteData.json";
 
+export const runtime = 'edge';
+
 const { blog } = siteData;
 
 export default function BlogSinglePage() {
