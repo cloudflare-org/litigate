@@ -1368,3 +1368,335 @@ nav.lexi-nav.scrolled {
         margin-bottom: var(--space-3xl);
     }
 }
+
+
+/* ============================================================
+   UTILITY GRID CLASSES
+   ============================================================ */
+
+.two-col-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+}
+
+.three-col-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+}
+
+.search-panel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: var(--space-xl);
+    align-items: flex-end;
+}
+
+.attorney-table-grid {
+    display: grid;
+    grid-template-columns: 56px 1fr 200px 1fr;
+}
+
+/* ============================================================
+   RESPONSIVE — 1024px
+   ============================================================ */
+
+@media (max-width: 1024px) {
+
+    /* Two-column grids become single column */
+    .two-col-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+
+    /* Three-column grids become two columns */
+    .three-col-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Search panel: 2 cols + auto */
+    .search-panel-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Attorney table: hide last column */
+    .attorney-table-grid {
+        grid-template-columns: 40px 1fr 1fr;
+    }
+
+    .attorney-table-grid>*:nth-child(4) {
+        display: none;
+    }
+
+    /* About page story grid */
+    .story-grid,
+    .discretion-inner,
+    .team-intro-grid,
+    .contact-grid,
+    .about-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Services sidebar layout */
+    .services-layout {
+        grid-template-columns: 1fr !important;
+    }
+
+    .services-sidebar {
+        display: none;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — 768px
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    /* Page hero */
+    .page-hero {
+        padding: 0 var(--space-lg) var(--space-2xl);
+        min-height: 320px;
+    }
+
+    .page-hero-inner {
+        padding-top: 100px;
+    }
+
+    .page-hero-inner h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    /* Section padding */
+    .section {
+        padding: var(--space-3xl) var(--space-lg);
+    }
+
+    .teaser {
+        padding: var(--space-3xl) var(--space-lg);
+    }
+
+    /* Services layout: sidebar hidden, single column */
+    .services-layout,
+    [style*="gridTemplateColumns: \"240px 1fr\""] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Cases timeline single column */
+    .timeline::before {
+        left: var(--space-md);
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        padding-left: calc(var(--space-md) + var(--space-2xl));
+    }
+
+    .timeline-marker {
+        left: var(--space-md);
+    }
+
+    /* Blog grid single column */
+    .blog-teaser-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer grid single column */
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Stats bar 2 columns */
+    .stats-bar-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2xl);
+    }
+
+    /* Services teaser grid single column */
+    .services-teaser-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Team teaser grid 2 columns */
+    .team-teaser-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Contact two-column becomes single column */
+    .two-col-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* CTA strip padding */
+    .cta-strip {
+        padding: 0 var(--space-lg) var(--space-3xl);
+    }
+
+    .cta-strip-inner {
+        padding: var(--space-3xl) var(--space-xl);
+    }
+
+    /* Search panel grid becomes single column */
+    .search-panel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Alphabet bar wraps naturally — reduce button size */
+    .alphabet-bar button {
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: .7rem;
+    }
+
+    /* Attorney results table — 2 columns, hide position and last col */
+    .attorney-table-grid {
+        grid-template-columns: 40px 1fr;
+    }
+
+    .attorney-table-grid>*:nth-child(3),
+    .attorney-table-grid>*:nth-child(4) {
+        display: none;
+    }
+
+    /* Three-col grid becomes single column */
+    .three-col-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Blog list page grid */
+    .blog-list-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Inline grids on about/contact pages */
+    .about-story-grid,
+    .about-discretion-grid,
+    .about-values-grid,
+    .contact-main-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Teaser grid */
+    .teaser-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+
+    .teaser-visual {
+        height: 260px;
+    }
+
+    /* Nav padding already handled above */
+    nav.lexi-nav {
+        padding: var(--space-md) var(--space-lg);
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — 480px
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    /* Hero h1 smaller */
+    .hero h1 {
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .hero-content {
+        padding-top: 80px;
+    }
+
+    /* Buttons full width on very small screens */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        text-align: center;
+    }
+
+    /* Team teaser grid 1 column */
+    .team-teaser-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Blog teaser grid 1 column */
+    .blog-teaser-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Services teaser grid 1 column */
+    .services-teaser-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stats bar 2 columns */
+    .stats-bar-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xl);
+    }
+
+    /* Page hero */
+    .page-hero {
+        min-height: 280px;
+    }
+
+    .page-hero-inner {
+        padding-top: 90px;
+    }
+
+    /* Section padding */
+    .section {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    .teaser {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    /* Footer */
+    .lexi-footer {
+        padding: var(--space-2xl) var(--space-md) var(--space-xl);
+    }
+
+    /* CTA strip */
+    .cta-strip {
+        padding: 0 var(--space-md) var(--space-2xl);
+    }
+
+    .cta-strip-inner {
+        padding: var(--space-2xl) var(--space-lg);
+        border-radius: .75rem;
+    }
+
+    /* Attorney overlay card */
+    .attorney-overlay-card {
+        padding: var(--space-2xl) var(--space-xl) !important;
+    }
+
+    /* Search panel */
+    .search-panel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Teaser visual hidden on very small */
+    .teaser-visual {
+        height: 200px;
+    }
+
+    /* Blog list card image */
+    .blog-list-card>div:first-child {
+        height: 180px !important;
+    }
+}

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import siteData from "@/data/siteData.json";
 
-const { company, contact, footer, nav, services, cases, blog, team } = siteData;
+const { company, services, cases, blog } = siteData;
 
 export default function Home() {
     return (
@@ -85,24 +85,6 @@ export default function Home() {
                                     <div className="timeline-tags">{c.tags.map((t, i) => <span className="case-tag" key={i}>{t}</span>)}</div>
                                 </Link>
                             </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="teaser teaser-alt">
-                <div className="teaser-inner">
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-3xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
-                        <div><span className="text-label">Our People</span><h2>The Partners</h2></div>
-                        <Link href="/team" className="btn btn-sm">Meet the Team</Link>
-                    </div>
-                    <div className="team-teaser-grid">
-                        {team.slice(0, 4).map((m) => (
-                            <Link href="/team" className="team-teaser-card" key={m.slug}>
-                                <div className="team-teaser-avatar">{m.emoji}</div>
-                                <div className="team-teaser-name">{m.name}</div>
-                                <div className="team-teaser-role">{m.role}</div>
-                            </Link>
                         ))}
                     </div>
                 </div>
