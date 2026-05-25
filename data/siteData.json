@@ -105,97 +105,405 @@
     {
       "slug": "victoria-chen",
       "name": "Victoria Chen",
+      "lastName": "Chen",
       "role": "Senior Partner",
       "specialty": "International Arbitration",
       "emoji": "👩‍💼",
       "email": "v.chen@lexiglobalfirm.com",
-      "phone": "+44 XXX XXX XXXX",
-      "bio": "Victoria leads our international arbitration practice with 28 years of experience across ICC, LCIA, and UNCITRAL proceedings. She has represented sovereign states, state-owned enterprises, and Fortune 100 corporations in disputes exceeding $1 billion in value. Her approach is methodical, her preparation exhaustive, and her record speaks for itself.",
+      "phone": "+44 20 7000 1001",
+      "contactPrivate": false,
+      "bio": "Victoria leads our international arbitration practice with 28 years of experience across ICC, LCIA, and UNCITRAL proceedings. She has represented sovereign states, state-owned enterprises, and Fortune 100 corporations in disputes exceeding 1 billion dollars in value.",
       "credentials": [
         "Called to the Bar, England and Wales",
         "Qualified, New York State Bar",
         "Fellow, Chartered Institute of Arbitrators",
-        "Former partner, Clifford Chance LLP"
+        "Former Partner, Clifford Chance LLP"
+      ],
+      "lawSchool": "Harvard Law School",
+      "position": "Senior Partner",
+      "practiceAreas": [
+        "international-arbitration",
+        "corporate-litigation"
       ]
     },
     {
       "slug": "marcus-rothschild",
       "name": "Marcus Rothschild",
+      "lastName": "Rothschild",
       "role": "Managing Partner",
       "specialty": "Corporate Litigation and Asset Recovery",
       "emoji": "👨‍💼",
       "email": "m.rothschild@lexiglobalfirm.com",
-      "phone": "+44 XXX XXX XXXX",
-      "bio": "Marcus oversees the firm's global operations and leads our corporate litigation and asset recovery practice. He has recovered in excess of $3.2 billion in misappropriated assets across 22 jurisdictions. His work is characterised by an ability to move quickly, coordinate across borders, and apply maximum legal pressure with surgical precision.",
+      "phone": "+44 20 7000 1002",
+      "contactPrivate": false,
+      "bio": "Marcus oversees the firm's global operations and leads our corporate litigation and asset recovery practice. He has recovered in excess of 3.2 billion dollars in misappropriated assets across 22 jurisdictions.",
       "credentials": [
         "Solicitor, England and Wales",
         "Qualified, Hong Kong SAR",
         "LLM, Harvard Law School",
         "Former Head of Litigation, Linklaters LLP"
+      ],
+      "lawSchool": "Harvard Law School",
+      "position": "Managing Partner",
+      "practiceAreas": [
+        "asset-recovery",
+        "corporate-litigation"
       ]
     },
     {
       "slug": "priya-kapoor",
       "name": "Priya Kapoor",
+      "lastName": "Kapoor",
       "role": "Partner",
       "specialty": "Investment Law and Regulatory Affairs",
       "emoji": "👩‍💼",
       "email": "p.kapoor@lexiglobalfirm.com",
-      "phone": "+44 XXX XXX XXXX",
-      "bio": "Priya advises institutional investors, sovereign funds, and private equity houses on cross-border investment disputes, regulatory investigations, and compliance frameworks. She has appeared before regulatory bodies in the UK, EU, US, and Singapore, and is widely regarded as one of the leading investment law practitioners of her generation.",
+      "phone": "+44 20 7000 1003",
+      "contactPrivate": false,
+      "bio": "Priya advises institutional investors, sovereign funds, and private equity houses on cross-border investment disputes, regulatory investigations, and compliance frameworks. She has appeared before regulatory bodies in the UK, EU, US, and Singapore.",
       "credentials": [
         "Solicitor, England and Wales",
         "Qualified, Singapore Bar",
         "BCL, University of Oxford",
         "Former Senior Counsel, FCA"
+      ],
+      "lawSchool": "University of Oxford",
+      "position": "Partner",
+      "practiceAreas": [
+        "investment-law",
+        "regulatory-defence"
       ]
     },
     {
       "slug": "alexandre-moreau",
       "name": "Alexandre Moreau",
+      "lastName": "Moreau",
       "role": "Partner",
-      "specialty": "Energy, Infrastructure and Construction Arbitration",
+      "specialty": "International Arbitration",
       "emoji": "👨‍💼",
       "email": "a.moreau@lexiglobalfirm.com",
-      "phone": "+44 XXX XXX XXXX",
-      "bio": "Alexandre is one of the foremost authorities on energy and infrastructure arbitration in Europe. He has acted as counsel and arbitrator in disputes arising from major infrastructure projects across Africa, the Middle East, and Central Asia. His command of French, English, and Arabic gives him a rare ability to operate across legal cultures without friction.",
+      "phone": "+44 20 7000 1004",
+      "contactPrivate": false,
+      "bio": "Alexandre is one of the foremost authorities on international arbitration in Europe. He has acted as counsel and arbitrator in disputes arising from major infrastructure projects across Africa, the Middle East, and Central Asia.",
       "credentials": [
         "Avocat, Paris Bar",
         "Solicitor, England and Wales",
         "PhD in International Law, Sciences Po Paris",
         "Accredited Arbitrator, ICC and LCIA"
+      ],
+      "lawSchool": "Sciences Po Paris",
+      "position": "Partner",
+      "practiceAreas": [
+        "international-arbitration"
       ]
     },
     {
       "slug": "elena-vasquez",
       "name": "Elena Vasquez",
+      "lastName": "Vasquez",
       "role": "Partner",
       "specialty": "Private Wealth and Family Office Advisory",
       "emoji": "👩‍💼",
       "email": "e.vasquez@lexiglobalfirm.com",
-      "phone": "+44 XXX XXX XXXX",
-      "bio": "Elena advises ultra-high-net-worth families, family offices, and private foundations on wealth structuring, succession planning, and the resolution of complex family disputes. She is known for her ability to navigate the intersection of law, family dynamics, and cross-border tax considerations with exceptional sensitivity and technical precision.",
+      "phone": "+44 20 7000 1005",
+      "contactPrivate": false,
+      "bio": "Elena advises ultra-high-net-worth families, family offices, and private foundations on wealth structuring, succession planning, and the resolution of complex family disputes.",
       "credentials": [
         "Solicitor, England and Wales",
         "Qualified, British Virgin Islands",
         "LLM in Private International Law, King's College London",
         "Member, Society of Trust and Estate Practitioners"
+      ],
+      "lawSchool": "King's College London",
+      "position": "Partner",
+      "practiceAreas": [
+        "private-wealth"
       ]
     },
     {
-      "slug": "james-okafor",
-      "name": "James Okafor",
-      "role": "Senior Associate",
-      "specialty": "White Collar Crime and Regulatory Defence",
-      "emoji": "👨‍💼",
-      "email": "j.okafor@lexiglobalfirm.com",
-      "phone": "+44 XXX XXX XXXX",
-      "bio": "James specialises in white collar crime, fraud defence, and regulatory investigations. He has represented senior executives, financial institutions, and public officials in proceedings before the SFO, FCA, and international enforcement bodies. His background as a former Crown Prosecution Service barrister gives him an unmatched understanding of how prosecutions are built and how they can be dismantled.",
+      "slug": "sophia-brennan",
+      "name": "Sophia Brennan",
+      "lastName": "Brennan",
+      "role": "Associate",
+      "specialty": "International Arbitration and Investment Law",
+      "emoji": "👩‍💼",
+      "email": "s.brennan@lexiglobalfirm.com",
+      "phone": "+44 20 7000 1007",
+      "contactPrivate": false,
+      "bio": "Sophia focuses on international arbitration and investment treaty disputes, with particular experience in ICSID and SIAC proceedings. Before joining Lexi Global Firm, she completed a fellowship at the Permanent Court of Arbitration in The Hague.",
       "credentials": [
-        "Barrister, England and Wales",
-        "Former Senior Barrister, Crown Prosecution Service",
-        "LLB, University of Cambridge",
-        "Accredited Mediator, CEDR"
+        "Solicitor, England and Wales",
+        "JD, Yale Law School",
+        "LLB, London School of Economics",
+        "Former Fellow, Permanent Court of Arbitration"
+      ],
+      "lawSchool": "Yale Law School",
+      "position": "Associate",
+      "practiceAreas": [
+        "international-arbitration",
+        "investment-law"
+      ]
+    },
+    {
+      "slug": "elkan-abramowitz",
+      "name": "Elkan Abramowitz",
+      "lastName": "Abramowitz",
+      "role": "Founding Partner",
+      "specialty": "White-Collar Criminal Defense",
+      "emoji": "👨‍💼",
+      "email": "eabramowitz@magia-law.com",
+      "phone": "+1 212 880 9500",
+      "contactPrivate": true,
+      "bio": "Elkan is a legendary New York defense attorney specialising in resolving sensitive, high-stakes white-collar and regulatory crises before indictments go public. He serves as primary counsel for corporate executives, politicians, and high-net-worth individuals under federal grand jury investigation.",
+      "credentials": [
+        "Admitted to the New York State Bar",
+        "Editor, NYU Law Review",
+        "Pomeroy Scholar",
+        "Fellow, American College of Trial Lawyers"
+      ],
+      "lawSchool": "New York University School of Law",
+      "position": "Senior Partner",
+      "practiceAreas": [
+        "white-collar-defense",
+        "regulatory-enforcement",
+        "commercial-litigation"
+      ]
+    },
+    {
+      "slug": "dane-butswinkas",
+      "name": "Dane Butswinkas",
+      "lastName": "Butswinkas",
+      "role": "Executive Committee Member",
+      "specialty": "Commercial Trial Practice",
+      "emoji": "👨‍💼",
+      "email": "dbutswinkas@wc-lawfirm.com",
+      "phone": "+1 202 434 5000",
+      "contactPrivate": true,
+      "bio": "Dane is a premier US trial attorney handling high-stakes commercial disputes, banking litigation, and international arbitrations. He maintains an ultra-private practice and briefly stepped away to serve as General Counsel for Tesla, Inc. before returning to his elite boutique home.",
+      "credentials": [
+        "Order of the Coif, UVA Law",
+        "Virginia Law Review",
+        "Fellow, American College of Trial Lawyers",
+        "Named Top 50 Trial Ace by Law360"
+      ],
+      "lawSchool": "University of Virginia School of Law",
+      "position": "Partner",
+      "practiceAreas": [
+        "commercial-litigation",
+        "white-collar-defense",
+        "international-arbitration"
+      ]
+    },
+    {
+      "slug": "john-branca",
+      "name": "John Branca",
+      "lastName": "Branca",
+      "role": "Partner and Co-Chairman",
+      "specialty": "Entertainment and Asset Management",
+      "emoji": "👨‍💼",
+      "email": "jbranca@zb-entertainment.com",
+      "phone": "+1 310 550 7800",
+      "contactPrivate": true,
+      "bio": "John is an elite entertainment lawyer managing iconic catalog acquisitions, major transactional mergers, and complex asset defences for top-tier musical artists, catalogs, and media moguls, shielding them with airtight corporate protections.",
+      "credentials": [
+        "Admitted to the State Bar of California",
+        "Billboard Magazine Entertainment Lawyer of the Year",
+        "Trustee, Michael Jackson Estate"
+      ],
+      "lawSchool": "UCLA School of Law",
+      "position": "Senior Partner",
+      "practiceAreas": [
+        "entertainment-law",
+        "intellectual-property",
+        "asset-protection"
+      ]
+    },
+    {
+      "slug": "john-keker",
+      "name": "John Keker",
+      "lastName": "Keker",
+      "role": "Founding Partner",
+      "specialty": "Complex Criminal and IP Defense",
+      "emoji": "👨‍💼",
+      "email": "jkeker@kvnp-law.com",
+      "phone": "+1 415 391 5400",
+      "contactPrivate": true,
+      "bio": "John is a highly formidable Silicon Valley trial lawyer who acts as a quiet shield for tech founders and venture capitalists facing bet-the-company criminal or patent lawsuits. He famously prosecuted Oliver North during Iran-Contra.",
+      "credentials": [
+        "Admitted to the California State Bar",
+        "Clerk to Chief Justice Earl Warren, US Supreme Court",
+        "Recipient, American Lawyer Lifetime Achievement Award",
+        "Fellow, American College of Trial Lawyers"
+      ],
+      "lawSchool": "Yale Law School",
+      "position": "Senior Partner",
+      "practiceAreas": [
+        "white-collar-defense",
+        "intellectual-property",
+        "commercial-litigation"
+      ]
+    },
+    {
+      "slug": "brendan-sullivan",
+      "name": "Brendan Sullivan Jr.",
+      "lastName": "Sullivan",
+      "role": "Senior Trial Partner",
+      "specialty": "White-Collar and Government Investigations",
+      "emoji": "👨‍💼",
+      "email": "bsullivan@wc-lawfirm.com",
+      "phone": "+1 202 434 5012",
+      "contactPrivate": true,
+      "bio": "Brendan is an iconic, ultra-discreet Washington counsel who defends high-ranking public officials and executives against federal prosecution behind closed doors, avoiding all media interaction.",
+      "credentials": [
+        "Admitted to the District of Columbia Bar",
+        "Defense Counsel in the Iran-Contra hearings",
+        "American College of Trial Lawyers Fellow"
+      ],
+      "lawSchool": "Georgetown University Law Center",
+      "position": "Senior Partner",
+      "practiceAreas": [
+        "white-collar-defense",
+        "congressional-investigations"
+      ]
+    },
+    {
+      "slug": "robert-lawrence",
+      "name": "Robert Lawrence",
+      "lastName": "Lawrence",
+      "role": "Partner",
+      "specialty": "M&A Defense and Hostile Takeovers",
+      "emoji": "👨‍💼",
+      "email": "r.lawrence@wlrk-ny.com",
+      "phone": "+1 212 403 1022",
+      "contactPrivate": true,
+      "bio": "Robert advises Fortune 500 boards and corporate giants navigating existential activist investor threats, keeping strategies tightly confidential until execution.",
+      "credentials": [
+        "Admitted to the New York State Bar",
+        "Chambers USA Ranked Band 1 Corporate Lawyer",
+        "Member, New York City Bar Association"
+      ],
+      "lawSchool": "Columbia Law School",
+      "position": "Partner",
+      "practiceAreas": [
+        "corporate-governance",
+        "mergers-and-acquisitions"
+      ]
+    },
+    {
+      "slug": "sara-mandel",
+      "name": "Sara Mandel",
+      "lastName": "Mandel",
+      "role": "Partner",
+      "specialty": "Internal Corporate Investigations",
+      "emoji": "👩‍💼",
+      "email": "sara.mandel@magia-law.com",
+      "phone": "+1 212 880 9540",
+      "contactPrivate": true,
+      "bio": "Sara quietly investigates sensitive internal whistleblowing complaints and bribery allegations for financial institutions to secure pre-indictment settlements.",
+      "credentials": [
+        "Admitted to the Southern District of New York",
+        "Former Assistant United States Attorney (AUSA)",
+        "New York Women's Bar Association Executive"
+      ],
+      "lawSchool": "New York University School of Law",
+      "position": "Partner",
+      "practiceAreas": [
+        "internal-investigations",
+        "regulatory-enforcement"
+      ]
+    },
+    {
+      "slug": "jan-van-nest",
+      "name": "Jan Van Nest",
+      "lastName": "Van Nest",
+      "role": "Senior Litigator",
+      "specialty": "Silicon Valley Trade Secret Disputes",
+      "emoji": "👨‍💼",
+      "email": "jvannest@kvnp-law.com",
+      "phone": "+1 415 391 5415",
+      "contactPrivate": true,
+      "bio": "Jan handles complex corporate espionage and trade secret theft actions for technology companies under strict non-disclosure terms.",
+      "credentials": [
+        "Admitted to the Northern District of California",
+        "Northern California Super Lawyer",
+        "American Intellectual Property Law Association Member"
+      ],
+      "lawSchool": "UC Berkeley School of Law",
+      "position": "Senior Partner",
+      "practiceAreas": [
+        "intellectual-property",
+        "trade-secrets"
+      ]
+    },
+    {
+      "slug": "david-boies",
+      "name": "David Boies",
+      "lastName": "Boies",
+      "role": "Chairman",
+      "specialty": "High-Stakes Crisis Litigation",
+      "emoji": "👨‍💼",
+      "email": "dboies@bsf-legal.com",
+      "phone": "+1 914 749 8200",
+      "contactPrivate": true,
+      "bio": "David is one of America's most recognisable trial lawyers, chosen by governments, technology companies, and elite figures to manage catastrophic litigation crises behind closed doors.",
+      "credentials": [
+        "Admitted to the New York State Bar",
+        "Lead Counsel, US v. Microsoft Antitrust Case",
+        "Time Magazine 100 Most Influential People"
+      ],
+      "lawSchool": "Yale Law School",
+      "position": "Chairman",
+      "practiceAreas": [
+        "antitrust-litigation",
+        "crisis-management",
+        "civil-litigation"
+      ]
+    },
+    {
+      "slug": "rebecca-tomas",
+      "name": "Rebecca Tomas",
+      "lastName": "Tomas",
+      "role": "Senior Partner",
+      "specialty": "Hedge Fund Regulatory Defense",
+      "emoji": "👩‍💼",
+      "email": "rtomas@magia-law.com",
+      "phone": "+1 212 880 9599",
+      "contactPrivate": true,
+      "bio": "Rebecca defends major hedge fund managers during confidential SEC and CFTC market manipulation inquiries, specialising in resolving disputes outside the public eye.",
+      "credentials": [
+        "Admitted to the New York Bar",
+        "Former Enforcement Attorney, SEC",
+        "Chambers Global White-Collar Ranking"
+      ],
+      "lawSchool": "Harvard Law School",
+      "position": "Senior Partner",
+      "practiceAreas": [
+        "securities-enforcement",
+        "white-collar-defense"
+      ]
+    },
+    {
+      "slug": "stephen-brittenham",
+      "name": "Stephen Brittenham",
+      "lastName": "Brittenham",
+      "role": "Managing Partner",
+      "specialty": "Media Corporate Infrastructure",
+      "emoji": "👨‍💼",
+      "email": "sbrittenham@zb-entertainment.com",
+      "phone": "+1 310 550 7822",
+      "contactPrivate": true,
+      "bio": "Stephen advises major media companies, studios, and entertainment conglomerates on corporate structure, rights acquisition, and the protection of intellectual property portfolios. He operates with complete discretion and is rarely named in public filings.",
+      "credentials": [
+        "Admitted to the State Bar of California",
+        "Chambers USA Entertainment Band 1",
+        "Member, Beverly Hills Bar Association"
+      ],
+      "lawSchool": "UCLA School of Law",
+      "position": "Managing Partner",
+      "practiceAreas": [
+        "entertainment-law",
+        "intellectual-property",
+        "asset-protection"
       ]
     }
   ],
@@ -205,7 +513,7 @@
       "title": "International Arbitration",
       "icon": "⚖️",
       "description": "We represent clients in the world's most complex cross-border disputes before all major arbitral institutions.",
-      "fullDescription": "Our international arbitration practice is one of the most active in Europe. We act as counsel in disputes before the ICC, LCIA, UNCITRAL, ICSID, and SIAC, across every sector and jurisdiction. Our team has handled disputes ranging from $50 million to over $2 billion, involving sovereign states, state-owned enterprises, and the world's largest corporations. We do not take cases we cannot win. And we prepare every case as if it will go the full distance.",
+      "fullDescription": "Our international arbitration practice is one of the most active in Europe. We act as counsel in disputes before the ICC, LCIA, UNCITRAL, ICSID, and SIAC, across every sector and jurisdiction. Our team has handled disputes ranging from 50 million dollars to over 2 billion dollars, involving sovereign states, state-owned enterprises, and the world's largest corporations. We do not take cases we cannot win. And we prepare every case as if it will go the full distance.",
       "details": [
         "ICC, LCIA, UNCITRAL, ICSID and SIAC proceedings",
         "Investor-state dispute settlement",
@@ -235,7 +543,7 @@
       "title": "Asset Recovery",
       "icon": "🔍",
       "description": "We locate, freeze, and recover misappropriated assets across jurisdictions with speed and legal force.",
-      "fullDescription": "Asset recovery is one of the most technically demanding areas of law. It requires the ability to move faster than the opposing party, coordinate across multiple jurisdictions simultaneously, and apply legal tools that most practitioners have never used. Our team has recovered in excess of $3.2 billion in assets for clients across 22 jurisdictions. We work with leading forensic accountants, intelligence firms, and local counsel to ensure that no asset remains beyond reach.",
+      "fullDescription": "Asset recovery is one of the most technically demanding areas of law. It requires the ability to move faster than the opposing party, coordinate across multiple jurisdictions simultaneously, and apply legal tools that most practitioners have never used. Our team has recovered in excess of 3.2 billion dollars in assets for clients across 22 jurisdictions. We work with leading forensic accountants, intelligence firms, and local counsel to ensure that no asset remains beyond reach.",
       "details": [
         "Worldwide freezing orders and Mareva injunctions",
         "Norwich Pharmacal and disclosure orders",
@@ -280,7 +588,7 @@
       "title": "Investment Law",
       "icon": "💼",
       "description": "Strategic counsel for investors navigating complex regulatory environments and cross-border disputes.",
-      "fullDescription": "Our investment law practice advises institutional investors, sovereign wealth funds, and private equity houses on the full lifecycle of cross-border investments. From structuring and regulatory approval through to dispute resolution and exit, we provide counsel that is both technically precise and commercially astute. We understand that investment decisions are made under pressure and that legal advice must be actionable, not merely accurate.",
+      "fullDescription": "Our investment law practice advises institutional investors, sovereign wealth funds, and private equity houses on the full lifecycle of cross-border investments. From structuring and regulatory approval through to dispute resolution and exit, we provide counsel that is both technically precise and commercially astute.",
       "details": [
         "Investment treaty claims and ISDS",
         "Regulatory approval and licensing",
@@ -356,7 +664,7 @@
       "date": "May 2026",
       "readTime": "8 min",
       "image": "/blog1.jpg",
-      "content": "The past 18 months have seen a significant increase in shareholder derivative actions targeting alleged discrepancies between corporate ESG commitments and actual practice. These claims are being brought in multiple jurisdictions simultaneously, and they are becoming more sophisticated in their legal theory and more aggressive in their remedies sought. Boards that have not yet conducted a rigorous audit of their ESG disclosures are exposed. The question is no longer whether ESG litigation will affect your company, but when. In this analysis, we examine the key legal theories being deployed, the jurisdictions where exposure is greatest, and the steps that boards can take now to reduce their risk."
+      "content": "The past 18 months have seen a significant increase in shareholder derivative actions targeting alleged discrepancies between corporate ESG commitments and actual practice. These claims are being brought in multiple jurisdictions simultaneously, and they are becoming more sophisticated in their legal theory and more aggressive in their remedies sought. Boards that have not yet conducted a rigorous audit of their ESG disclosures are exposed. The question is no longer whether ESG litigation will affect your company, but when.\n\nIn this analysis, we examine the key legal theories being deployed, the jurisdictions where exposure is greatest, and the steps that boards can take now to reduce their risk.\n\nThe primary legal theory in most ESG derivative actions is that directors breached their fiduciary duty by approving or failing to correct materially misleading ESG disclosures. In the United States, plaintiffs have had early success in Delaware courts by arguing that boards were aware of the gap between public commitments and internal practice and failed to act. In the United Kingdom, the Financial Conduct Authority has signalled that it will treat greenwashing as a disclosure failure with regulatory consequences, opening a parallel enforcement track alongside private litigation.\n\nThe jurisdictions of greatest current exposure are the United States, the Netherlands, Australia, and the United Kingdom. Each has seen at least one significant ESG-related derivative or class action reach the merits stage in the past 24 months. Germany and France are emerging as secondary fronts, driven by the EU Corporate Sustainability Reporting Directive and its mandatory disclosure requirements.\n\nBoards that wish to reduce their exposure should begin with a gap analysis comparing public ESG commitments against internal data and operational reality. Where gaps exist, the board must decide whether to close them operationally or revise the public disclosure. Either path requires documentation of the decision-making process. Directors who can demonstrate that they were informed, deliberate, and acted in good faith are significantly better positioned to defend derivative claims than those who cannot."
     },
     {
       "slug": "post-libor-disputes",
@@ -366,7 +674,7 @@
       "date": "April 2026",
       "readTime": "6 min",
       "image": "/blog2.jpg",
-      "content": "The cessation of LIBOR has given rise to a new and rapidly evolving category of contractual dispute. Parties to long-term financial contracts are discovering that the fallback provisions they agreed to years ago do not function as intended in a post-LIBOR world. The result is a growing body of litigation in which courts are being asked to interpret ambiguous contractual language, imply terms, and in some cases rectify agreements. We have been instructed in a number of these matters and have developed a clear view of where the legal risk lies and how it can be managed."
+      "content": "The cessation of LIBOR has given rise to a new and rapidly evolving category of contractual dispute. Parties to long-term financial contracts are discovering that the fallback provisions they agreed to years ago do not function as intended in a post-LIBOR world. The result is a growing body of litigation in which courts are being asked to interpret ambiguous contractual language, imply terms, and in some cases rectify agreements.\n\nWe have been instructed in a number of these matters and have developed a clear view of where the legal risk lies and how it can be managed.\n\nThe core problem is that many contracts written before 2014 contain fallback provisions that were designed to address a temporary unavailability of LIBOR, not its permanent cessation. When applied to a world in which LIBOR no longer exists, these provisions produce results that neither party intended. In some cases, the fallback rate is significantly higher or lower than the parties expected. In others, the fallback mechanism fails entirely, leaving the contract without a functioning interest rate provision.\n\nEnglish courts have so far taken a relatively conservative approach, declining to imply terms or rectify contracts where the existing language, however imperfect, produces a workable result. The US courts have been somewhat more willing to consider extrinsic evidence of the parties' intentions, though the outcomes remain unpredictable.\n\nParties with significant LIBOR-linked exposure who have not yet reviewed their contract portfolios should do so as a matter of urgency. The limitation period for claims arising from the transition is running, and early legal advice is significantly cheaper than late litigation."
     },
     {
       "slug": "cross-border-enforcement",
@@ -376,7 +684,7 @@
       "date": "March 2026",
       "readTime": "12 min",
       "image": "/blog3.jpg",
-      "content": "The enforcement of foreign judgments and arbitral awards has always been one of the most technically demanding areas of international litigation. Recent decisions in England, Singapore, and the UAE have introduced new considerations that practitioners and their clients need to understand. In England, the Supreme Court's decision in Privatbank v Kolomoisky has clarified the circumstances in which a foreign judgment obtained by fraud will be refused enforcement. In Singapore, the Court of Appeal has expanded the grounds on which enforcement of an arbitral award may be resisted on public policy grounds. And in the UAE, recent legislative changes have significantly improved the prospects for enforcement of foreign awards in the DIFC courts."
+      "content": "The enforcement of foreign judgments and arbitral awards has always been one of the most technically demanding areas of international litigation. Recent decisions in England, Singapore, and the UAE have introduced new considerations that practitioners and their clients need to understand.\n\nIn England, the Supreme Court's decision in Privatbank v Kolomoisky has clarified the circumstances in which a foreign judgment obtained by fraud will be refused enforcement. The court confirmed that the fraud exception applies where the judgment was obtained by fraud on the foreign court, not merely where the underlying transaction was fraudulent. This is a narrower test than some practitioners had assumed, and it means that defendants seeking to resist enforcement on fraud grounds face a high evidential threshold.\n\nIn Singapore, the Court of Appeal has expanded the grounds on which enforcement of an arbitral award may be resisted on public policy grounds. The court held that an award that requires a party to perform an act that would be illegal under Singapore law may be refused enforcement even if the illegality was not raised before the tribunal. This decision has significant implications for awards involving regulated activities in Singapore, including financial services and real estate transactions.\n\nIn the UAE, recent legislative changes have significantly improved the prospects for enforcement of foreign awards in the DIFC courts. The DIFC Courts now have jurisdiction to enforce awards against assets located anywhere in the UAE, not merely within the DIFC itself. This change, combined with the UAE's accession to the New York Convention, makes the DIFC one of the most enforcement-friendly jurisdictions in the Middle East.\n\nFor clients with enforcement needs across these jurisdictions, the practical implications are significant. England remains the gold standard for enforcement of commercial awards, but the fraud exception is narrower than many assume. Singapore is becoming more cautious about awards with regulatory dimensions. And the UAE is rapidly becoming a viable enforcement destination for awards against Middle Eastern respondents."
     }
   ],
   "footer": {

@@ -1,10 +1,85 @@
+"use client";
+import { useState, useMemo } from "react";
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
-import Link from "next/link";
 import siteData from "@/data/siteData.json";
 
-const { company, team } = siteData;
+const { team } = siteData;
+
+const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const POSITIONS = ["Managing Partner", "Senior Partner", "Partner", "Senior Associate", "Associate"];
+const ALL_PRACTICE_AREAS = [
+  { id: "international-arbitration", label: "International Arbitration" },
+  { id: "corporate-litigation", label: "Corporate Litigation" },
+  { id: "asset-recovery", label: "Asset Recovery" },
+  { id: "private-wealth", label: "Private Wealth" },
+  { id: "regulatory-defence", label: "Regulatory Defence" },
+  { id: "investment-law", label: "Investment Law" },
+];
+
+function getPracticeLabel(id: string) {
+  return ALL_PRACTICE_AREAS.find((a) => a.id === id)?.label ?? id;
+}
 
 export default function TeamPage() {
+  const [nameQuery, setNameQuery] = useState("");
+  const [practiceFilter, setPracticeFilter] = useState("");
+  const [positionFilter, setPositionFilter] = useState("");
+  const [activeLetter, setActiveLetter] = useState("");
+  const [appliedName, setAppliedName] = useState("");
+  const [appliedPractice, setAppliedPractice] = useState("");
+  const [appliedPosition, setAppliedPosition] = useState("");
+
+  function handleSearch() {
+    setAppliedName(nameQuery);
+    setAppliedPractice(practiceFilter);
+    setAppliedPosition(positionFilter);
+    setActiveLetter("");
+  }
+  function handleClear() {
+    setNameQuery(""); setPracticeFilter(""); setPositionFilter("");
+    setAppliedName(""); setAppliedPractice(""); setAppliedPosition("");
+    setActiveLetter("");
+  }
+  function handleLetter(l: string) {
+    setActiveLetter(l);
+    setNameQuery(""); setPracticeFilter(""); setPositionFilter("");
+    setAppliedName(""); setAppliedPractice(""); setAppliedPosition("");
+  }
+
+  const results = useMemo(() => {
+    let list = [...team];
+    if (activeLetter) {
+      list = list.filter((m) => m.lastName.toUpperCase().startsWith(activeLetter));
+    } else {
+      if (appliedName.trim()) {
+        const q = appliedName.trim().toLowerCase();
+        list = list.filter((m) => m.name.toLowerCase().includes(q));
+      }
+      if (appliedPractice) list = list.filter((m) => (m.practiceAreas as string[]).includes(appliedPractice));
+      if (appliedPosition) list = list.filter((m) => m.position === appliedPosition);
+    }
+    return list.sort((a, b) => a.lastName.localeCompare(b.lastName));
+  }, [activeLetter, appliedName, appliedPractice, appliedPosition]);
+
+  const isFiltered = activeLetter || appliedName || appliedPractice || appliedPosition;
+  const subtitleText = activeLetter
+    ? `Attorneys with last name beginning with '${activeLetter}'`
+    : isFiltered
+      ? `Showing ${results.length} attorney${results.length !== 1 ? "s" : ""}`
+      : `Showing all ${results.length} attorneys`;
+
+  const inputStyle: React.CSSProperties = {
+    width: "100%", padding: "var(--space-md) var(--space-lg)",
+    background: "var(--color-surface-2)", border: "1px solid var(--color-border)",
+    borderRadius: ".5rem", color: "var(--color-text-primary)",
+    fontFamily: "var(--font-body)", fontSize: ".9rem", outline: "none",
+  };
+  const labelStyle: React.CSSProperties = {
+    display: "block", fontSize: ".7rem", fontWeight: 600,
+    textTransform: "uppercase", letterSpacing: ".12em",
+    color: "var(--color-text-secondary)", marginBottom: "var(--space-sm)",
+  };
+
   return (
     <div className="content">
       <LexiNav />
@@ -12,69 +87,103 @@ export default function TeamPage() {
       <div className="page-hero">
         <div className="page-hero-inner">
           <span className="text-label">Our People</span>
-          <h1>The Partners</h1>
-          <p className="hero-sub">Every matter at {company.name} is led by a partner. There are no exceptions.</p>
+          <h1>Attorney Search</h1>
+          <p className="hero-sub">Every matter is led by a partner. Search our team by name, practice area, or position.</p>
         </div>
       </div>
 
-      {/* Intro */}
-      <section className="section">
-        <div className="section-inner" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-5xl)", alignItems: "center" }}>
-          <div>
-            <span className="text-label" style={{ display: "block", marginBottom: "var(--space-lg)" }}>A Different Kind of Firm</span>
-            <h2 style={{ marginBottom: "var(--space-xl)" }}>Small by Design. Exceptional by Necessity.</h2>
-            <p style={{ color: "var(--color-text-secondary)", marginBottom: "var(--space-lg)", lineHeight: "1.9" }}>We are a small firm by design. We believe that exceptional legal work requires exceptional people, and that exceptional people cannot be scaled indefinitely. Every partner at {company.name} has been selected for their technical mastery, their judgment under pressure, and their absolute commitment to client confidentiality.</p>
-            <p style={{ color: "var(--color-text-secondary)", marginBottom: "var(--space-lg)", lineHeight: "1.9" }}>We do not have associates handling partner-level work. We do not have trainees sitting in on sensitive client calls. When you instruct {company.name}, you are instructing the partner whose name is on the door. That is not a marketing claim. It is how we operate.</p>
-            <p style={{ color: "var(--color-text-secondary)", lineHeight: "1.9" }}>Our partners have come from the most demanding environments in the legal profession: Magic Circle firms, international arbitral institutions, government enforcement bodies, and the judiciary. They have chosen to work here because they share a belief that the best legal work is done quietly, carefully, and without compromise.</p>
-          </div>
-          <div style={{ height: "360px", background: "linear-gradient(135deg,var(--color-surface-2),var(--color-surface-1))", border: "1px solid var(--color-border)", borderRadius: "1rem", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-            <p style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.1rem,2vw,1.5rem)", color: "var(--color-text-secondary)", textAlign: "center", padding: "var(--space-3xl)", position: "relative", zIndex: 1, fontStyle: "italic", lineHeight: "1.5" }}>
-              "We do not have associates handling partner-level work. When you instruct us, you instruct the partner."
-            </p>
+      {/* Search panel */}
+      <section style={{ padding: "var(--space-4xl) var(--space-3xl) var(--space-2xl)", background: "var(--color-bg-secondary)", borderBottom: "1px solid var(--color-border)" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <div style={{ background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", padding: "var(--space-2xl) var(--space-3xl)" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr auto", gap: "var(--space-xl)", alignItems: "flex-end" }}>
+              <div>
+                <label style={labelStyle}>Search by name</label>
+                <input type="text" value={nameQuery} onChange={(e) => setNameQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                  placeholder="e.g. Victoria Chen" style={inputStyle} />
+              </div>
+              <div>
+                <label style={labelStyle}>Practice Area</label>
+                <select value={practiceFilter} onChange={(e) => setPracticeFilter(e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}>
+                  <option value="">All Practice Areas</option>
+                  {ALL_PRACTICE_AREAS.map((a) => <option key={a.id} value={a.id} style={{ background: "var(--color-bg-secondary)" }}>{a.label}</option>)}
+                </select>
+              </div>
+              <div>
+                <label style={labelStyle}>Position</label>
+                <select value={positionFilter} onChange={(e) => setPositionFilter(e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}>
+                  <option value="">All Positions</option>
+                  {POSITIONS.map((p) => <option key={p} value={p} style={{ background: "var(--color-bg-secondary)" }}>{p}</option>)}
+                </select>
+              </div>
+              <div style={{ display: "flex", gap: "var(--space-md)" }}>
+                <button onClick={handleClear} className="btn btn-sm" style={{ whiteSpace: "nowrap" }}>Clear</button>
+                <button onClick={handleSearch} className="btn btn-primary btn-sm" style={{ whiteSpace: "nowrap" }}>Search</button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Team grid */}
-      <section style={{ padding: "0 var(--space-3xl) var(--space-5xl)" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-2xl)" }}>
-          {team.map((m) => (
-            <div key={m.slug} style={{ background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", overflow: "hidden" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "160px 1fr" }}>
-                <div style={{ background: "linear-gradient(135deg,var(--color-surface-3),var(--color-surface-1))", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "4rem", minHeight: "200px", borderRight: "1px solid var(--color-border)" }}>
-                  {m.emoji}
-                </div>
-                <div style={{ padding: "var(--space-2xl)" }}>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", color: "var(--color-text-primary)", marginBottom: "var(--space-sm)" }}>{m.name}</div>
-                  <div style={{ fontSize: ".75rem", textTransform: "uppercase", letterSpacing: ".12em", color: "var(--color-accent-primary)", fontWeight: 600, marginBottom: "var(--space-sm)" }}>{m.role}</div>
-                  <div style={{ fontSize: ".875rem", color: "var(--color-text-secondary)" }}>{m.specialty}</div>
-                </div>
-              </div>
-              <div style={{ padding: "var(--space-2xl)", borderTop: "1px solid var(--color-border)" }}>
-                <p style={{ color: "var(--color-text-secondary)", fontSize: ".95rem", lineHeight: "1.9", marginBottom: "var(--space-xl)" }}>{m.bio}</p>
-                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-sm)" }}>
-                  {m.credentials.map((c, i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "var(--space-md)", fontSize: ".8rem", color: "var(--color-text-tertiary)" }}>
-                      <div style={{ width: "4px", height: "4px", borderRadius: "50%", background: "var(--color-accent-primary)", flexShrink: 0, marginTop: "6px" }} />
-                      <span>{c}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+      {/* Alphabet bar */}
+      <section style={{ padding: "var(--space-xl) var(--space-3xl)", background: "var(--color-bg-secondary)", borderBottom: "1px solid var(--color-border)" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto", display: "flex", flexWrap: "wrap", gap: "var(--space-xs)", alignItems: "center" }}>
+          <button onClick={handleClear} style={{ padding: ".3rem .75rem", fontSize: ".75rem", fontWeight: 600, fontFamily: "var(--font-body)", letterSpacing: ".08em", textTransform: "uppercase", border: "1px solid", borderRadius: ".375rem", cursor: "pointer", transition: "all .2s", background: activeLetter === "" ? "var(--color-accent-primary)" : "transparent", borderColor: activeLetter === "" ? "var(--color-accent-primary)" : "var(--color-border)", color: activeLetter === "" ? "var(--color-bg-primary)" : "var(--color-text-secondary)" }}>
+            All
+          </button>
+          {ALPHABET.map((letter) => (
+            <button key={letter} onClick={() => handleLetter(letter)} style={{ width: "2rem", height: "2rem", fontSize: ".8rem", fontWeight: 600, fontFamily: "var(--font-body)", border: "1px solid", borderRadius: ".375rem", cursor: "pointer", transition: "all .2s", background: activeLetter === letter ? "var(--color-accent-primary)" : "transparent", borderColor: activeLetter === letter ? "var(--color-accent-primary)" : "var(--color-border)", color: activeLetter === letter ? "var(--color-bg-primary)" : "var(--color-text-secondary)" }}>
+              {letter}
+            </button>
           ))}
         </div>
       </section>
 
-      <div className="cta-strip">
-        <div className="cta-strip-inner">
-          <div className="cta-strip-content">
-            <h2>Work Directly With a Partner</h2>
-            <p>Every new enquiry is reviewed personally by a partner before we respond. We will tell you honestly whether we can help and who is best placed to do so.</p>
-            <Link href="/contact" className="btn">Make a Confidential Enquiry</Link>
+      {/* Results */}
+      <section style={{ padding: "var(--space-4xl) var(--space-3xl) var(--space-5xl)" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <div style={{ marginBottom: "var(--space-2xl)" }}>
+            <h2 style={{ fontSize: "clamp(1.5rem,3vw,2rem)", marginBottom: "var(--space-sm)" }}>Search Results</h2>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: ".9rem" }}>{subtitleText}</p>
           </div>
+
+          {results.length === 0 ? (
+            <div style={{ padding: "var(--space-5xl)", textAlign: "center", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", color: "var(--color-text-secondary)" }}>
+              No attorneys found matching your criteria.
+            </div>
+          ) : (
+            <div style={{ background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", overflow: "hidden" }}>
+              {/* Header row */}
+              <div style={{ display: "grid", gridTemplateColumns: "56px 1fr 200px 1fr", gap: "var(--space-xl)", padding: "var(--space-md) var(--space-2xl)", background: "rgba(255,255,255,.04)", borderBottom: "1px solid var(--color-border)" }}>
+                <div />
+                {["Name", "Position", "Practice Areas"].map((h) => (
+                  <div key={h} style={{ fontSize: ".7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".12em", color: "var(--color-text-tertiary)" }}>{h}</div>
+                ))}
+              </div>
+              {/* Data rows */}
+              {results.map((m, idx) => (
+                <a key={m.slug} href={`/team/${m.slug}`} className="attorney-row" style={{ display: "grid", gridTemplateColumns: "56px 1fr 200px 1fr", gap: "var(--space-xl)", padding: "var(--space-lg) var(--space-2xl)", borderBottom: idx < results.length - 1 ? "1px solid var(--color-border)" : "none", textDecoration: "none", alignItems: "center", transition: "background .2s" }}>
+                  <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "linear-gradient(135deg,var(--color-surface-3),var(--color-surface-1))", border: "1px solid var(--color-border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", flexShrink: 0 }}>
+                    {m.emoji}
+                  </div>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--color-text-primary)" }}>
+                    {m.lastName}, {m.name.split(" ")[0]}
+                  </div>
+                  <div style={{ fontSize: ".8rem", color: "var(--color-accent-primary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: ".08em" }}>
+                    {m.position}
+                  </div>
+                  <div style={{ fontSize: ".85rem", color: "var(--color-text-secondary)" }}>
+                    {(m.practiceAreas as string[]).map(getPracticeLabel).join(", ")}
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
         </div>
-      </div>
+      </section>
+
+      <style>{`.attorney-row:hover { background: rgba(132,204,22,0.04) !important; }`}</style>
 
       <LexiFooter />
     </div>
