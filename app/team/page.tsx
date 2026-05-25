@@ -104,7 +104,7 @@ export default function TeamPage() {
       {/* Search panel */}
       <section style={{ padding: "var(--space-4xl) var(--space-3xl) var(--space-2xl)", background: "var(--color-bg-secondary)", borderBottom: "1px solid var(--color-border)" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <div style={{ background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", padding: "var(--space-2xl) var(--space-3xl)" }}>
+          <div style={{ background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", padding: "var(--space-2xl) var(--space-xl)" }}>
             <div className="search-panel-grid">
               <div>
                 <label style={labelStyle}>Search by name</label>
@@ -150,8 +150,8 @@ export default function TeamPage() {
       </section>
 
       {/* Results */}
-      <section style={{ padding: "var(--space-4xl) var(--space-3xl) var(--space-5xl)" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ padding: "var(--space-4xl) var(--space-lg) var(--space-5xl)" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 var(--space-lg)" }}>
 
           {/* Pre-search gate */}
           {!hasSearched && (

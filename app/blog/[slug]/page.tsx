@@ -4,8 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import siteData from "@/data/siteData.json";
 
-export const runtime = 'edge';
-
+export const runtime = "edge";
 const { blog } = siteData;
 
 export default function BlogSinglePage() {
@@ -19,7 +18,7 @@ export default function BlogSinglePage() {
             <LexiNav />
 
             {!post ? (
-                <div style={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "var(--space-xl)", paddingTop: "120px" }}>
+                <div style={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "var(--space-xl)", padding: "120px var(--space-lg) var(--space-3xl)" }}>
                     <h2 style={{ color: "var(--color-text-secondary)" }}>Article not found</h2>
                     <Link href="/blog" className="btn">Back to Insights</Link>
                 </div>
@@ -35,7 +34,7 @@ export default function BlogSinglePage() {
 
                     {/* Hero image */}
                     {post.image && (
-                        <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 var(--space-3xl)" }}>
+                        <div className="blog-hero-image" style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 var(--space-3xl)" }}>
                             <div style={{ height: "480px", borderRadius: "1rem", overflow: "hidden", border: "1px solid var(--color-border)" }}>
                                 <img src={post.image} alt={post.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                             </div>
@@ -43,53 +42,49 @@ export default function BlogSinglePage() {
                     )}
 
                     {/* Article body */}
-                    <div style={{ padding: "var(--space-5xl) var(--space-3xl)", maxWidth: "1400px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 300px", gap: "var(--space-4xl)", alignItems: "start" }}>
-                        <article>
-                            {/* Excerpt callout */}
-                            <div style={{ padding: "var(--space-2xl)", background: "rgba(132,204,22,.06)", border: "1px solid rgba(132,204,22,.15)", borderRadius: ".75rem", marginBottom: "var(--space-3xl)" }}>
-                                <p style={{ color: "var(--color-text-secondary)", fontSize: "1.05rem", lineHeight: "1.8", fontStyle: "italic" }}>{post.excerpt}</p>
-                            </div>
-
-                            {/* Full content */}
-                            <div style={{ color: "var(--color-text-secondary)", lineHeight: "2", fontSize: "1.05rem" }}>
-                                {post.content.split("\n\n").map((para, i) => (
-                                    <p key={i} style={{ marginBottom: "var(--space-xl)" }}>{para}</p>
-                                ))}
-                            </div>
-
-                            {/* Disclaimer */}
-                            <div style={{ marginTop: "var(--space-3xl)", paddingTop: "var(--space-2xl)", borderTop: "1px solid var(--color-border)" }}>
-                                <p style={{ color: "var(--color-text-tertiary)", fontSize: ".8rem", lineHeight: "1.6" }}>This article represents the personal analysis of the author and does not constitute legal advice. It should not be relied upon as a substitute for specific legal counsel on your particular circumstances. If you have a legal matter you wish to discuss, please contact us directly.</p>
-                            </div>
-                        </article>
-
-                        {/* Sidebar */}
-                        <aside style={{ position: "sticky", top: "120px", display: "flex", flexDirection: "column", gap: "var(--space-xl)" }}>
-                            <div style={{ padding: "var(--space-2xl)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: ".75rem" }}>
-                                <h4 style={{ fontFamily: "var(--font-body)", fontSize: ".75rem", textTransform: "uppercase", letterSpacing: ".15em", fontWeight: 600, color: "var(--color-accent-primary)", marginBottom: "var(--space-xl)" }}>Article Details</h4>
-                                {[{ label: "Category", value: post.category }, { label: "Published", value: post.date }, { label: "Reading Time", value: post.readTime }].map((d, i) => (
-                                    <div key={i} style={{ marginBottom: "var(--space-lg)" }}>
-                                        <div style={{ fontSize: ".75rem", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: ".1em", marginBottom: ".25rem" }}>{d.label}</div>
-                                        <div style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--color-text-primary)" }}>{d.value}</div>
+                    <section className="page-section">
+                        <div className="page-section-inner">
+                            <div className="article-layout">
+                                <article>
+                                    <div style={{ padding: "var(--space-2xl)", background: "rgba(132,204,22,.06)", border: "1px solid rgba(132,204,22,.15)", borderRadius: ".75rem", marginBottom: "var(--space-3xl)" }}>
+                                        <p style={{ color: "var(--color-text-secondary)", fontSize: "1.05rem", lineHeight: "1.8", fontStyle: "italic" }}>{post.excerpt}</p>
                                     </div>
-                                ))}
+                                    <div style={{ color: "var(--color-text-secondary)", lineHeight: "2", fontSize: "1.05rem" }}>
+                                        {post.content.split("\n\n").map((para, i) => (
+                                            <p key={i} style={{ marginBottom: "var(--space-xl)" }}>{para}</p>
+                                        ))}
+                                    </div>
+                                    <div style={{ marginTop: "var(--space-3xl)", paddingTop: "var(--space-2xl)", borderTop: "1px solid var(--color-border)" }}>
+                                        <p style={{ color: "var(--color-text-tertiary)", fontSize: ".8rem", lineHeight: "1.6" }}>This article represents the personal analysis of the author and does not constitute legal advice. It should not be relied upon as a substitute for specific legal counsel on your particular circumstances. If you have a legal matter you wish to discuss, please contact us directly.</p>
+                                    </div>
+                                </article>
+
+                                {/* Sidebar */}
+                                <aside style={{ position: "sticky", top: "120px", display: "flex", flexDirection: "column", gap: "var(--space-xl)" }}>
+                                    <div style={{ padding: "var(--space-2xl)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: ".75rem" }}>
+                                        <h4 style={{ fontFamily: "var(--font-body)", fontSize: ".75rem", textTransform: "uppercase", letterSpacing: ".15em", fontWeight: 600, color: "var(--color-accent-primary)", marginBottom: "var(--space-xl)" }}>Article Details</h4>
+                                        {[{ label: "Category", value: post.category }, { label: "Published", value: post.date }, { label: "Reading Time", value: post.readTime }].map((d, i) => (
+                                            <div key={i} style={{ marginBottom: "var(--space-lg)" }}>
+                                                <div style={{ fontSize: ".75rem", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: ".1em", marginBottom: ".25rem" }}>{d.label}</div>
+                                                <div style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--color-text-primary)" }}>{d.value}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <Link href="/contact" className="btn btn-primary" style={{ textAlign: "center", width: "100%" }}>Discuss This Topic</Link>
+                                    <Link href="/blog" className="btn" style={{ textAlign: "center", width: "100%" }}>All Insights</Link>
+                                </aside>
                             </div>
-                            <Link href="/contact" className="btn btn-primary" style={{ textAlign: "center", width: "100%" }}>Discuss This Topic</Link>
-                            <Link href="/blog" className="btn" style={{ textAlign: "center", width: "100%" }}>All Insights</Link>
-                        </aside>
-                    </div>
+                        </div>
+                    </section>
 
                     {/* More insights */}
-                    <section style={{ padding: "var(--space-5xl) var(--space-3xl)", background: "linear-gradient(180deg,var(--color-bg-tertiary),transparent)" }}>
-                        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+                    <section className="page-section-alt">
+                        <div className="page-section-inner">
                             <span className="text-label" style={{ display: "block", marginBottom: "var(--space-lg)" }}>More Insights</span>
                             <h2 style={{ marginBottom: "var(--space-2xl)" }}>Further Reading</h2>
-                            <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "var(--space-2xl)" }}>
+                            <div className="related-grid">
                                 {others.map((a) => (
-                                    <Link key={a.slug} href={`/blog/${a.slug}`} style={{ display: "block", textDecoration: "none", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: ".75rem", overflow: "hidden", transition: "all .3s" }}
-                                        onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--color-accent-primary)"; el.style.transform = "translateY(-4px)"; }}
-                                        onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = "var(--color-border)"; el.style.transform = "translateY(0)"; }}
-                                    >
+                                    <Link key={a.slug} href={`/blog/${a.slug}`} className="related-card" style={{ textDecoration: "none", overflow: "hidden", padding: 0 }}>
                                         <div style={{ height: "160px", background: "var(--color-surface-3)", overflow: "hidden" }}>
                                             {a.image ? <img src={a.image} alt={a.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /> : <div style={{ width: "100%", height: "100%", background: "linear-gradient(135deg,var(--color-surface-3),var(--color-surface-1))" }} />}
                                         </div>
@@ -115,7 +110,6 @@ export default function BlogSinglePage() {
                     </div>
                 </div>
             </div>
-
             <LexiFooter />
         </div>
     );

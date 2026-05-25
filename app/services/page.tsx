@@ -8,7 +8,6 @@ export default function ServicesPage() {
   return (
     <div className="content">
       <LexiNav />
-
       <div className="page-hero">
         <div className="page-hero-inner">
           <span className="text-label">Practice Areas</span>
@@ -17,32 +16,30 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: "var(--space-4xl)", alignItems: "start", maxWidth: "1400px", margin: "0 auto", padding: "var(--space-5xl) var(--space-3xl)" }}>
-        {/* Sidebar */}
+      <div className="services-layout">
         <aside style={{ position: "sticky", top: "120px" }}>
           <span style={{ fontSize: ".7rem", textTransform: "uppercase", letterSpacing: ".15em", fontWeight: 600, color: "var(--color-text-tertiary)", marginBottom: "var(--space-xl)", display: "block" }}>Jump to</span>
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-sm)" }}>
             {services.map((s) => (
-              <a key={s.id} href={`#${s.id}`} style={{ display: "flex", alignItems: "center", gap: "var(--space-md)", padding: "var(--space-md) var(--space-lg)", borderRadius: ".5rem", textDecoration: "none", color: "var(--color-text-secondary)", fontSize: ".875rem", transition: "all .3s", border: "1px solid transparent" }}>
+              <a key={s.id} href={`#${s.id}`} className="sidebar-nav-link">
                 <span>{s.icon}</span><span>{s.title}</span>
               </a>
             ))}
           </div>
         </aside>
 
-        {/* Service cards */}
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3xl)" }}>
           {services.map((s) => (
-            <div key={s.id} id={s.id} style={{ padding: "var(--space-4xl)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", scrollMarginTop: "120px" }}>
+            <div key={s.id} id={s.id} style={{ padding: "var(--space-3xl)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", scrollMarginTop: "120px" }}>
               <div style={{ display: "flex", alignItems: "flex-start", gap: "var(--space-xl)", marginBottom: "var(--space-2xl)" }}>
-                <div style={{ width: "64px", height: "64px", background: "rgba(132,204,22,.12)", border: "1px solid rgba(132,204,22,.3)", borderRadius: ".75rem", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.75rem", flexShrink: 0 }}>{s.icon}</div>
+                <div style={{ width: "56px", height: "56px", background: "rgba(132,204,22,.12)", border: "1px solid rgba(132,204,22,.3)", borderRadius: ".75rem", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.75rem", flexShrink: 0 }}>{s.icon}</div>
                 <div>
                   <span className="text-label" style={{ display: "block" }}>{s.title}</span>
-                  <h2 style={{ fontSize: "clamp(1.5rem,3vw,2rem)" }}>{s.title}</h2>
+                  <h2 style={{ fontSize: "clamp(1.4rem,3vw,2rem)" }}>{s.title}</h2>
                 </div>
               </div>
               <p style={{ color: "var(--color-text-secondary)", marginBottom: "var(--space-2xl)", lineHeight: "1.9" }}>{s.fullDescription}</p>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-md)", marginBottom: "var(--space-2xl)" }}>
+              <div className="services-details-grid">
                 {s.details.map((d, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "var(--space-md)", padding: "var(--space-md) var(--space-lg)", background: "var(--color-surface-1)", borderRadius: ".5rem" }}>
                     <span style={{ color: "var(--color-accent-primary)", fontWeight: 700, flexShrink: 0, marginTop: "2px" }}>&#10003;</span>
@@ -56,12 +53,11 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      {/* Why us */}
-      <section style={{ padding: "var(--space-5xl) var(--space-3xl)", background: "linear-gradient(180deg,var(--color-bg-tertiary),transparent)" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+      <section className="page-section-alt">
+        <div className="page-section-inner">
           <span className="text-label" style={{ display: "block", marginBottom: "var(--space-md)" }}>Why Lexi Global Firm</span>
           <h2 style={{ marginBottom: "var(--space-3xl)" }}>What Sets Us Apart</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: "var(--space-xl)" }}>
+          <div className="services-why-grid">
             {[
               { title: "Absolute Discretion", body: "We operate under confidentiality protocols that go beyond standard legal professional privilege. Nothing about your matter is discussed outside the team handling it, and nothing is ever disclosed publicly without your explicit consent." },
               { title: "Partner-Led on Every Matter", body: "There are no exceptions to this rule. Every client of Lexi Global Firm is advised directly by a partner. We do not delegate substantive work to junior associates. The person you instruct is the person who does the work." },
@@ -86,7 +82,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
-
       <LexiFooter />
     </div>
   );
