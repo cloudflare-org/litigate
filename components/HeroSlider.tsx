@@ -50,10 +50,17 @@ export default function HeroSlider() {
         return () => { if (timerRef.current) clearInterval(timerRef.current); };
     }, [paused, advance]);
 
-    // Scroll active item into view
+    // Scroll active item into view inside the ticker panel only
     useEffect(() => {
         const el = itemRefs.current[active];
-        if (el) el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        const list = listRef.current;
+        if (!el || !list) return;
+        const listRect = list.getBoundingClientRect();
+        const elRect = el.getBoundingClientRect();
+        const offsetTop = el.offsetTop;
+        if (elRect.top < listRect.top || elRect.bottom > listRect.bottom) {
+            list.scrollTo({ top: offsetTop - list.clientHeight / 2 + el.clientHeight / 2, behavior: "smooth" });
+        }
     }, [active]);
     return (
         <>
