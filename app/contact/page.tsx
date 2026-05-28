@@ -4,13 +4,11 @@ import siteData from "@/data/siteData.json";
 const { contact } = siteData;
 
 const offices = [
-  { flag: "🇬🇧", city: "London", address: `${contact.address.street}\n${contact.address.city}, ${contact.address.country} ${contact.address.postcode}`, phone: contact.phone, email: contact.email },
-  { flag: "🇺🇸", city: "New York", address: "Madison Avenue\nNew York, NY 10065", phone: "+1 (212) 555-1000", email: "ny@lexiglobalfirm.com" },
-  { flag: "🇸🇬", city: "Singapore", address: "Marina Bay\nSingapore 018956", phone: "+65 (6) 555-1000", email: "sg@lexiglobalfirm.com" },
+  { flag: "🇺🇸", city: "Chicago", address: `${contact.address.street}\n${contact.address.city}, ${contact.address.country} ${contact.address.postcode}`, phone: contact.phone, email: contact.email },
 ];
 
 const contactCards = [
-  { icon: "📍", title: "London Office", content: `${contact.address.street}\n${contact.address.city}, ${contact.address.country}\n${contact.address.postcode}`, href: undefined as string | undefined },
+  { icon: "📍", title: "Chicago Office", content: `${contact.address.street}\n${contact.address.city}, ${contact.address.country}\n${contact.address.postcode}`, href: undefined as string | undefined },
   { icon: "📞", title: "Phone", content: contact.phone, href: `tel:${contact.phone}` },
   { icon: "✉️", title: "Email", content: contact.email, href: `mailto:${contact.email}` },
   { icon: "🕐", title: "Office Hours", content: `${contact.hours.weekdays}\n${contact.hours.saturday}\n${contact.hours.sunday}`, href: undefined as string | undefined },

@@ -16,7 +16,7 @@ export default function LexiFooter() {
                     </ul>
                 </div>
                 <div className="footer-col">
-                    <h4>London</h4>
+                    <h4>Chicago</h4>
                     <ul>
                         <li><a href={`tel:${contact.phone}`}>{contact.phone}</a></li>
                         <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
