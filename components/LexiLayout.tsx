@@ -174,9 +174,10 @@ export function LexiNav() {
                     background: rgba(10, 14, 22, .6);
                     backdrop-filter: blur(4px);
                     opacity: 0;
+                    pointer-events: none;
                     transition: opacity .3s ease;
                 }
-                .lexi-drawer-overlay.open { opacity: 1; }
+                .lexi-drawer-overlay.open { opacity: 1; pointer-events: auto; }
 
                 .lexi-drawer {
                     display: none;
@@ -191,8 +192,9 @@ export function LexiNav() {
                     display: flex;
                     flex-direction: column;
                     overflow-y: auto;
+                    pointer-events: none;
                 }
-                .lexi-drawer.open { transform: translateX(0); }
+                .lexi-drawer.open { transform: translateX(0); pointer-events: auto; }
 
                 .lexi-drawer-header {
                     display: flex;

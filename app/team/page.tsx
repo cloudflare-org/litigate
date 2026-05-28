@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
+import { Lock, User } from "lucide-react";
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import siteData from "@/data/siteData.json";
 
@@ -197,7 +198,9 @@ export default function TeamPage() {
           {/* Pre-search gate */}
           {!hasSearched && (
             <div style={{ padding: "var(--space-5xl) var(--space-2xl)", textAlign: "center", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem" }}>
-              <div style={{ fontSize: "2rem", marginBottom: "var(--space-xl)" }}>🔒</div>
+              <div style={{ marginBottom: "var(--space-xl)", color: "var(--color-accent-primary)" }}>
+                <Lock size={32} strokeWidth={1.5} />
+              </div>
               <h3 style={{ marginBottom: "var(--space-lg)" }}>Attorney Profiles Available Upon Request</h3>
               <p style={{ color: "var(--color-text-secondary)", maxWidth: "520px", margin: "0 auto var(--space-2xl)", lineHeight: "1.8" }}>
                 Full attorney profiles, contact details, and direct introductions are available to referred clients and registered enquirers only. Use the search above to find attorneys by name, practice area, or position. To request access or make a referral enquiry, please contact us directly.
@@ -235,8 +238,8 @@ export default function TeamPage() {
                     {/* Rows */}
                     {results.map((m, idx) => (
                       <div key={m.slug} className="attorney-row attorney-table-grid" style={{ gap: "var(--space-xl)", padding: "var(--space-lg) var(--space-2xl)", borderBottom: idx < results.length - 1 ? "1px solid var(--color-border)" : "none", alignItems: "center" }}>
-                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "linear-gradient(135deg,var(--color-surface-3),var(--color-surface-1))", border: "1px solid var(--color-border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", flexShrink: 0 }}>
-                          {m.emoji}
+                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "linear-gradient(135deg,var(--color-surface-3),var(--color-surface-1))", border: "1px solid var(--color-border)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--color-text-secondary)", flexShrink: 0 }}>
+                          <User size={20} strokeWidth={1.5} />
                         </div>
                         <div>
                           <div style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--color-text-primary)" }}>
@@ -262,7 +265,9 @@ export default function TeamPage() {
                   {/* Access restricted overlay */}
                   <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "var(--space-xl)" }}>
                     <div style={{ background: "rgba(13,20,32,.97)", border: "1px solid rgba(182,157,116,.25)", borderRadius: "1rem", padding: "var(--space-3xl) clamp(var(--space-xl), 5vw, var(--space-4xl))", textAlign: "center", maxWidth: "520px", width: "100%", backdropFilter: "blur(12px)", boxShadow: "0 24px 64px rgba(0,0,0,.6)" }}>
-                      <div style={{ fontSize: "2rem", marginBottom: "var(--space-lg)" }}>🔒</div>
+                      <div style={{ marginBottom: "var(--space-lg)", color: "var(--color-accent-primary)" }}>
+                        <Lock size={32} strokeWidth={1.5} />
+                      </div>
                       <h3 style={{ marginBottom: "var(--space-lg)", fontSize: "clamp(1.25rem,3vw,1.75rem)" }}>Access Restricted</h3>
                       <p style={{ color: "var(--color-text-secondary)", lineHeight: "1.8", marginBottom: "var(--space-2xl)", fontSize: ".95rem" }}>
                         Attorney profiles and contact details are available to referred clients and registered enquirers only. To request access, please contact the firm directly.

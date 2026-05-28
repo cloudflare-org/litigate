@@ -10,6 +10,7 @@
         "deploy": "git add . && git commit -m \"deploy: update site\" && git push origin main"
     },
     "dependencies": {
+        "lucide-react": "^1.17.0",
         "next": "16.1.6",
         "react": "19.2.3",
         "react-dom": "19.2.3"

@@ -510,6 +510,7 @@ nav.lexi-nav.scrolled {
     inset: 0;
     background: radial-gradient(800px at 20% 50%, rgba(255, 255, 255, .1), transparent 50%);
     animation: float 20s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .cta-strip-content {
@@ -593,7 +594,7 @@ nav.lexi-nav.scrolled {
     }
 }
 
-/* HOMEPAGE HERO — replaced by HeroSlider component */
+/* HOMEPAGE HERO ï¿½ replaced by HeroSlider component */
 
 /* STATS BAR */
 .stats-bar {
