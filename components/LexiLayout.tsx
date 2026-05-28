@@ -384,7 +384,7 @@ export function LexiFooter() {
             </div>
             <div className="footer-bottom">
                 <div>&#169; {new Date().getFullYear()} {footer.copyright}</div>
-                <div className="footer-socials"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+                <div className="footer-socials" />
             </div>
         </footer>
     );

@@ -47,7 +47,6 @@ export default function LexiFooter() {
                 <div className="footer-socials">
                     <a href="#">LinkedIn</a>
                     <a href="#">Twitter</a>
-                    <a href="#">Privacy Policy</a>
                 </div>
             </div>
         </footer>
