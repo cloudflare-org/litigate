@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import siteData from "@/data/siteData.json";
 
@@ -29,7 +30,31 @@ const ITEMS: TickerItem[] = [
     })),
 ];
 
+const TICK_MS = 2800;
+
 export default function HeroSlider() {
+    const [active, setActive] = useState(0);
+    const [paused, setPaused] = useState(false);
+    const listRef = useRef<HTMLDivElement>(null);
+    const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+    const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+    const advance = useCallback(() => {
+        setActive((prev) => (prev + 1) % ITEMS.length);
+    }, []);
+
+    // Auto-advance
+    useEffect(() => {
+        if (paused) return;
+        timerRef.current = setInterval(advance, TICK_MS);
+        return () => { if (timerRef.current) clearInterval(timerRef.current); };
+    }, [paused, advance]);
+
+    // Scroll active item into view
+    useEffect(() => {
+        const el = itemRefs.current[active];
+        if (el) el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }, [active]);
     return (
         <>
             <style>{`
@@ -274,18 +299,32 @@ export default function HeroSlider() {
                     grid-template-columns: auto 1fr;
                     gap: .875rem;
                     align-items: start;
-                    padding: .875rem 0;
+                    padding: .875rem .5rem;
                     border-bottom: 1px solid rgba(255,255,255,.04);
                     text-decoration: none;
-                    transition: background .2s;
+                    transition: background .25s;
                     border-radius: .25rem;
-                    padding-left: .5rem;
-                    padding-right: .5rem;
                     margin: 0 -.5rem;
+                    border-left: 2px solid transparent;
                 }
                 .hs-item:hover { background: rgba(182,157,116,.05); }
                 .hs-item:hover .hs-item-title { color: #f0ede8; }
                 .hs-item:hover .hs-item-arrow { opacity: 1; transform: translateX(2px); }
+
+                /* Active / highlighted item */
+                .hs-item-active {
+                    background: rgba(182,157,116,.07);
+                    border-left-color: var(--color-accent-primary, #b69d74);
+                }
+                .hs-item-active .hs-item-meta { color: var(--color-accent-primary, #b69d74) !important; }
+                .hs-item-active .hs-item-title { color: #f0ede8 !important; }
+                .hs-item-active .hs-item-arrow { opacity: 1 !important; }
+                .hs-item-active .hs-item-icon.case {
+                    background: rgba(182,157,116,.22);
+                    border-color: rgba(182,157,116,.45);
+                }
+
+                @keyframes hsTick { from { width: 0; } to { width: 100%; } }
 
                 .hs-item-icon {
                     width: 28px;
@@ -408,15 +447,25 @@ export default function HeroSlider() {
                         </div>
                     </div>
 
-                    {/* RIGHT — manual scroll panel */}
-                    <div className="hs-panel">
+                    {/* RIGHT — auto-scroll ticker */}
+                    <div
+                        className="hs-panel"
+                        onMouseEnter={() => setPaused(true)}
+                        onMouseLeave={() => setPaused(false)}
+                    >
                         <div className="hs-panel-head">
                             <span className="hs-panel-title">Cases &amp; Insights</span>
-                            <span className="hs-panel-count">{ITEMS.length} items</span>
+                            <span className="hs-panel-count">{String(active + 1).padStart(2, "0")} / {String(ITEMS.length).padStart(2, "0")}</span>
                         </div>
-                        <div className="hs-list">
-                            {ITEMS.map((item) => (
-                                <Link key={item.id} href={item.href} className="hs-item">
+                        <div className="hs-list" ref={listRef}>
+                            {ITEMS.map((item, i) => (
+                                <Link
+                                    key={item.id}
+                                    href={item.href}
+                                    className={`hs-item${i === active ? " hs-item-active" : ""}`}
+                                    ref={(el) => { itemRefs.current[i] = el; }}
+                                    onClick={() => { setActive(i); setPaused(true); }}
+                                >
                                     <span className={`hs-item-icon ${item.type === "Case" ? "case" : "insight"}`}>
                                         {item.type === "Case" ? "C" : "I"}
                                     </span>
@@ -429,6 +478,20 @@ export default function HeroSlider() {
                                 </Link>
                             ))}
                         </div>
+                        {/* Progress bar under panel */}
+                        {!paused && (
+                            <div style={{ height: "2px", background: "rgba(182,157,116,.1)", borderRadius: "1px", marginTop: ".75rem", overflow: "hidden", flexShrink: 0 }}>
+                                <div
+                                    key={active}
+                                    style={{
+                                        height: "100%",
+                                        background: "var(--color-accent-primary, #b69d74)",
+                                        borderRadius: "1px",
+                                        animation: `hsTick ${TICK_MS}ms linear forwards`,
+                                    }}
+                                />
+                            </div>
+                        )}
                     </div>
 
                 </div>
