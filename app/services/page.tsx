@@ -1,4 +1,5 @@
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
+import { ServiceIcon } from "@/components/ServiceIcon";
 import Link from "next/link";
 import siteData from "@/data/siteData.json";
 
@@ -22,7 +23,7 @@ export default function ServicesPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-sm)" }}>
             {services.map((s) => (
               <a key={s.id} href={`#${s.id}`} className="sidebar-nav-link">
-                <span>{s.icon}</span><span>{s.title}</span>
+                <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "20px" }}><ServiceIcon id={s.id} size={18} /></span><span>{s.title}</span>
               </a>
             ))}
           </div>
@@ -32,7 +33,7 @@ export default function ServicesPage() {
           {services.map((s) => (
             <div key={s.id} id={s.id} style={{ padding: "var(--space-3xl)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", scrollMarginTop: "120px" }}>
               <div style={{ display: "flex", alignItems: "flex-start", gap: "var(--space-xl)", marginBottom: "var(--space-2xl)" }}>
-                <div style={{ width: "56px", height: "56px", background: "rgba(132,204,22,.12)", border: "1px solid rgba(132,204,22,.3)", borderRadius: ".75rem", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.75rem", flexShrink: 0 }}>{s.icon}</div>
+                <div style={{ width: "56px", height: "56px", background: "rgba(132,204,22,.12)", border: "1px solid rgba(132,204,22,.3)", borderRadius: ".75rem", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: "#84cc16" }}><ServiceIcon id={s.id} size={28} /></div>
                 <div>
                   <span className="text-label" style={{ display: "block" }}>{s.title}</span>
                   <h2 style={{ fontSize: "clamp(1.4rem,3vw,2rem)" }}>{s.title}</h2>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import HeroSlider from "@/components/HeroSlider";
 import CardCarousel from "@/components/CardCarousel";
+import { ServiceIcon } from "@/components/ServiceIcon";
 import siteData from "@/data/siteData.json";
 
 const { services, cases, blog } = siteData;
@@ -46,7 +47,7 @@ export default function Home() {
                     <div className="services-teaser-grid">
                         {services.map((s) => (
                             <Link href={`/services#${s.id}`} className="service-teaser-card" key={s.id}>
-                                <div className="service-teaser-icon">{s.icon}</div>
+                                <div className="service-teaser-icon"><ServiceIcon id={s.id} size={24} /></div>
                                 <div className="service-teaser-title">{s.title}</div>
                                 <div className="service-teaser-desc">{s.description}</div>
                             </Link>

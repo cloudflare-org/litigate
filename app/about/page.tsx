@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
+import { Lock, Award, Globe, Target } from "lucide-react";
 import siteData from "@/data/siteData.json";
 
 const { company, about } = siteData;
+
+const valueIcons = [Lock, Award, Globe, Target];
 
 export default function AboutPage() {
     return (
@@ -110,7 +113,10 @@ export default function AboutPage() {
                     <div className="about-values-grid">
                         {about.values.map((v, i) => (
                             <div key={i} className="value-card">
-                                <div style={{ fontSize: "1.75rem", marginBottom: "var(--space-lg)" }}>{v.icon}</div>
+                                <div style={{ marginBottom: "var(--space-lg)" }}>{(() => {
+                                    const Icon = valueIcons[i];
+                                    return <Icon size={28} color="var(--color-accent-primary)" />;
+                                })()}</div>
                                 <h3 style={{ marginBottom: "var(--space-md)" }}>{v.title}</h3>
                                 <p style={{ color: "var(--color-text-secondary)", fontSize: ".95rem" }}>{v.desc}</p>
                             </div>
