@@ -1,36 +1,20 @@
 import Link from "next/link";
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
+import HeroSlider from "@/components/HeroSlider";
+import CardCarousel from "@/components/CardCarousel";
 import siteData from "@/data/siteData.json";
 
-const { company, services, cases, blog } = siteData;
+const { services, cases, blog } = siteData;
 
 export default function Home() {
     return (
         <div className="content">
             <LexiNav />
 
-            <section className="hero">
-                <div className="hero-content">
-                    <p className="text-label" style={{ marginBottom: "var(--space-xl)" }}>{company.heroSubtitle}</p>
-                    <h1>Counsel Without<br />Compromise.</h1>
-                    <p className="hero-sub">{company.heroBody}</p>
-                    <div className="hero-buttons">
-                        <Link href="/contact" className="btn btn-primary">Request a Consultation</Link>
-                        <Link href="/about" className="btn">About the Firm</Link>
-                    </div>
-                    <div className="hero-rule" />
-                </div>
-            </section>
+            {/* ── HERO — lawyer bg + scrolling cases/insights ticker ── */}
+            <HeroSlider />
 
-            <div className="stats-bar">
-                <div className="stats-bar-inner">
-                    <div className="stat"><div className="stat-num">$3.2B+</div><div className="stat-label">Assets Recovered</div></div>
-                    <div className="stat"><div className="stat-num">{company.casesWon}</div><div className="stat-label">Matters Concluded</div></div>
-                    <div className="stat"><div className="stat-num">60+</div><div className="stat-label">Countries Served</div></div>
-                    <div className="stat"><div className="stat-num">{company.yearsExperience}+</div><div className="stat-label">Years in Practice</div></div>
-                </div>
-            </div>
-
+            {/* ── FIRM TEASER ── */}
             <section className="teaser">
                 <div className="teaser-inner">
                     <div className="teaser-grid">
@@ -41,18 +25,23 @@ export default function Home() {
                             <Link href="/about" className="btn">Learn About the Firm</Link>
                         </div>
                         <div className="teaser-visual">
-                            <p className="teaser-visual-text">"The most consequential legal work is never discussed in public."</p>
+                            <p className="teaser-visual-text">
+                                &ldquo;The most consequential legal work is never discussed in public.&rdquo;
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
+            {/* ── SERVICES ── */}
             <section className="teaser teaser-alt">
                 <div className="teaser-inner">
                     <div style={{ textAlign: "center", marginBottom: "var(--space-3xl)" }}>
                         <span className="text-label">Practice Areas</span>
                         <h2>What We Do</h2>
-                        <p style={{ color: "var(--color-text-secondary)", marginTop: "var(--space-lg)", maxWidth: "560px", margin: "var(--space-lg) auto 0" }}>Six practice areas. Each led by a partner with decades of specialist experience.</p>
+                        <p style={{ color: "var(--color-text-secondary)", maxWidth: "560px", margin: "var(--space-lg) auto 0" }}>
+                            Six practice areas. Each led by a partner with decades of specialist experience.
+                        </p>
                     </div>
                     <div className="services-teaser-grid">
                         {services.map((s) => (
@@ -69,50 +58,65 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* ── CASES CAROUSEL ── */}
             <section className="teaser">
                 <div className="teaser-inner">
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-3xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
-                        <div><span className="text-label">Landmark Outcomes</span><h2>Selected Cases</h2></div>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-2xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
+                        <div>
+                            <span className="text-label">Landmark Outcomes</span>
+                            <h2>Selected Cases</h2>
+                        </div>
                         <Link href="/cases" className="btn btn-sm">View All Cases</Link>
                     </div>
-                    <div className="timeline">
-                        {cases.slice(0, 3).map((c) => (
-                            <div className="timeline-item" key={c.slug}>
-                                <div className="timeline-marker" />
-                                <Link href={`/cases/${c.slug}`} className="timeline-card">
-                                    <div className="timeline-year">{c.year} &middot; {c.category}</div>
-                                    <div className="timeline-title">{c.title}</div>
-                                    <div className="timeline-tags">{c.tags.map((t, i) => <span className="case-tag" key={i}>{t}</span>)}</div>
-                                </Link>
-                            </div>
+                    <CardCarousel perView={3}>
+                        {cases.map((c) => (
+                            <Link href={`/cases/${c.slug}`} className="case-list-card" key={c.slug} style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)", height: "100%" }}>
+                                <div style={{ fontSize: ".72rem", color: "var(--color-accent-primary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: ".1em" }}>
+                                    {c.year} · {c.category}
+                                </div>
+                                <div style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem", color: "var(--color-text-primary)", lineHeight: 1.3, flex: 1 }}>
+                                    {c.title}
+                                </div>
+                                <div style={{ display: "flex", gap: ".4rem", flexWrap: "wrap", marginTop: "auto" }}>
+                                    {c.tags.map((t, i) => <span className="case-tag" key={i}>{t}</span>)}
+                                </div>
+                            </Link>
                         ))}
-                    </div>
+                    </CardCarousel>
                 </div>
             </section>
 
-            <section className="teaser">
+            {/* ── BLOG CAROUSEL ── */}
+            <section className="teaser teaser-alt">
                 <div className="teaser-inner">
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-3xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
-                        <div><span className="text-label">Insights</span><h2>Latest Analysis</h2></div>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-2xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
+                        <div>
+                            <span className="text-label">Insights</span>
+                            <h2>Latest Analysis</h2>
+                        </div>
                         <Link href="/blog" className="btn btn-sm">All Insights</Link>
                     </div>
-                    <div className="blog-teaser-grid">
+                    <CardCarousel perView={3}>
                         {blog.map((a) => (
                             <Link href={`/blog/${a.slug}`} className="blog-teaser-card" key={a.slug}>
                                 <div className="blog-teaser-img">
-                                    {a.image ? <img src={a.image} alt={a.title} /> : <div className="blog-teaser-img-placeholder" />}
+                                    {a.image
+                                        ? <img src={a.image} alt={a.title} />
+                                        : <div className="blog-teaser-img-placeholder" />
+                                    }
                                 </div>
                                 <div className="blog-teaser-body">
                                     <div className="blog-teaser-cat">{a.category}</div>
                                     <div className="blog-teaser-title">{a.title}</div>
-                                    <div className="blog-teaser-meta">{a.date} &middot; {a.readTime} read</div>
+                                    <div className="blog-teaser-meta">{a.date} · {a.readTime} read</div>
                                 </div>
                             </Link>
                         ))}
-                    </div>
+                    </CardCarousel>
                 </div>
             </section>
 
+            {/* ── CTA ── */}
             <div className="cta-strip">
                 <div className="cta-strip-inner">
                     <div className="cta-strip-content">

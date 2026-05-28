@@ -5,15 +5,17 @@
     "nameSub": "FIRM",
     "tagline": "Counsel Without Compromise",
     "description": "Lexi Global Firm operates at the intersection of law, power, and discretion. We do not advertise outcomes. We deliver them.",
-    "foundedYear": 1998,
-    "yearsExperience": 26,
+    "foundedYear": 2013,
+    "founder": "Howard Weitzman",
+    "founderTitle": "Founding Partner",
+    "yearsExperience": 12,
     "casesWon": "500+",
     "successRate": "98%",
-    "heroSubtitle": "By Referral Only. Since 1998.",
+    "heroSubtitle": "Founded by Howard Weitzman · Since 2013.",
     "heroBody": "Lexi Global Firm serves a select group of clients who require the highest level of legal counsel and the strictest standards of confidentiality. We do not seek publicity. We seek results."
   },
   "contact": {
-    "phone": "+44 XXX XXX XXXX",
+    "phone": "+44 7512 578819",
     "email": "enquiries@lexiglobalfirm.com",
     "address": {
       "street": "One Bishopsgate",
@@ -642,7 +644,7 @@
     },
     {
       "slug": "sec-regulatory-defence",
-      "year": "2023",
+      "year": "2024",
       "title": "SEC Investigation: Favourable Resolution for Senior Executive",
       "category": "Regulatory Defence",
       "tags": [
@@ -661,7 +663,7 @@
       "category": "Market Analysis",
       "title": "The ESG Litigation Wave: What Boards Need to Know",
       "excerpt": "Shareholder derivative actions targeting ESG discrepancies are accelerating. We examine the legal exposure and what boards can do to protect themselves.",
-      "date": "May 2026",
+      "date": "October 2024",
       "readTime": "8 min",
       "image": "/blog1.jpg",
       "content": "The past 18 months have seen a significant increase in shareholder derivative actions targeting alleged discrepancies between corporate ESG commitments and actual practice. These claims are being brought in multiple jurisdictions simultaneously, and they are becoming more sophisticated in their legal theory and more aggressive in their remedies sought. Boards that have not yet conducted a rigorous audit of their ESG disclosures are exposed. The question is no longer whether ESG litigation will affect your company, but when.\n\nIn this analysis, we examine the key legal theories being deployed, the jurisdictions where exposure is greatest, and the steps that boards can take now to reduce their risk.\n\nThe primary legal theory in most ESG derivative actions is that directors breached their fiduciary duty by approving or failing to correct materially misleading ESG disclosures. In the United States, plaintiffs have had early success in Delaware courts by arguing that boards were aware of the gap between public commitments and internal practice and failed to act. In the United Kingdom, the Financial Conduct Authority has signalled that it will treat greenwashing as a disclosure failure with regulatory consequences, opening a parallel enforcement track alongside private litigation.\n\nThe jurisdictions of greatest current exposure are the United States, the Netherlands, Australia, and the United Kingdom. Each has seen at least one significant ESG-related derivative or class action reach the merits stage in the past 24 months. Germany and France are emerging as secondary fronts, driven by the EU Corporate Sustainability Reporting Directive and its mandatory disclosure requirements.\n\nBoards that wish to reduce their exposure should begin with a gap analysis comparing public ESG commitments against internal data and operational reality. Where gaps exist, the board must decide whether to close them operationally or revise the public disclosure. Either path requires documentation of the decision-making process. Directors who can demonstrate that they were informed, deliberate, and acted in good faith are significantly better positioned to defend derivative claims than those who cannot."
@@ -671,7 +673,7 @@
       "category": "Regulatory Update",
       "title": "Post-LIBOR Transition: The Litigation Landscape",
       "excerpt": "The transition away from LIBOR has created a new category of contractual dispute. We map the emerging litigation landscape and identify the key risk areas.",
-      "date": "April 2026",
+      "date": "February 2024",
       "readTime": "6 min",
       "image": "/blog2.jpg",
       "content": "The cessation of LIBOR has given rise to a new and rapidly evolving category of contractual dispute. Parties to long-term financial contracts are discovering that the fallback provisions they agreed to years ago do not function as intended in a post-LIBOR world. The result is a growing body of litigation in which courts are being asked to interpret ambiguous contractual language, imply terms, and in some cases rectify agreements.\n\nWe have been instructed in a number of these matters and have developed a clear view of where the legal risk lies and how it can be managed.\n\nThe core problem is that many contracts written before 2014 contain fallback provisions that were designed to address a temporary unavailability of LIBOR, not its permanent cessation. When applied to a world in which LIBOR no longer exists, these provisions produce results that neither party intended. In some cases, the fallback rate is significantly higher or lower than the parties expected. In others, the fallback mechanism fails entirely, leaving the contract without a functioning interest rate provision.\n\nEnglish courts have so far taken a relatively conservative approach, declining to imply terms or rectify contracts where the existing language, however imperfect, produces a workable result. The US courts have been somewhat more willing to consider extrinsic evidence of the parties' intentions, though the outcomes remain unpredictable.\n\nParties with significant LIBOR-linked exposure who have not yet reviewed their contract portfolios should do so as a matter of urgency. The limitation period for claims arising from the transition is running, and early legal advice is significantly cheaper than late litigation."
@@ -681,7 +683,7 @@
       "category": "Case Commentary",
       "title": "Cross-Border Enforcement: New Frontiers",
       "excerpt": "Recent decisions in England, Singapore, and the UAE are reshaping the enforcement landscape for foreign judgments and arbitral awards.",
-      "date": "March 2026",
+      "date": "September 2024",
       "readTime": "12 min",
       "image": "/blog3.jpg",
       "content": "The enforcement of foreign judgments and arbitral awards has always been one of the most technically demanding areas of international litigation. Recent decisions in England, Singapore, and the UAE have introduced new considerations that practitioners and their clients need to understand.\n\nIn England, the Supreme Court's decision in Privatbank v Kolomoisky has clarified the circumstances in which a foreign judgment obtained by fraud will be refused enforcement. The court confirmed that the fraud exception applies where the judgment was obtained by fraud on the foreign court, not merely where the underlying transaction was fraudulent. This is a narrower test than some practitioners had assumed, and it means that defendants seeking to resist enforcement on fraud grounds face a high evidential threshold.\n\nIn Singapore, the Court of Appeal has expanded the grounds on which enforcement of an arbitral award may be resisted on public policy grounds. The court held that an award that requires a party to perform an act that would be illegal under Singapore law may be refused enforcement even if the illegality was not raised before the tribunal. This decision has significant implications for awards involving regulated activities in Singapore, including financial services and real estate transactions.\n\nIn the UAE, recent legislative changes have significantly improved the prospects for enforcement of foreign awards in the DIFC courts. The DIFC Courts now have jurisdiction to enforce awards against assets located anywhere in the UAE, not merely within the DIFC itself. This change, combined with the UAE's accession to the New York Convention, makes the DIFC one of the most enforcement-friendly jurisdictions in the Middle East.\n\nFor clients with enforcement needs across these jurisdictions, the practical implications are significant. England remains the gold standard for enforcement of commercial awards, but the fraud exception is narrower than many assume. Singapore is becoming more cautious about awards with regulatory dimensions. And the UAE is rapidly becoming a viable enforcement destination for awards against Middle Eastern respondents."

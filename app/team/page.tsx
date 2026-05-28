@@ -78,52 +78,86 @@ export default function TeamPage() {
       : "";
 
   const inputStyle: React.CSSProperties = {
-    width: "100%", padding: "var(--space-md) var(--space-lg)",
-    background: "var(--color-surface-2)", border: "1px solid var(--color-border)",
-    borderRadius: ".5rem", color: "var(--color-text-primary)",
-    fontFamily: "var(--font-body)", fontSize: ".9rem", outline: "none",
+    width: "100%",
+    padding: "var(--space-md) var(--space-lg)",
+    background: "var(--color-surface-2)",
+    border: "1px solid var(--color-border)",
+    borderRadius: ".5rem",
+    color: "var(--color-text-primary)",
+    fontFamily: "var(--font-body)",
+    fontSize: ".9rem",
+    outline: "none",
   };
   const labelStyle: React.CSSProperties = {
-    display: "block", fontSize: ".7rem", fontWeight: 600,
-    textTransform: "uppercase", letterSpacing: ".12em",
-    color: "var(--color-text-secondary)", marginBottom: "var(--space-sm)",
+    display: "block",
+    fontSize: ".7rem",
+    fontWeight: 600,
+    textTransform: "uppercase",
+    letterSpacing: ".12em",
+    color: "var(--color-text-secondary)",
+    marginBottom: "var(--space-sm)",
   };
+
+  /* Shared padding — clamp keeps it comfortable on all screen sizes */
+  const px = "clamp(1rem, 4vw, 5rem)";
 
   return (
     <div className="content">
       <LexiNav />
 
+      <style>{`
+                .attorney-row { transition: background .2s; }
+                .attorney-row:hover { background: var(--color-surface-3); }
+                .team-btn-row { display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap; }
+                @media (max-width: 480px) {
+                    .team-btn-row { flex-direction: column; align-items: stretch; }
+                    .team-btn-row a, .team-btn-row button { text-align: center; }
+                }
+            `}</style>
+
+      {/* ── PAGE HERO ── */}
       <div className="page-hero">
         <div className="page-hero-inner">
           <span className="text-label">Our People</span>
           <h1>Attorney Search</h1>
-          <p className="hero-sub">Search our team by name, practice area, or position. Full profiles and contact details are available to referred clients and registered enquirers.</p>
+          <p className="hero-sub">
+            Search our team by name, practice area, or position. Full profiles and contact details are available to referred clients and registered enquirers.
+          </p>
         </div>
       </div>
 
-      {/* Search panel */}
-      <section style={{ padding: "var(--space-4xl) var(--space-3xl) var(--space-2xl)", background: "var(--color-bg-secondary)", borderBottom: "1px solid var(--color-border)" }}>
+      {/* ── SEARCH PANEL ── */}
+      <section style={{ padding: `var(--space-4xl) ${px} var(--space-2xl)`, background: "var(--color-bg-secondary)", borderBottom: "1px solid var(--color-border)" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <div style={{ background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", padding: "var(--space-2xl) var(--space-xl)" }}>
             <div className="search-panel-grid">
               <div>
                 <label style={labelStyle}>Search by name</label>
-                <input type="text" value={nameQuery} onChange={(e) => setNameQuery(e.target.value)}
+                <input
+                  type="text"
+                  value={nameQuery}
+                  onChange={(e) => setNameQuery(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                  placeholder="e.g. Victoria Chen" style={inputStyle} />
+                  placeholder="e.g. Victoria Chen"
+                  style={inputStyle}
+                />
               </div>
               <div>
                 <label style={labelStyle}>Practice Area</label>
                 <select value={practiceFilter} onChange={(e) => setPracticeFilter(e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}>
                   <option value="">All Practice Areas</option>
-                  {ALL_PRACTICE_AREAS.map((a) => <option key={a.id} value={a.id} style={{ background: "var(--color-bg-secondary)" }}>{a.label}</option>)}
+                  {ALL_PRACTICE_AREAS.map((a) => (
+                    <option key={a.id} value={a.id} style={{ background: "var(--color-bg-secondary)" }}>{a.label}</option>
+                  ))}
                 </select>
               </div>
               <div>
                 <label style={labelStyle}>Position</label>
                 <select value={positionFilter} onChange={(e) => setPositionFilter(e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}>
                   <option value="">All Positions</option>
-                  {POSITIONS.map((p) => <option key={p} value={p} style={{ background: "var(--color-bg-secondary)" }}>{p}</option>)}
+                  {POSITIONS.map((p) => (
+                    <option key={p} value={p} style={{ background: "var(--color-bg-secondary)" }}>{p}</option>
+                  ))}
                 </select>
               </div>
               <div style={{ display: "flex", gap: "var(--space-md)", alignItems: "flex-end" }}>
@@ -135,39 +169,42 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Alphabet bar */}
-      <section style={{ padding: "var(--space-xl) var(--space-3xl)", background: "var(--color-bg-secondary)", borderBottom: "1px solid var(--color-border)" }}>
+      {/* ── ALPHABET BAR ── */}
+      <section style={{ padding: `var(--space-xl) ${px}`, background: "var(--color-bg-secondary)", borderBottom: "1px solid var(--color-border)" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", display: "flex", flexWrap: "wrap", gap: "var(--space-xs)", alignItems: "center" }}>
-          <button onClick={handleClear} style={{ padding: ".3rem .75rem", fontSize: ".75rem", fontWeight: 600, fontFamily: "var(--font-body)", letterSpacing: ".08em", textTransform: "uppercase", border: "1px solid", borderRadius: ".375rem", cursor: "pointer", transition: "all .2s", background: !hasSearched ? "var(--color-accent-primary)" : "transparent", borderColor: !hasSearched ? "var(--color-accent-primary)" : "var(--color-border)", color: !hasSearched ? "var(--color-bg-primary)" : "var(--color-text-secondary)" }}>
+          <button
+            onClick={handleClear}
+            style={{ padding: ".3rem .75rem", fontSize: ".75rem", fontWeight: 600, fontFamily: "var(--font-body)", letterSpacing: ".08em", textTransform: "uppercase", border: "1px solid", borderRadius: ".375rem", cursor: "pointer", transition: "all .2s", background: !hasSearched ? "var(--color-accent-primary)" : "transparent", borderColor: !hasSearched ? "var(--color-accent-primary)" : "var(--color-border)", color: !hasSearched ? "#141b27" : "var(--color-text-secondary)" }}
+          >
             All
           </button>
           {ALPHABET.map((letter) => (
-            <button key={letter} onClick={() => handleLetter(letter)} style={{ width: "2rem", height: "2rem", fontSize: ".8rem", fontWeight: 600, fontFamily: "var(--font-body)", border: "1px solid", borderRadius: ".375rem", cursor: "pointer", transition: "all .2s", background: activeLetter === letter ? "var(--color-accent-primary)" : "transparent", borderColor: activeLetter === letter ? "var(--color-accent-primary)" : "var(--color-border)", color: activeLetter === letter ? "var(--color-bg-primary)" : "var(--color-text-secondary)" }}>
+            <button
+              key={letter}
+              onClick={() => handleLetter(letter)}
+              style={{ width: "2rem", height: "2rem", fontSize: ".8rem", fontWeight: 600, fontFamily: "var(--font-body)", border: "1px solid", borderRadius: ".375rem", cursor: "pointer", transition: "all .2s", background: activeLetter === letter ? "var(--color-accent-primary)" : "transparent", borderColor: activeLetter === letter ? "var(--color-accent-primary)" : "var(--color-border)", color: activeLetter === letter ? "#141b27" : "var(--color-text-secondary)" }}
+            >
               {letter}
             </button>
           ))}
         </div>
       </section>
 
-      {/* Results */}
-      <section style={{ padding: "var(--space-4xl) var(--space-lg) var(--space-5xl)" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 var(--space-lg)" }}>
+      {/* ── RESULTS ── */}
+      <section style={{ padding: `var(--space-4xl) ${px} var(--space-5xl)` }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
 
           {/* Pre-search gate */}
           {!hasSearched && (
-            <div style={{ padding: "var(--space-5xl)", textAlign: "center", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem" }}>
+            <div style={{ padding: "var(--space-5xl) var(--space-2xl)", textAlign: "center", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem" }}>
               <div style={{ fontSize: "2rem", marginBottom: "var(--space-xl)" }}>🔒</div>
               <h3 style={{ marginBottom: "var(--space-lg)" }}>Attorney Profiles Available Upon Request</h3>
               <p style={{ color: "var(--color-text-secondary)", maxWidth: "520px", margin: "0 auto var(--space-2xl)", lineHeight: "1.8" }}>
                 Full attorney profiles, contact details, and direct introductions are available to referred clients and registered enquirers only. Use the search above to find attorneys by name, practice area, or position. To request access or make a referral enquiry, please contact us directly.
               </p>
-              <div style={{ display: "flex", gap: "var(--space-lg)", justifyContent: "center", flexWrap: "wrap" }}>
-                <a href="mailto:enquiries@lexiglobalfirm.com" className="btn btn-primary">
-                  Request Access
-                </a>
-                <a href="/contact" className="btn">
-                  Contact the Firm
-                </a>
+              <div className="team-btn-row">
+                <a href="mailto:enquiries@lexiglobalfirm.com" className="btn btn-primary">Request Access</a>
+                <a href="/contact" className="btn">Contact the Firm</a>
               </div>
             </div>
           )}
@@ -181,7 +218,7 @@ export default function TeamPage() {
               </div>
 
               {results.length === 0 ? (
-                <div style={{ padding: "var(--space-5xl)", textAlign: "center", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", color: "var(--color-text-secondary)" }}>
+                <div style={{ padding: "var(--space-5xl) var(--space-2xl)", textAlign: "center", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", color: "var(--color-text-secondary)" }}>
                   No attorneys found matching your criteria.
                 </div>
               ) : (
@@ -224,19 +261,15 @@ export default function TeamPage() {
 
                   {/* Access restricted overlay */}
                   <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "var(--space-xl)" }}>
-                    <div style={{ background: "rgba(15,15,15,0.96)", border: "1px solid rgba(132,204,22,0.25)", borderRadius: "1rem", padding: "var(--space-3xl) var(--space-4xl)", textAlign: "center", maxWidth: "520px", width: "100%", backdropFilter: "blur(12px)", boxShadow: "0 24px 64px rgba(0,0,0,0.6)" }}>
+                    <div style={{ background: "rgba(13,20,32,.97)", border: "1px solid rgba(182,157,116,.25)", borderRadius: "1rem", padding: "var(--space-3xl) clamp(var(--space-xl), 5vw, var(--space-4xl))", textAlign: "center", maxWidth: "520px", width: "100%", backdropFilter: "blur(12px)", boxShadow: "0 24px 64px rgba(0,0,0,.6)" }}>
                       <div style={{ fontSize: "2rem", marginBottom: "var(--space-lg)" }}>🔒</div>
                       <h3 style={{ marginBottom: "var(--space-lg)", fontSize: "clamp(1.25rem,3vw,1.75rem)" }}>Access Restricted</h3>
                       <p style={{ color: "var(--color-text-secondary)", lineHeight: "1.8", marginBottom: "var(--space-2xl)", fontSize: ".95rem" }}>
                         Attorney profiles and contact details are available to referred clients and registered enquirers only. To request access, please contact the firm directly.
                       </p>
-                      <div style={{ display: "flex", gap: "var(--space-lg)", justifyContent: "center", flexWrap: "wrap" }}>
-                        <a href="mailto:enquiries@lexiglobalfirm.com" className="btn btn-primary">
-                          Request Access
-                        </a>
-                        <a href="/contact" className="btn">
-                          Contact the Firm
-                        </a>
+                      <div className="team-btn-row">
+                        <a href="mailto:enquiries@lexiglobalfirm.com" className="btn btn-primary">Request Access</a>
+                        <a href="/contact" className="btn">Contact the Firm</a>
                       </div>
                     </div>
                   </div>
@@ -247,7 +280,6 @@ export default function TeamPage() {
         </div>
       </section>
 
-      <style>{`.attorney-row { transition: background .2s; }`}</style>
       <LexiFooter />
     </div>
   );
