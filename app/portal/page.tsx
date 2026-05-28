@@ -128,7 +128,7 @@ export default function PortalPage() {
                                 type="text"
                                 value={ref}
                                 onChange={(e) => setRef(e.target.value)}
-                                placeholder="e.g. LGF-2024-001"
+                                placeholder="Enter your document reference"
                                 required
                                 autoComplete="off"
                                 style={{
