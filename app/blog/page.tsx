@@ -12,7 +12,7 @@ export default function BlogPage() {
                 <div className="page-hero-inner">
                     <span className="text-label">Insights</span>
                     <h1>Analysis and Commentary</h1>
-                    <p className="hero-sub">Analysis and commentary from the partners of Lexi Global Firm on the legal issues that matter most to our clients.</p>
+                    <p className="hero-sub">Analysis and commentary from the partners of Lex Firm Global on the legal issues that matter most to our clients.</p>
                 </div>
             </div>
 

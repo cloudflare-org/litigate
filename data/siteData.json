@@ -1,10 +1,10 @@
 {
   "company": {
-    "name": "Lexi Global Firm",
-    "nameShort": "LEXI GLOBAL",
+    "name": "Lex Firm Global",
+    "nameShort": "LEX FIRM GLOBAL",
     "nameSub": "FIRM",
     "tagline": "Counsel Without Compromise",
-    "description": "Lexi Global Firm operates at the intersection of law, power, and discretion. We do not advertise outcomes. We deliver them.",
+    "description": "Lex Firm Global operates at the intersection of law, power, and discretion. We do not advertise outcomes. We deliver them.",
     "foundedYear": 2013,
     "founder": "Howard Weitzman",
     "founderTitle": "Founding Partner",
@@ -12,7 +12,7 @@
     "casesWon": "500+",
     "successRate": "98%",
     "heroSubtitle": "Founded by Howard Weitzman · Since 2013.",
-    "heroBody": "Lexi Global Firm serves a select group of clients who require the highest level of legal counsel and the strictest standards of confidentiality. We do not seek publicity. We seek results."
+    "heroBody": "Lex Firm Global serves a select group of clients who require the highest level of legal counsel and the strictest standards of confidentiality. We do not seek publicity. We seek results."
   },
   "contact": {
     "phone": "+44 7512 578819",
@@ -32,8 +32,8 @@
     }
   },
   "meta": {
-    "title": "Lexi Global Firm | Elite Legal Counsel",
-    "description": "Lexi Global Firm provides discreet, world-class legal counsel to high-net-worth individuals, corporations, and institutions across every jurisdiction."
+    "title": "Lex Firm Global | Elite Legal Counsel",
+    "description": "Lex Firm Global provides discreet, world-class legal counsel to high-net-worth individuals, corporations, and institutions across every jurisdiction."
   },
   "nav": [
     {
@@ -69,7 +69,7 @@
     "heroSubtitle": "Discretion is not a feature. It is the foundation.",
     "storyTitle": "Built on Silence. Proven by Results.",
     "storyParagraphs": [
-      "Lexi Global Firm was founded in 1998 by a group of senior partners who shared a single conviction: that the most consequential legal work is never discussed in public.",
+      "Lex Firm Global was founded in 1998 by a group of senior partners who shared a single conviction: that the most consequential legal work is never discussed in public.",
       "Over the past 26 years we have advised heads of state, sovereign wealth funds, multinational corporations, and private individuals navigating matters of extraordinary complexity and sensitivity.",
       "We do not publish client lists. We do not issue press releases about our victories. Our reputation is built entirely on the trust of those we serve and the results we achieve on their behalf.",
       "Our practice spans every major jurisdiction. Our counsel is available around the clock. And our commitment to each client is absolute."
@@ -232,7 +232,7 @@
       "email": "s.brennan@lexfirmglobal.com",
       "phone": "+44 20 7000 1007",
       "contactPrivate": false,
-      "bio": "Sophia focuses on international arbitration and investment treaty disputes, with particular experience in ICSID and SIAC proceedings. Before joining Lexi Global Firm, she completed a fellowship at the Permanent Court of Arbitration in The Hague.",
+      "bio": "Sophia focuses on international arbitration and investment treaty disputes, with particular experience in ICSID and SIAC proceedings. Before joining Lex Firm Global, she completed a fellowship at the Permanent Court of Arbitration in The Hague.",
       "credentials": [
         "Solicitor, England and Wales",
         "JD, Yale Law School",
@@ -698,6 +698,6 @@
       "Regulatory Defence",
       "Investment Law"
     ],
-    "copyright": "Lexi Global Firm. All rights reserved."
+    "copyright": "Lex Firm Global. All rights reserved."
   }
 }

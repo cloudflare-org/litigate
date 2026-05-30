@@ -22,7 +22,7 @@ export default function Home() {
                         <div className="teaser-text">
                             <span className="text-label">The Firm</span>
                             <h2>We Do Not Seek Publicity. We Seek Results.</h2>
-                            <p>Lexi Global Firm operates at the highest level of legal practice. Our clients are referred to us. Our work is never discussed in public. Our results speak through the outcomes we achieve, not the press releases we issue.</p>
+                            <p>Lex Firm Global operates at the highest level of legal practice. Our clients are referred to us. Our work is never discussed in public. Our results speak through the outcomes we achieve, not the press releases we issue.</p>
                             <Link href="/about" className="btn">Learn About the Firm</Link>
                         </div>
                         <div className="teaser-visual">

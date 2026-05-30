@@ -22,7 +22,7 @@ export default function PortalViewer({ docRef, docUrl }: Props) {
             }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/lexfirm-logo.png" alt="Lexi Global Firm" style={{ height: "36px", width: "auto" }} />
+                    <img src="/lexfirm-logo.png" alt="Lex Firm Global" style={{ height: "36px", width: "auto" }} />
                     <div style={{ width: "1px", height: "28px", background: "rgba(182,157,116,.2)" }} />
                     <div>
                         <div style={{ fontSize: ".65rem", fontWeight: 700, letterSpacing: ".15em", textTransform: "uppercase", color: "rgba(182,157,116,.6)" }}>Client Portal</div>

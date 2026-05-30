@@ -433,7 +433,7 @@ export default function HeroSlider() {
                             Counsel Without<br />Compromise.
                         </h1>
                         <p className="hs-body">
-                            Lexi Global Firm serves a select group of clients who require the highest level of legal counsel and the strictest standards of confidentiality. We do not seek publicity. We seek results.
+                            Lex Firm Global serves a select group of clients who require the highest level of legal counsel and the strictest standards of confidentiality. We do not seek publicity. We seek results.
                         </p>
                         <div className="hs-btns">
                             <Link href="/contact" className="hs-btn-p">Request a Consultation</Link>

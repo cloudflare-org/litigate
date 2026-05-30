@@ -61,7 +61,7 @@ export default function PortalPage() {
                     <a href="/" style={{ display: "inline-block", textDecoration: "none" }}>
                         <Image
                             src="/lexfirm-logo.png"
-                            alt="Lexi Global Firm"
+                            alt="Lex Firm Global"
                             width={180}
                             height={50}
                             style={{ height: "50px", width: "auto", margin: "0 auto" }}
