@@ -224,8 +224,8 @@ export default function PortalPage() {
                 <p style={{ textAlign: "center", marginTop: "1.5rem", fontSize: ".72rem", color: "rgba(159,168,184,.35)", lineHeight: 1.6 }}>
                     This portal is for authorised clients only.<br />
                     If you have not received an access code, contact{" "}
-                    <a href="mailto:enquiries@lexiglobalfirm.com" style={{ color: "rgba(182,157,116,.6)", textDecoration: "none" }}>
-                        enquiries@lexiglobalfirm.com
+                    <a href="mailto:enquiries@lexfirmglobal.com" style={{ color: "rgba(182,157,116,.6)", textDecoration: "none" }}>
+                        enquiries@lexfirmglobal.com
                     </a>
                 </p>
             </div>

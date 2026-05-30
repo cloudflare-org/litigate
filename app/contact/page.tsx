@@ -43,8 +43,8 @@ export default function ContactPage() {
               <p style={{ color: "var(--color-text-secondary)", lineHeight: "1.8", marginBottom: "var(--space-2xl)" }}>
                 We accept new clients by referral only. To make a confidential enquiry, please email us directly. All correspondence is treated with absolute discretion and responded to within 24 hours.
               </p>
-              <a href="mailto:enquiries@lexiglobalfirm.com" className="btn btn-primary" style={{ display: "inline-block", fontSize: "clamp(.8rem,2vw,1rem)", padding: "var(--space-lg) var(--space-2xl)", marginBottom: "var(--space-xl)", wordBreak: "break-all" }}>
-                enquiries@lexiglobalfirm.com
+              <a href="mailto:enquiries@lexfirmglobal.com" className="btn btn-primary" style={{ display: "inline-block", fontSize: "clamp(.8rem,2vw,1rem)", padding: "var(--space-lg) var(--space-2xl)", marginBottom: "var(--space-xl)", wordBreak: "break-all" }}>
+                enquiries@lexfirmglobal.com
               </a>
               <p style={{ color: "var(--color-text-tertiary)", fontSize: ".875rem", lineHeight: "1.7", marginBottom: "var(--space-3xl)" }}>
                 If you have been referred to us by an existing client, please mention this in your email.

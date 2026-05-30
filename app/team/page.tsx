@@ -206,7 +206,7 @@ export default function TeamPage() {
                 Full attorney profiles, contact details, and direct introductions are available to referred clients and registered enquirers only. Use the search above to find attorneys by name, practice area, or position. To request access or make a referral enquiry, please contact us directly.
               </p>
               <div className="team-btn-row">
-                <a href="mailto:enquiries@lexiglobalfirm.com" className="btn btn-primary">Request Access</a>
+                <a href="mailto:enquiries@lexfirmglobal.com" className="btn btn-primary">Request Access</a>
                 <a href="/contact" className="btn">Contact the Firm</a>
               </div>
             </div>
@@ -273,7 +273,7 @@ export default function TeamPage() {
                         Attorney profiles and contact details are available to referred clients and registered enquirers only. To request access, please contact the firm directly.
                       </p>
                       <div className="team-btn-row">
-                        <a href="mailto:enquiries@lexiglobalfirm.com" className="btn btn-primary">Request Access</a>
+                        <a href="mailto:enquiries@lexfirmglobal.com" className="btn btn-primary">Request Access</a>
                         <a href="/contact" className="btn">Contact the Firm</a>
                       </div>
                     </div>

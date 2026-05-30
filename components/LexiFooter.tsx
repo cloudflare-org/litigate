@@ -11,7 +11,7 @@ export default function LexiFooter() {
                     <h4>New York</h4>
                     <ul>
                         <li><a href="tel:+12125551000">+1 (212) 555-1000</a></li>
-                        <li><a href="mailto:ny@lexiglobalfirm.com">ny@lexiglobalfirm.com</a></li>
+                        <li><a href="mailto:ny@lexfirmglobal.com">ny@lexfirmglobal.com</a></li>
                         <li>Madison Avenue, New York, NY 10065</li>
                     </ul>
                 </div>
