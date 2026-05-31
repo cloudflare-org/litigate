@@ -37,10 +37,10 @@ export default function Home() {
             {/* ── SERVICES ── */}
             <section className="teaser teaser-alt">
                 <div className="teaser-inner">
-                    <div style={{ textAlign: "center", marginBottom: "var(--space-3xl)" }}>
+                    <div className="section-heading-center">
                         <span className="text-label">Practice Areas</span>
                         <h2>What We Do</h2>
-                        <p style={{ color: "var(--color-text-secondary)", maxWidth: "560px", margin: "var(--space-lg) auto 0" }}>
+                        <p className="section-heading-copy">
                             Six practice areas. Each led by a partner with decades of specialist experience.
                         </p>
                     </div>
@@ -53,7 +53,7 @@ export default function Home() {
                             </Link>
                         ))}
                     </div>
-                    <div style={{ textAlign: "center", marginTop: "var(--space-3xl)" }}>
+                    <div className="text-center mt-[var(--space-3xl)]">
                         <Link href="/services" className="btn">View All Services</Link>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ export default function Home() {
             {/* ── CASES CAROUSEL ── */}
             <section className="teaser">
                 <div className="teaser-inner">
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-2xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
+                    <div className="section-heading-row">
                         <div>
                             <span className="text-label">Landmark Outcomes</span>
                             <h2>Selected Cases</h2>
@@ -71,14 +71,14 @@ export default function Home() {
                     </div>
                     <CardCarousel perView={3}>
                         {cases.map((c) => (
-                            <Link href={`/cases/${c.slug}`} className="case-list-card" key={c.slug} style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)", height: "100%" }}>
-                                <div style={{ fontSize: ".72rem", color: "var(--color-accent-primary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: ".1em" }}>
+                            <Link href={`/cases/${c.slug}`} className="case-list-card case-card-compact" key={c.slug}>
+                                <div className="case-card-compact-meta">
                                     {c.year} · {c.category}
                                 </div>
-                                <div style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem", color: "var(--color-text-primary)", lineHeight: 1.3, flex: 1 }}>
+                                <div className="case-card-compact-title">
                                     {c.title}
                                 </div>
-                                <div style={{ display: "flex", gap: ".4rem", flexWrap: "wrap", marginTop: "auto" }}>
+                                <div className="case-card-compact-tags">
                                     {c.tags.map((t, i) => <span className="case-tag" key={i}>{t}</span>)}
                                 </div>
                             </Link>
@@ -90,7 +90,7 @@ export default function Home() {
             {/* ── BLOG CAROUSEL ── */}
             <section className="teaser teaser-alt">
                 <div className="teaser-inner">
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-2xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
+                    <div className="section-heading-row">
                         <div>
                             <span className="text-label">Insights</span>
                             <h2>Latest Analysis</h2>
