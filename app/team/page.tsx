@@ -2,29 +2,15 @@
 import { useState, useMemo } from "react";
 import { Lock, User } from "lucide-react";
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
-import siteData from "@/data/siteData.json";
+import { SITE_BRAND, SITE_DATA } from "@/data/site";
+import { TEAM_POSITIONS, TEAM_PRACTICE_AREAS } from "@/data/teamFilters";
 
-const { team } = siteData;
+const { team } = SITE_DATA;
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-const POSITIONS = ["Managing Partner", "Senior Partner", "Partner", "Senior Associate", "Associate", "Chairman"];
-const ALL_PRACTICE_AREAS = [
-  { id: "international-arbitration", label: "International Arbitration" },
-  { id: "corporate-litigation", label: "Corporate Litigation" },
-  { id: "asset-recovery", label: "Asset Recovery" },
-  { id: "private-wealth", label: "Private Wealth" },
-  { id: "regulatory-defence", label: "Regulatory Defence" },
-  { id: "investment-law", label: "Investment Law" },
-  { id: "white-collar-defense", label: "White-Collar Defense" },
-  { id: "commercial-litigation", label: "Commercial Litigation" },
-  { id: "intellectual-property", label: "Intellectual Property" },
-  { id: "entertainment-law", label: "Entertainment Law" },
-  { id: "mergers-and-acquisitions", label: "Mergers and Acquisitions" },
-  { id: "securities-enforcement", label: "Securities Enforcement" },
-];
 
 function getPracticeLabel(id: string) {
-  return ALL_PRACTICE_AREAS.find((a) => a.id === id)?.label ?? id;
+  return TEAM_PRACTICE_AREAS.find((a) => a.id === id)?.label ?? id;
 }
 
 export default function TeamPage() {
@@ -111,7 +97,7 @@ export default function TeamPage() {
                 <label className="team-filter-label">Practice Area</label>
                 <select value={practiceFilter} onChange={(e) => setPracticeFilter(e.target.value)} className="team-field team-select">
                   <option value="">All Practice Areas</option>
-                  {ALL_PRACTICE_AREAS.map((a) => (
+                  {TEAM_PRACTICE_AREAS.map((a) => (
                     <option key={a.id} value={a.id}>{a.label}</option>
                   ))}
                 </select>
@@ -120,7 +106,7 @@ export default function TeamPage() {
                 <label className="team-filter-label">Position</label>
                 <select value={positionFilter} onChange={(e) => setPositionFilter(e.target.value)} className="team-field team-select">
                   <option value="">All Positions</option>
-                  {POSITIONS.map((p) => (
+                  {TEAM_POSITIONS.map((p) => (
                     <option key={p} value={p}>{p}</option>
                   ))}
                 </select>
@@ -166,7 +152,7 @@ export default function TeamPage() {
                 Full attorney profiles, contact details, and direct introductions are available to referred clients and registered enquirers only. Use the search above to find attorneys by name, practice area, or position. To request access or make a referral enquiry, please contact us directly.
               </p>
               <div className="team-btn-row">
-                <a href="mailto:enquiries@lexfirmglobal.com" className="btn btn-primary">Request Access</a>
+                <a href={SITE_BRAND.primaryEmailMailto} className="btn btn-primary">Request Access</a>
                 <a href="/contact" className="btn">Contact the Firm</a>
               </div>
             </div>
@@ -228,7 +214,7 @@ export default function TeamPage() {
                         Attorney profiles and contact details are available to referred clients and registered enquirers only. To request access, please contact the firm directly.
                       </p>
                       <div className="team-btn-row">
-                        <a href="mailto:enquiries@lexfirmglobal.com" className="btn btn-primary">Request Access</a>
+                        <a href={SITE_BRAND.primaryEmailMailto} className="btn btn-primary">Request Access</a>
                         <a href="/contact" className="btn">Contact the Firm</a>
                       </div>
                     </div>

@@ -2,9 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import { Lock, Award, Globe, Target } from "lucide-react";
-import siteData from "@/data/siteData.json";
+import { ABOUT_STATS } from "@/data/pageContent";
+import { SITE_DATA } from "@/data/site";
 
-const { company, about } = siteData;
+const { company, about } = SITE_DATA;
 
 const valueIcons = [Lock, Award, Globe, Target];
 
@@ -76,12 +77,7 @@ export default function AboutPage() {
                         </div>
 
                         <div className="about-stats-grid">
-                            {[
-                                { num: "60+", label: "Countries Served" },
-                                { num: "$3.2B+", label: "Assets Recovered" },
-                                { num: "100%", label: "Partner-Led Matters" },
-                                { num: "0", label: "Public Disclosures" },
-                            ].map((s, i) => (
+                            {ABOUT_STATS.map((s, i) => (
                                 <div key={i} className="about-stat-card">
                                     <div className="about-stat-num">{s.num}</div>
                                     <div className="about-stat-label">{s.label}</div>

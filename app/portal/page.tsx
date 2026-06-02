@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { SITE_BRAND } from "@/data/site";
 
 export default function PortalPage() {
     const [password, setPassword] = useState("");
@@ -61,7 +62,7 @@ export default function PortalPage() {
                     <a href="/" style={{ display: "inline-block", textDecoration: "none" }}>
                         <Image
                             src="/lexfirm-logo.png"
-                            alt="Lex Firm Global"
+                            alt={SITE_BRAND.logoAlt}
                             width={180}
                             height={50}
                             style={{ height: "50px", width: "auto", margin: "0 auto" }}
@@ -224,8 +225,8 @@ export default function PortalPage() {
                 <p style={{ textAlign: "center", marginTop: "1.5rem", fontSize: ".72rem", color: "rgba(159,168,184,.35)", lineHeight: 1.6 }}>
                     This portal is for authorised clients only.<br />
                     If you have not received an access code, contact{" "}
-                    <a href="mailto:enquiries@lexfirmglobal.com" style={{ color: "rgba(182,157,116,.6)", textDecoration: "none" }}>
-                        enquiries@lexfirmglobal.com
+                    <a href={SITE_BRAND.primaryEmailMailto} style={{ color: "rgba(182,157,116,.6)", textDecoration: "none" }}>
+                        {SITE_BRAND.primaryEmail}
                     </a>
                 </p>
             </div>

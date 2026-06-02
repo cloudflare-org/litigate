@@ -2,10 +2,10 @@
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import siteData from "@/data/siteData.json";
+import { SITE_DATA } from "@/data/site";
 
 export const runtime = "edge";
-const { blog } = siteData;
+const { blog } = SITE_DATA;
 
 export default function BlogSinglePage() {
     const params = useParams();

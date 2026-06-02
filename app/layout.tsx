@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import siteData from "@/data/siteData.json";
+import { SITE_DATA } from "@/data/site";
 
 export const metadata: Metadata = {
-    title: siteData.meta.title,
-    description: siteData.meta.description,
+    title: SITE_DATA.meta.title,
+    description: SITE_DATA.meta.description,
     icons: {
         icon: "/lexfirm-logo.png",
         shortcut: "/lexfirm-logo.png",

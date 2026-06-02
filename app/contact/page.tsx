@@ -1,7 +1,8 @@
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
-import siteData from "@/data/siteData.json";
+import { CONTACT_BEFORE_YOU_WRITE } from "@/data/pageContent";
+import { SITE_BRAND, SITE_DATA } from "@/data/site";
 
-const { contact } = siteData;
+const { contact } = SITE_DATA;
 
 const offices = [
   { flag: "🇺🇸", city: "Chicago", address: `${contact.address.street}\n${contact.address.city}, ${contact.address.country} ${contact.address.postcode}`, phone: contact.phone, email: contact.email },
@@ -12,14 +13,6 @@ const contactCards = [
   { icon: "📞", title: "Phone", content: contact.phone, href: `tel:${contact.phone}` },
   { icon: "✉️", title: "Email", content: contact.email, href: `mailto:${contact.email}` },
   { icon: "🕐", title: "Office Hours", content: `${contact.hours.weekdays}\n${contact.hours.saturday}\n${contact.hours.sunday}`, href: undefined as string | undefined },
-];
-
-const beforeYouWrite = [
-  "We do not take on matters below a certain threshold of complexity or value.",
-  "We do not offer free consultations or preliminary advice by email.",
-  "All new client relationships begin with a formal engagement letter.",
-  "We are bound by strict confidentiality obligations to existing clients.",
-  "Response time for new enquiries is 24 to 48 hours.",
 ];
 
 export default function ContactPage() {
@@ -42,8 +35,8 @@ export default function ContactPage() {
               <p className="contact-intro-copy">
                 We accept new clients by referral only. To make a confidential enquiry, please email us directly. All correspondence is treated with absolute discretion and responded to within 24 hours.
               </p>
-              <a href="mailto:enquiries@lexfirmglobal.com" className="btn btn-primary contact-email-btn">
-                enquiries@lexfirmglobal.com
+              <a href={SITE_BRAND.primaryEmailMailto} className="btn btn-primary contact-email-btn">
+                {SITE_BRAND.primaryEmail}
               </a>
               <p className="contact-ref-note">
                 If you have been referred to us by an existing client, please mention this in your email.
@@ -68,7 +61,7 @@ export default function ContactPage() {
               <div className="contact-side-panel">
                 <h3 className="contact-side-title">Before You Write</h3>
                 <ul className="contact-checklist">
-                  {beforeYouWrite.map((point, i) => (
+                  {CONTACT_BEFORE_YOU_WRITE.map((point, i) => (
                     <li key={i} className="contact-checklist-item">
                       <div className="contact-checklist-dot" />
                       <span>{point}</span>

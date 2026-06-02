@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import siteData from "@/data/siteData.json";
+import { SITE_DATA } from "@/data/site";
 
-const { company, contact, footer, nav } = siteData;
+const { company, contact, footer, nav } = SITE_DATA;
 
 /* ─── NAV ─────────────────────────────────────────────────── */
 export function LexiNav() {

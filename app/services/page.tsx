@@ -1,9 +1,10 @@
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import Link from "next/link";
-import siteData from "@/data/siteData.json";
+import { SERVICES_DIFFERENTIATORS } from "@/data/pageContent";
+import { SITE_BRAND, SITE_DATA } from "@/data/site";
 
-const { services } = siteData;
+const { services } = SITE_DATA;
 
 export default function ServicesPage() {
   return (
@@ -56,15 +57,10 @@ export default function ServicesPage() {
 
       <section className="page-section-alt">
         <div className="page-section-inner">
-          <span className="text-label text-label-block-md">Why Lex Firm Global</span>
+          <span className="text-label text-label-block-md">Why {SITE_BRAND.appName}</span>
           <h2 className="mb-[var(--space-3xl)]">What Sets Us Apart</h2>
           <div className="services-why-grid">
-            {[
-              { title: "Absolute Discretion", body: "We operate under confidentiality protocols that go beyond standard legal professional privilege. Nothing about your matter is discussed outside the team handling it, and nothing is ever disclosed publicly without your explicit consent." },
-              { title: "Partner-Led on Every Matter", body: "There are no exceptions to this rule. Every client of Lex Firm Global is advised directly by a partner. We do not delegate substantive work to junior associates. The person you instruct is the person who does the work." },
-              { title: "Global Reach Without Limitation", body: "We are qualified across more than 40 jurisdictions and maintain relationships with leading local counsel in every major financial centre. When your matter crosses borders, we move with it." },
-              { title: "Speed When It Matters", body: "The most consequential legal situations require immediate action. We maintain a 24-hour response guarantee for retained clients and can mobilise across multiple jurisdictions within hours of instruction." },
-            ].map((w, i) => (
+            {SERVICES_DIFFERENTIATORS.map((w, i) => (
               <div key={i} className="surface-card p-[var(--space-2xl)]">
                 <h4 className="service-card-title">{w.title}</h4>
                 <p className="service-card-copy">{w.body}</p>

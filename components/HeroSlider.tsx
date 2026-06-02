@@ -1,9 +1,10 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import siteData from "@/data/siteData.json";
+import { HERO_STATS } from "@/data/pageContent";
+import { SITE_DATA } from "@/data/site";
 
-const { cases, blog } = siteData;
+const { cases, blog, company } = SITE_DATA;
 
 interface TickerItem {
     id: string;
@@ -428,24 +429,19 @@ export default function HeroSlider() {
 
                     {/* LEFT — hero text */}
                     <div className="hs-text">
-                        <p className="hs-eyebrow">Founded by Howard Weitzman · Since 2013</p>
+                        <p className="hs-eyebrow">{company.heroSubtitle}</p>
                         <h1 className="hs-headline">
                             Counsel Without<br />Compromise.
                         </h1>
                         <p className="hs-body">
-                            Lex Firm Global serves a select group of clients who require the highest level of legal counsel and the strictest standards of confidentiality. We do not seek publicity. We seek results.
+                            {company.heroBody}
                         </p>
                         <div className="hs-btns">
                             <Link href="/contact" className="hs-btn-p">Request a Consultation</Link>
                             <Link href="/about" className="hs-btn-s">About the Firm</Link>
                         </div>
                         <div className="hs-stats">
-                            {[
-                                { num: "$3.2B+", lbl: "Assets Recovered" },
-                                { num: "500+", lbl: "Matters Concluded" },
-                                { num: "60+", lbl: "Countries" },
-                                { num: "12+", lbl: "Years" },
-                            ].map((s) => (
+                            {HERO_STATS.map((s) => (
                                 <div key={s.lbl} className="hs-stat">
                                     <div className="hs-stat-num">{s.num}</div>
                                     <div className="hs-stat-lbl">{s.lbl}</div>

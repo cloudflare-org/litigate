@@ -1,8 +1,8 @@
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import Link from "next/link";
-import siteData from "@/data/siteData.json";
+import { SITE_DATA } from "@/data/site";
 
-const { cases } = siteData;
+const { cases } = SITE_DATA;
 
 export default function CasesPage() {
     return (
