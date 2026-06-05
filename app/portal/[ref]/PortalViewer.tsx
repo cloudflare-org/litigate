@@ -3,9 +3,10 @@
 interface Props {
     docRef: string;
     docUrl: string;
+    pdfUrl?: string;
 }
 
-export default function PortalViewer({ docRef, docUrl }: Props) {
+export default function PortalViewer({ docRef, docUrl, pdfUrl }: Props) {
     return (
         <div style={{ minHeight: "100vh", background: "#1a1a1a", fontFamily: "'Open Sans', sans-serif" }}>
 
@@ -29,25 +30,54 @@ export default function PortalViewer({ docRef, docUrl }: Props) {
                         <div style={{ fontSize: ".8rem", color: "rgba(240,237,232,.6)", marginTop: ".1rem" }}>Ref: {docRef}</div>
                     </div>
                 </div>
-                <div style={{ display: "flex", gap: ".75rem" }}>
-                    <button
-                        onClick={() => window.print()}
-                        style={{
-                            padding: ".5rem 1.25rem",
-                            background: "rgba(182,157,116,.12)",
-                            border: "1px solid rgba(182,157,116,.25)",
-                            borderRadius: ".3rem",
-                            color: "#b69d74",
-                            fontFamily: "'Open Sans', sans-serif",
-                            fontSize: ".75rem",
-                            fontWeight: 600,
-                            letterSpacing: ".06em",
-                            textTransform: "uppercase",
-                            cursor: "pointer",
-                        }}
-                    >
-                        Print / Save PDF
-                    </button>
+                <div style={{ display: "flex", gap: ".75rem", flexWrap: "wrap" }}>
+                    {/* Direct PDF download if available, otherwise open HTML for print */}
+                    {pdfUrl ? (
+                        <a
+                            href={pdfUrl}
+                            download={`${docRef}.pdf`}
+                            style={{
+                                padding: ".5rem 1.25rem",
+                                background: "#b69d74",
+                                border: "1px solid #b69d74",
+                                borderRadius: ".3rem",
+                                color: "#141b27",
+                                fontFamily: "'Open Sans', sans-serif",
+                                fontSize: ".75rem",
+                                fontWeight: 700,
+                                letterSpacing: ".06em",
+                                textTransform: "uppercase",
+                                textDecoration: "none",
+                                display: "inline-block",
+                                whiteSpace: "nowrap",
+                            }}
+                        >
+                            ↓ Download PDF
+                        </a>
+                    ) : (
+                        <a
+                            href={docUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                padding: ".5rem 1.25rem",
+                                background: "#b69d74",
+                                border: "1px solid #b69d74",
+                                borderRadius: ".3rem",
+                                color: "#141b27",
+                                fontFamily: "'Open Sans', sans-serif",
+                                fontSize: ".75rem",
+                                fontWeight: 700,
+                                letterSpacing: ".06em",
+                                textTransform: "uppercase",
+                                textDecoration: "none",
+                                display: "inline-block",
+                                whiteSpace: "nowrap",
+                            }}
+                        >
+                            ↓ Save as PDF
+                        </a>
+                    )}
                     <a
                         href="/"
                         style={{
@@ -63,11 +93,17 @@ export default function PortalViewer({ docRef, docUrl }: Props) {
                             textTransform: "uppercase",
                             textDecoration: "none",
                             display: "inline-block",
+                            whiteSpace: "nowrap",
                         }}
                     >
                         ← Home
                     </a>
                 </div>
+
+                {/* Tooltip below buttons */}
+                <p style={{ margin: ".5rem 0 0", fontSize: ".65rem", color: "rgba(159,168,184,.35)", fontFamily: "'Open Sans', sans-serif" }}>
+                    Opens in new tab → File → Print → Save as PDF
+                </p>
             </div>
 
             {/* Document iframe */}
@@ -84,8 +120,7 @@ export default function PortalViewer({ docRef, docUrl }: Props) {
                         src={docUrl}
                         style={{ width: "100%", minHeight: "85vh", border: "none", display: "block" }}
                         title={`Document ${docRef}`}
-                        sandbox="allow-same-origin allow-scripts allow-forms"
-                        onError={() => {/* handled by iframe showing 404 */ }}
+                        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-downloads"
                     />
                 </div>
             </div>

@@ -439,18 +439,11 @@ export default function HeroSlider() {
                             <Link href="/contact" className="hs-btn-p">Request a Consultation</Link>
                             <Link href="/about" className="hs-btn-s">About the Firm</Link>
                         </div>
-                        <div className="hs-stats">
-                            {[
-                                { num: "$3.2B+", lbl: "Assets Recovered" },
-                                { num: "500+", lbl: "Matters Concluded" },
-                                { num: "60+", lbl: "Countries" },
-                                { num: "12+", lbl: "Years" },
-                            ].map((s) => (
-                                <div key={s.lbl} className="hs-stat">
-                                    <div className="hs-stat-num">{s.num}</div>
-                                    <div className="hs-stat-lbl">{s.lbl}</div>
-                                </div>
-                            ))}
+                        {/* No public statistics — discreet firm */}
+                        <div style={{ paddingTop: "1.75rem", borderTop: "1px solid rgba(182,157,116,.15)" }}>
+                            <p style={{ margin: 0, fontFamily: "var(--font-body)", fontStyle: "italic", fontSize: ".82rem", color: "rgba(159,168,184,.55)", lineHeight: 1.7 }}>
+                                Retained by clients in over 60 countries. Partner-led on every matter. Zero public disclosure policy.
+                            </p>
                         </div>
                     </div>
 

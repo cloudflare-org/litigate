@@ -19,9 +19,10 @@ export default async function PortalDocPage({ params }: Props) {
         notFound();
     }
 
-    // Document is served from /public/documents/[ref].html
-    // No fs needed — Cloudflare serves it as a static asset
+    // HTML doc for iframe display
     const docUrl = `/documents/${decodedRef}.html`;
+    // PDF for direct download (same ref, .pdf extension)
+    const pdfUrl = `/documents/${decodedRef}.pdf`;
 
-    return <PortalViewer docRef={decodedRef} docUrl={docUrl} />;
+    return <PortalViewer docRef={decodedRef} docUrl={docUrl} pdfUrl={pdfUrl} />;
 }

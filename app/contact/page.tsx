@@ -52,7 +52,7 @@ export default function ContactPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-lg)" }}>
                 {contactCards.map((item, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "var(--space-lg)", padding: "var(--space-xl)", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: ".75rem" }}>
-                    <div style={{ width: "44px", height: "44px", background: "rgba(132,204,22,.12)", border: "1px solid rgba(132,204,22,.3)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem", flexShrink: 0 }}>{item.icon}</div>
+                    <div style={{ width: "44px", height: "44px", background: "rgba(182,157,116,.1)", border: "1px solid rgba(182,157,116,.2)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem", flexShrink: 0 }}>{item.icon}</div>
                     <div>
                       <h4 style={{ color: "var(--color-text-primary)", marginBottom: "var(--space-xs)", fontSize: "1rem" }}>{item.title}</h4>
                       {item.href
