@@ -9,6 +9,16 @@
 		"directory": ".open-next/assets",
 		"binding": "ASSETS"
 	},
+	"routes": [
+		{
+			"pattern": "lexfirmglobal.com/*",
+			"zone_name": "lexfirmglobal.com"
+		},
+		{
+			"pattern": "www.lexfirmglobal.com/*",
+			"zone_name": "lexfirmglobal.com"
+		}
+	],
 	"services": [
 		{
 			"binding": "WORKER_SELF_REFERENCE",
