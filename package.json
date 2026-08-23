@@ -1,5 +1,5 @@
 {
-    "name": "northwood-solicitors-web",
+    "name": "litigate",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -7,11 +7,14 @@
         "build": "next build",
         "start": "next start",
         "lint": "eslint",
-        "deploy": "git add . && git commit -m \"deploy: update site\" && git push origin main"
+        "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+        "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+        "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
     },
     "dependencies": {
+        "@opennextjs/cloudflare": "^1.20.2",
         "lucide-react": "^1.17.0",
-        "next": "16.1.6",
+        "next": "16.3.2",
         "react": "19.2.3",
         "react-dom": "19.2.3"
     },
@@ -21,8 +24,9 @@
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "eslint": "^9",
-        "eslint-config-next": "16.1.6",
+        "eslint-config-next": "16.3.2",
         "tailwindcss": "^4",
-        "typescript": "^5"
+        "typescript": "^5",
+        "wrangler": "^4.125.0"
     }
 }
