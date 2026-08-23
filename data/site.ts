@@ -1,8 +1,12 @@
 import siteData from "@/data/siteData.json";
+import caseData from "@/data/case.json";
 
-export const SITE_DATA = siteData;
+export const SITE_DATA = {
+  ...siteData,
+  cases: caseData.cases,
+};
 
-const primaryEmail = siteData.contact.email;
+const primaryEmail = SITE_DATA.contact.email;
 const domain = primaryEmail.split("@")[1] ?? "";
 
 export const SITE_BRAND = {
@@ -15,6 +19,6 @@ export const SITE_BRAND = {
 } as const;
 
 export const SITE_CONTACT_LINKS = {
-  primaryPhoneTel: `tel:${siteData.contact.phone}`,
-  primaryEmailMailto: `mailto:${siteData.contact.email}`,
+  primaryPhoneTel: `tel:${SITE_DATA.contact.phone}`,
+  primaryEmailMailto: `mailto:${SITE_DATA.contact.email}`,
 } as const;

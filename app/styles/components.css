@@ -59,6 +59,19 @@
     margin-top: auto;
   }
 
+  .case-card-compact-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: fit-content;
+    padding-top: var(--space-sm);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent-primary);
+  }
+
   .case-list-header {
     @apply flex items-center flex-wrap;
     gap: var(--space-lg);
@@ -420,9 +433,9 @@
     width: 56px;
     height: 56px;
     border-radius: 0.75rem;
-    color: #84cc16;
-    background: rgba(132, 204, 22, 0.12);
-    border: 1px solid rgba(132, 204, 22, 0.3);
+    color: var(--color-accent-primary);
+    background: rgba(182, 157, 116, 0.12);
+    border: 1px solid rgba(182, 157, 116, 0.3);
   }
 
   .service-panel-title {
@@ -477,11 +490,12 @@
   }
 
   .contact-email-btn {
-    @apply inline-block;
+    @apply inline-flex items-center;
+    gap: var(--space-md);
     font-size: clamp(0.8rem, 2vw, 1rem);
-    padding: var(--space-lg) var(--space-2xl);
+    padding: var(--space-md) var(--space-xl);
     margin-bottom: var(--space-xl);
-    word-break: break-all;
+    text-align: left;
   }
 
   .contact-ref-note {
@@ -510,8 +524,8 @@
     width: 44px;
     height: 44px;
     font-size: 1.1rem;
-    background: rgba(132, 204, 22, 0.12);
-    border: 1px solid rgba(132, 204, 22, 0.3);
+    background: rgba(182, 157, 116, 0.12);
+    border: 1px solid rgba(182, 157, 116, 0.3);
   }
 
   .contact-card-title {

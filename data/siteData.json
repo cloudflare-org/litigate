@@ -528,7 +528,6 @@
     {
       "id": "corporate-litigation",
       "title": "Corporate Litigation",
-      "icon": "📊",
       "description": "High-stakes commercial disputes handled with the precision and discretion that complex matters demand.",
       "fullDescription": "When a dispute threatens the existence or reputation of a business, the quality of legal counsel becomes the deciding factor. Our corporate litigation team has appeared in the Commercial Court, Court of Appeal, and Supreme Court of England and Wales, as well as in courts across the US, EU, and Asia. We handle shareholder disputes, breach of contract claims, director liability actions, and complex fraud litigation with equal facility.",
       "details": [
@@ -543,7 +542,6 @@
     {
       "id": "asset-recovery",
       "title": "Asset Recovery",
-      "icon": "🔍",
       "description": "We locate, freeze, and recover misappropriated assets across jurisdictions with speed and legal force.",
       "fullDescription": "Asset recovery is one of the most technically demanding areas of law. It requires the ability to move faster than the opposing party, coordinate across multiple jurisdictions simultaneously, and apply legal tools that most practitioners have never used. Our team has recovered in excess of 3.2 billion dollars in assets for clients across 22 jurisdictions. We work with leading forensic accountants, intelligence firms, and local counsel to ensure that no asset remains beyond reach.",
       "details": [
@@ -558,7 +556,6 @@
     {
       "id": "private-wealth",
       "title": "Private Wealth and Family Office",
-      "icon": "🏛️",
       "description": "Discreet, comprehensive counsel for ultra-high-net-worth individuals, families, and their offices.",
       "fullDescription": "The legal needs of ultra-high-net-worth individuals and their families are unlike those of any other client group. They require counsel who understands not only the law but the broader context of wealth, family, and legacy. Our private wealth practice advises on the full spectrum of issues that arise in this space, from succession planning and trust structuring to family disputes and the protection of reputation.",
       "details": [
@@ -573,7 +570,6 @@
     {
       "id": "regulatory-defence",
       "title": "Regulatory Defence",
-      "icon": "🛡️",
       "description": "We defend individuals and institutions against regulatory investigations and enforcement actions worldwide.",
       "fullDescription": "Regulatory investigations can destroy careers, businesses, and reputations in a matter of weeks. Our regulatory defence team has represented senior executives, financial institutions, and public officials in proceedings before the SFO, FCA, DOJ, SEC, and equivalent bodies across Europe and Asia. We engage early, we engage aggressively, and we protect our clients at every stage of the process.",
       "details": [
@@ -588,7 +584,6 @@
     {
       "id": "investment-law",
       "title": "Investment Law",
-      "icon": "💼",
       "description": "Strategic counsel for investors navigating complex regulatory environments and cross-border disputes.",
       "fullDescription": "Our investment law practice advises institutional investors, sovereign wealth funds, and private equity houses on the full lifecycle of cross-border investments. From structuring and regulatory approval through to dispute resolution and exit, we provide counsel that is both technically precise and commercially astute.",
       "details": [
@@ -598,6 +593,20 @@
         "Expropriation and political risk claims",
         "Joint venture and shareholder agreements",
         "Exit strategies and dispute resolution"
+      ]
+    },
+    {
+      "id": "insurance-clearance-certificate",
+      "title": "Insurance Clearance Certificate",
+      "description": "This certificate helps owners clear all insurance withholdings.",
+      "fullDescription": "Our insurance clearance certificate service assists owners who need formal documentation to clear insurance withholdings. We review the relevant records, prepare the certificate materials, and coordinate the clearance process so outstanding insurance holds can be resolved with clarity and proper documentation.",
+      "details": [
+        "Preparation of insurance clearance certificate materials",
+        "Review of owner, policy, and withholding documentation",
+        "Coordination with insurers, brokers, and relevant counterparties",
+        "Support for clearing outstanding insurance withholdings",
+        "Document checks before submission or release",
+        "Confidential handling of supporting records"
       ]
     }
   ],
@@ -696,7 +705,8 @@
       "Asset Recovery",
       "Private Wealth",
       "Regulatory Defence",
-      "Investment Law"
+      "Investment Law",
+      "Insurance Clearance Certificate"
     ],
     "copyright": "Lex Firm Global. All rights reserved."
   }

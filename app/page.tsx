@@ -38,10 +38,10 @@ export default function Home() {
             <section className="teaser teaser-alt">
                 <div className="teaser-inner">
                     <div className="section-heading-center">
-                        <span className="text-label">Practice Areas</span>
+                        <span className="text-label">Services</span>
                         <h2>What We Do</h2>
                         <p className="section-heading-copy">
-                            Six practice areas. Each led by a partner with decades of specialist experience.
+                            Seven services. Each handled with the discretion and precision complex matters require.
                         </p>
                     </div>
                     <div className="services-teaser-grid">
@@ -81,6 +81,7 @@ export default function Home() {
                                 <div className="case-card-compact-tags">
                                     {c.tags.map((t, i) => <span className="case-tag" key={i}>{t}</span>)}
                                 </div>
+                                <span className="case-card-compact-action">View case <span aria-hidden="true">→</span></span>
                             </Link>
                         ))}
                     </CardCarousel>

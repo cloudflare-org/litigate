@@ -1,4 +1,4 @@
-import { Scale, BarChart3, Search, Landmark, Shield, Briefcase } from "lucide-react";
+import { Scale, BarChart3, Search, Landmark, Shield, Briefcase, FileCheck } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string; size?: number; color?: string }>> = {
     "international-arbitration": Scale,
@@ -7,6 +7,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; size?: n
     "private-wealth": Landmark,
     "regulatory-defence": Shield,
     "investment-law": Briefcase,
+    "insurance-clearance-certificate": FileCheck,
 };
 
 interface ServiceIconProps {

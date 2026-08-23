@@ -12,9 +12,9 @@ export default function ServicesPage() {
       <LexiNav />
       <div className="page-hero">
         <div className="page-hero-inner">
-          <span className="text-label">Practice Areas</span>
+          <span className="text-label">Services</span>
           <h1>Our Services</h1>
-          <p className="hero-sub">Six practice areas. One standard of excellence. Every matter is led by a partner with decades of specialist experience in that field.</p>
+          <p className="hero-sub">Seven services. One standard of excellence. Every matter is handled with the discretion and precision complex situations demand.</p>
         </div>
       </div>
 
@@ -61,7 +61,7 @@ export default function ServicesPage() {
           <h2 className="mb-[var(--space-3xl)]">What Sets Us Apart</h2>
           <div className="services-why-grid">
             {SERVICES_DIFFERENTIATORS.map((w, i) => (
-              <div key={i} className="surface-card p-[var(--space-2xl)]">
+              <div key={i} className="services-why-card">
                 <h4 className="service-card-title">{w.title}</h4>
                 <p className="service-card-copy">{w.body}</p>
               </div>
