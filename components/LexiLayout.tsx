@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import siteData from "@/data/siteData.json";
+import { SITE_DATA } from "@/data/site";
 
-const { company, contact, footer, nav } = siteData;
+const { company, contact, footer, nav } = SITE_DATA;
 
 /* ─── NAV ─────────────────────────────────────────────────── */
 export function LexiNav() {
@@ -109,11 +109,11 @@ export function LexiNav() {
                 .lexi-nav-links a.active-link::after { transform: scaleX(1); }
 
                 /* ── CTA BUTTON ── */
-                .lexi-nav-cta {
+                .lexi-nav-links a.lexi-nav-cta {
                     margin-left: .75rem;
                     padding: .5rem 1.25rem;
                     background: var(--color-accent-primary);
-                    color: #ffffff;
+                    color: var(--color-bg-primary);
                     border: 2px solid var(--color-accent-primary);
                     border-radius: .375rem;
                     font-family: var(--font-body);
@@ -127,11 +127,18 @@ export function LexiNav() {
                     text-decoration: none;
                     display: inline-block;
                 }
-                .lexi-nav-cta:hover {
+                .lexi-nav-links a.lexi-nav-cta::after {
+                    display: none;
+                }
+                .lexi-nav-links a.lexi-nav-cta:hover {
                     background: transparent;
                     border-color: var(--color-accent-primary);
                     color: var(--color-accent-primary);
                     transform: translateY(-1px);
+                }
+                .lexi-nav-cta:focus-visible {
+                    outline: 2px solid var(--color-accent-secondary);
+                    outline-offset: 3px;
                 }
 
                 /* ── HAMBURGER ── */
@@ -366,7 +373,7 @@ export function LexiFooter() {
                     <p>{company.description}</p>
                 </div>
                 <div className="footer-col">
-                    <h4>Practice Areas</h4>
+                    <h4>Services</h4>
                     <ul>{footer.servicesLinks.map((s, i) => <li key={i}><Link href="/services">{s}</Link></li>)}</ul>
                 </div>
                 <div className="footer-col">

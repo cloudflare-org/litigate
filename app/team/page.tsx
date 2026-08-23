@@ -2,29 +2,15 @@
 import { useState, useMemo } from "react";
 import { Lock, User } from "lucide-react";
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
-import siteData from "@/data/siteData.json";
+import { SITE_BRAND, SITE_DATA } from "@/data/site";
+import { TEAM_POSITIONS, TEAM_PRACTICE_AREAS } from "@/data/teamFilters";
 
-const { team } = siteData;
+const { team } = SITE_DATA;
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-const POSITIONS = ["Managing Partner", "Senior Partner", "Partner", "Senior Associate", "Associate", "Chairman"];
-const ALL_PRACTICE_AREAS = [
-  { id: "international-arbitration", label: "International Arbitration" },
-  { id: "corporate-litigation", label: "Corporate Litigation" },
-  { id: "asset-recovery", label: "Asset Recovery" },
-  { id: "private-wealth", label: "Private Wealth" },
-  { id: "regulatory-defence", label: "Regulatory Defence" },
-  { id: "investment-law", label: "Investment Law" },
-  { id: "white-collar-defense", label: "White-Collar Defense" },
-  { id: "commercial-litigation", label: "Commercial Litigation" },
-  { id: "intellectual-property", label: "Intellectual Property" },
-  { id: "entertainment-law", label: "Entertainment Law" },
-  { id: "mergers-and-acquisitions", label: "Mergers and Acquisitions" },
-  { id: "securities-enforcement", label: "Securities Enforcement" },
-];
 
 function getPracticeLabel(id: string) {
-  return ALL_PRACTICE_AREAS.find((a) => a.id === id)?.label ?? id;
+  return TEAM_PRACTICE_AREAS.find((a) => a.id === id)?.label ?? id;
 }
 
 export default function TeamPage() {
@@ -78,45 +64,10 @@ export default function TeamPage() {
       ? `Showing ${results.length} attorney${results.length !== 1 ? "s" : ""}`
       : "";
 
-  const inputStyle: React.CSSProperties = {
-    width: "100%",
-    padding: "var(--space-md) var(--space-lg)",
-    background: "var(--color-surface-2)",
-    border: "1px solid var(--color-border)",
-    borderRadius: ".5rem",
-    color: "var(--color-text-primary)",
-    fontFamily: "var(--font-body)",
-    fontSize: ".9rem",
-    outline: "none",
-  };
-  const labelStyle: React.CSSProperties = {
-    display: "block",
-    fontSize: ".7rem",
-    fontWeight: 600,
-    textTransform: "uppercase",
-    letterSpacing: ".12em",
-    color: "var(--color-text-secondary)",
-    marginBottom: "var(--space-sm)",
-  };
-
-  /* Shared padding — clamp keeps it comfortable on all screen sizes */
-  const px = "clamp(1rem, 4vw, 5rem)";
-
   return (
     <div className="content">
       <LexiNav />
 
-      <style>{`
-                .attorney-row { transition: background .2s; }
-                .attorney-row:hover { background: var(--color-surface-3); }
-                .team-btn-row { display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap; }
-                @media (max-width: 480px) {
-                    .team-btn-row { flex-direction: column; align-items: stretch; }
-                    .team-btn-row a, .team-btn-row button { text-align: center; }
-                }
-            `}</style>
-
-      {/* ── PAGE HERO ── */}
       <div className="page-hero">
         <div className="page-hero-inner">
           <span className="text-label">Our People</span>
@@ -127,55 +78,53 @@ export default function TeamPage() {
         </div>
       </div>
 
-      {/* ── SEARCH PANEL ── */}
-      <section style={{ padding: `var(--space-4xl) ${px} var(--space-2xl)`, background: "var(--color-bg-secondary)", borderBottom: "1px solid var(--color-border)" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <div style={{ background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", padding: "var(--space-2xl) var(--space-xl)" }}>
+      <section className="team-section team-section-panel">
+        <div className="team-inner">
+          <div className="team-filter-wrap">
             <div className="search-panel-grid">
               <div>
-                <label style={labelStyle}>Search by name</label>
+                <label className="team-filter-label">Search by name</label>
                 <input
                   type="text"
                   value={nameQuery}
                   onChange={(e) => setNameQuery(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                   placeholder="e.g. Victoria Chen"
-                  style={inputStyle}
+                  className="team-field"
                 />
               </div>
               <div>
-                <label style={labelStyle}>Practice Area</label>
-                <select value={practiceFilter} onChange={(e) => setPracticeFilter(e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}>
+                <label className="team-filter-label">Practice Area</label>
+                <select value={practiceFilter} onChange={(e) => setPracticeFilter(e.target.value)} className="team-field team-select">
                   <option value="">All Practice Areas</option>
-                  {ALL_PRACTICE_AREAS.map((a) => (
-                    <option key={a.id} value={a.id} style={{ background: "var(--color-bg-secondary)" }}>{a.label}</option>
+                  {TEAM_PRACTICE_AREAS.map((a) => (
+                    <option key={a.id} value={a.id}>{a.label}</option>
                   ))}
                 </select>
               </div>
               <div>
-                <label style={labelStyle}>Position</label>
-                <select value={positionFilter} onChange={(e) => setPositionFilter(e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}>
+                <label className="team-filter-label">Position</label>
+                <select value={positionFilter} onChange={(e) => setPositionFilter(e.target.value)} className="team-field team-select">
                   <option value="">All Positions</option>
-                  {POSITIONS.map((p) => (
-                    <option key={p} value={p} style={{ background: "var(--color-bg-secondary)" }}>{p}</option>
+                  {TEAM_POSITIONS.map((p) => (
+                    <option key={p} value={p}>{p}</option>
                   ))}
                 </select>
               </div>
-              <div style={{ display: "flex", gap: "var(--space-md)", alignItems: "flex-end" }}>
-                <button onClick={handleClear} className="btn btn-sm" style={{ whiteSpace: "nowrap" }}>Clear</button>
-                <button onClick={handleSearch} className="btn btn-primary btn-sm" style={{ whiteSpace: "nowrap" }}>Search</button>
+              <div className="team-filter-actions">
+                <button onClick={handleClear} className="btn btn-sm team-nowarp">Clear</button>
+                <button onClick={handleSearch} className="btn btn-primary btn-sm team-nowarp">Search</button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── ALPHABET BAR ── */}
-      <section style={{ padding: `var(--space-xl) ${px}`, background: "var(--color-bg-secondary)", borderBottom: "1px solid var(--color-border)" }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto", display: "flex", flexWrap: "wrap", gap: "var(--space-xs)", alignItems: "center" }}>
+      <section className="team-section team-section-alpha">
+        <div className="team-inner team-alpha-wrap">
           <button
             onClick={handleClear}
-            style={{ padding: ".3rem .75rem", fontSize: ".75rem", fontWeight: 600, fontFamily: "var(--font-body)", letterSpacing: ".08em", textTransform: "uppercase", border: "1px solid", borderRadius: ".375rem", cursor: "pointer", transition: "all .2s", background: !hasSearched ? "var(--color-accent-primary)" : "transparent", borderColor: !hasSearched ? "var(--color-accent-primary)" : "var(--color-border)", color: !hasSearched ? "#141b27" : "var(--color-text-secondary)" }}
+            className={`team-alpha-btn team-alpha-btn-all ${!hasSearched ? "team-alpha-btn-active" : ""}`}
           >
             All
           </button>
@@ -183,7 +132,7 @@ export default function TeamPage() {
             <button
               key={letter}
               onClick={() => handleLetter(letter)}
-              style={{ width: "2rem", height: "2rem", fontSize: ".8rem", fontWeight: 600, fontFamily: "var(--font-body)", border: "1px solid", borderRadius: ".375rem", cursor: "pointer", transition: "all .2s", background: activeLetter === letter ? "var(--color-accent-primary)" : "transparent", borderColor: activeLetter === letter ? "var(--color-accent-primary)" : "var(--color-border)", color: activeLetter === letter ? "#141b27" : "var(--color-text-secondary)" }}
+              className={`team-alpha-btn team-alpha-btn-letter ${activeLetter === letter ? "team-alpha-btn-active" : ""}`}
             >
               {letter}
             </button>
@@ -191,70 +140,63 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* ── RESULTS ── */}
-      <section style={{ padding: `var(--space-4xl) ${px} var(--space-5xl)` }}>
-        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-
-          {/* Pre-search gate */}
+      <section className="team-section team-section-results">
+        <div className="team-inner">
           {!hasSearched && (
-            <div style={{ padding: "var(--space-5xl) var(--space-2xl)", textAlign: "center", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem" }}>
-              <div style={{ marginBottom: "var(--space-xl)", color: "var(--color-accent-primary)" }}>
+            <div className="team-empty-gate">
+              <div className="team-empty-icon">
                 <Lock size={32} strokeWidth={1.5} />
               </div>
-              <h3 style={{ marginBottom: "var(--space-lg)" }}>Attorney Profiles Available Upon Request</h3>
-              <p style={{ color: "var(--color-text-secondary)", maxWidth: "520px", margin: "0 auto var(--space-2xl)", lineHeight: "1.8" }}>
+              <h3 className="team-empty-title">Attorney Profiles Available Upon Request</h3>
+              <p className="team-empty-copy">
                 Full attorney profiles, contact details, and direct introductions are available to referred clients and registered enquirers only. Use the search above to find attorneys by name, practice area, or position. To request access or make a referral enquiry, please contact us directly.
               </p>
               <div className="team-btn-row">
-                <a href="mailto:enquiries@lexfirmglobal.com" className="btn btn-primary">Request Access</a>
+                <a href={SITE_BRAND.primaryEmailMailto} className="btn btn-primary">Request Access</a>
                 <a href="/contact" className="btn">Contact the Firm</a>
               </div>
             </div>
           )}
 
-          {/* Results table */}
           {hasSearched && (
             <>
-              <div style={{ marginBottom: "var(--space-2xl)" }}>
-                <h2 style={{ fontSize: "clamp(1.5rem,3vw,2rem)", marginBottom: "var(--space-sm)" }}>Search Results</h2>
-                <p style={{ color: "var(--color-text-secondary)", fontSize: ".9rem" }}>{subtitleText}</p>
+              <div className="team-results-head">
+                <h2 className="team-results-title">Search Results</h2>
+                <p className="team-results-subtitle">{subtitleText}</p>
               </div>
 
               {results.length === 0 ? (
-                <div style={{ padding: "var(--space-5xl) var(--space-2xl)", textAlign: "center", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", color: "var(--color-text-secondary)" }}>
+                <div className="team-no-results">
                   No attorneys found matching your criteria.
                 </div>
               ) : (
-                <div style={{ position: "relative" }}>
-                  {/* Blurred table */}
-                  <div style={{ filter: "blur(4px)", userSelect: "none", pointerEvents: "none", background: "var(--color-surface-2)", border: "1px solid var(--color-border)", borderRadius: "1rem", overflow: "hidden" }}>
-                    {/* Header */}
-                    <div className="attorney-table-grid" style={{ gap: "var(--space-xl)", padding: "var(--space-md) var(--space-2xl)", background: "rgba(255,255,255,.04)", borderBottom: "1px solid var(--color-border)" }}>
+                <div className="team-table-wrap">
+                  <div className="team-table-blur">
+                    <div className="attorney-table-grid team-table-head">
                       <div />
                       {["Name", "Position", "Practice Areas / Contact"].map((h) => (
-                        <div key={h} style={{ fontSize: ".7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".12em", color: "var(--color-text-tertiary)" }}>{h}</div>
+                        <div key={h} className="team-table-colhead">{h}</div>
                       ))}
                     </div>
-                    {/* Rows */}
-                    {results.map((m, idx) => (
-                      <div key={m.slug} className="attorney-row attorney-table-grid" style={{ gap: "var(--space-xl)", padding: "var(--space-lg) var(--space-2xl)", borderBottom: idx < results.length - 1 ? "1px solid var(--color-border)" : "none", alignItems: "center" }}>
-                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "linear-gradient(135deg,var(--color-surface-3),var(--color-surface-1))", border: "1px solid var(--color-border)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--color-text-secondary)", flexShrink: 0 }}>
+                    {results.map((m) => (
+                      <div key={m.slug} className="attorney-table-grid team-table-row">
+                        <div className="team-user-badge">
                           <User size={20} strokeWidth={1.5} />
                         </div>
                         <div>
-                          <div style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--color-text-primary)" }}>
+                          <div className="team-attorney-name">
                             {m.lastName}, {m.name.split(" ")[0]}
                           </div>
-                          <div style={{ fontSize: ".75rem", color: "var(--color-text-tertiary)", marginTop: ".2rem" }}>{m.specialty}</div>
+                          <div className="team-attorney-specialty">{m.specialty}</div>
                         </div>
-                        <div style={{ fontSize: ".8rem", color: "var(--color-accent-primary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: ".08em" }}>
+                        <div className="team-position">
                           {m.position}
                         </div>
                         <div>
-                          <div style={{ fontSize: ".85rem", color: "var(--color-text-secondary)", marginBottom: "var(--space-xs)" }}>
+                          <div className="team-practices">
                             {(m.practiceAreas as string[]).map(getPracticeLabel).join(", ")}
                           </div>
-                          <div style={{ fontSize: ".75rem", color: "var(--color-text-tertiary)", fontStyle: "italic" }}>
+                          <div className="team-email">
                             {m.email}
                           </div>
                         </div>
@@ -262,18 +204,17 @@ export default function TeamPage() {
                     ))}
                   </div>
 
-                  {/* Access restricted overlay */}
-                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "var(--space-xl)" }}>
-                    <div style={{ background: "rgba(13,20,32,.97)", border: "1px solid rgba(182,157,116,.25)", borderRadius: "1rem", padding: "var(--space-3xl) clamp(var(--space-xl), 5vw, var(--space-4xl))", textAlign: "center", maxWidth: "520px", width: "100%", backdropFilter: "blur(12px)", boxShadow: "0 24px 64px rgba(0,0,0,.6)" }}>
-                      <div style={{ marginBottom: "var(--space-lg)", color: "var(--color-accent-primary)" }}>
+                  <div className="team-overlay">
+                    <div className="team-overlay-card">
+                      <div className="team-overlay-icon">
                         <Lock size={32} strokeWidth={1.5} />
                       </div>
-                      <h3 style={{ marginBottom: "var(--space-lg)", fontSize: "clamp(1.25rem,3vw,1.75rem)" }}>Access Restricted</h3>
-                      <p style={{ color: "var(--color-text-secondary)", lineHeight: "1.8", marginBottom: "var(--space-2xl)", fontSize: ".95rem" }}>
+                      <h3 className="team-overlay-title">Access Restricted</h3>
+                      <p className="team-overlay-copy">
                         Attorney profiles and contact details are available to referred clients and registered enquirers only. To request access, please contact the firm directly.
                       </p>
                       <div className="team-btn-row">
-                        <a href="mailto:enquiries@lexfirmglobal.com" className="btn btn-primary">Request Access</a>
+                        <a href={SITE_BRAND.primaryEmailMailto} className="btn btn-primary">Request Access</a>
                         <a href="/contact" className="btn">Contact the Firm</a>
                       </div>
                     </div>

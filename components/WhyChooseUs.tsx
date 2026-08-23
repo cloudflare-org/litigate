@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import siteData from "@/data/siteData.json";
+import { SITE_DATA } from "@/data/site";
 
 const features = [
     { title: "Available 24/7", description: "Emergency legal support when you need it most" },
@@ -10,7 +10,7 @@ const features = [
 ];
 
 const WhyChooseUs = () => {
-    const { contact } = siteData;
+    const { contact } = SITE_DATA;
 
     return (
         <section style={{ padding: "8rem 3rem", background: "var(--color-bg-primary)" }}>

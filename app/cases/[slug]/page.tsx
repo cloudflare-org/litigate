@@ -2,10 +2,10 @@
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import siteData from "@/data/siteData.json";
+import { SITE_DATA } from "@/data/site";
 
 export const runtime = "edge";
-const { cases } = siteData;
+const { cases } = SITE_DATA;
 
 export default function CaseSinglePage() {
     const params = useParams();
@@ -44,7 +44,11 @@ export default function CaseSinglePage() {
                                     <div style={{ padding: "var(--space-2xl)", background: "rgba(132,204,22,.06)", border: "1px solid rgba(132,204,22,.15)", borderRadius: ".75rem", marginBottom: "var(--space-3xl)" }}>
                                         <p style={{ color: "var(--color-text-secondary)", fontSize: "1rem", lineHeight: "1.8", fontStyle: "italic" }}>{item.summary}</p>
                                     </div>
-                                    <p style={{ color: "var(--color-text-secondary)", lineHeight: "2", fontSize: "1.05rem" }}>{item.detail}</p>
+                                    <div style={{ color: "var(--color-text-secondary)", lineHeight: "2", fontSize: "1.05rem" }}>
+                                        {item.detail.split("\n\n").map((para, i) => (
+                                            <p key={i} style={{ marginBottom: "var(--space-xl)" }}>{para}</p>
+                                        ))}
+                                    </div>
                                     <div style={{ display: "flex", gap: "var(--space-sm)", flexWrap: "wrap", marginTop: "var(--space-3xl)", paddingTop: "var(--space-2xl)", borderTop: "1px solid var(--color-border)" }}>
                                         {item.tags.map((t, i) => <span key={i} className="case-tag">{t}</span>)}
                                     </div>

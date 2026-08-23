@@ -3,9 +3,9 @@ import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import HeroSlider from "@/components/HeroSlider";
 import CardCarousel from "@/components/CardCarousel";
 import { ServiceIcon } from "@/components/ServiceIcon";
-import siteData from "@/data/siteData.json";
+import { SITE_BRAND, SITE_DATA } from "@/data/site";
 
-const { services, cases, blog } = siteData;
+const { services, cases, blog } = SITE_DATA;
 
 export default function Home() {
     return (
@@ -22,7 +22,7 @@ export default function Home() {
                         <div className="teaser-text">
                             <span className="text-label">The Firm</span>
                             <h2>We Do Not Seek Publicity. We Seek Results.</h2>
-                            <p>Lex Firm Global operates at the highest level of legal practice. Our clients are referred to us. Our work is never discussed in public. Our results speak through the outcomes we achieve, not the press releases we issue.</p>
+                            <p>{SITE_BRAND.appName} operates at the highest level of legal practice. Our clients are referred to us. Our work is never discussed in public. Our results speak through the outcomes we achieve, not the press releases we issue.</p>
                             <Link href="/about" className="btn">Learn About the Firm</Link>
                         </div>
                         <div className="teaser-visual">
@@ -37,11 +37,11 @@ export default function Home() {
             {/* ── SERVICES ── */}
             <section className="teaser teaser-alt">
                 <div className="teaser-inner">
-                    <div style={{ textAlign: "center", marginBottom: "var(--space-3xl)" }}>
-                        <span className="text-label">Practice Areas</span>
+                    <div className="section-heading-center">
+                        <span className="text-label">Services</span>
                         <h2>What We Do</h2>
-                        <p style={{ color: "var(--color-text-secondary)", maxWidth: "560px", margin: "var(--space-lg) auto 0" }}>
-                            Six practice areas. Each led by a partner with decades of specialist experience.
+                        <p className="section-heading-copy">
+                            Seven services. Each handled with the discretion and precision complex matters require.
                         </p>
                     </div>
                     <div className="services-teaser-grid">
@@ -53,7 +53,7 @@ export default function Home() {
                             </Link>
                         ))}
                     </div>
-                    <div style={{ textAlign: "center", marginTop: "var(--space-3xl)" }}>
+                    <div className="text-center mt-[var(--space-3xl)]">
                         <Link href="/services" className="btn">View All Services</Link>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ export default function Home() {
             {/* ── CASES CAROUSEL ── */}
             <section className="teaser">
                 <div className="teaser-inner">
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-2xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
+                    <div className="section-heading-row">
                         <div>
                             <span className="text-label">Landmark Outcomes</span>
                             <h2>Selected Cases</h2>
@@ -71,16 +71,17 @@ export default function Home() {
                     </div>
                     <CardCarousel perView={3}>
                         {cases.map((c) => (
-                            <Link href={`/cases/${c.slug}`} className="case-list-card" key={c.slug} style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)", height: "100%" }}>
-                                <div style={{ fontSize: ".72rem", color: "var(--color-accent-primary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: ".1em" }}>
+                            <Link href={`/cases/${c.slug}`} className="case-list-card case-card-compact" key={c.slug}>
+                                <div className="case-card-compact-meta">
                                     {c.year} · {c.category}
                                 </div>
-                                <div style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem", color: "var(--color-text-primary)", lineHeight: 1.3, flex: 1 }}>
+                                <div className="case-card-compact-title">
                                     {c.title}
                                 </div>
-                                <div style={{ display: "flex", gap: ".4rem", flexWrap: "wrap", marginTop: "auto" }}>
+                                <div className="case-card-compact-tags">
                                     {c.tags.map((t, i) => <span className="case-tag" key={i}>{t}</span>)}
                                 </div>
+                                <span className="case-card-compact-action">View case <span aria-hidden="true">→</span></span>
                             </Link>
                         ))}
                     </CardCarousel>
@@ -90,7 +91,7 @@ export default function Home() {
             {/* ── BLOG CAROUSEL ── */}
             <section className="teaser teaser-alt">
                 <div className="teaser-inner">
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--space-2xl)", flexWrap: "wrap", gap: "var(--space-xl)" }}>
+                    <div className="section-heading-row">
                         <div>
                             <span className="text-label">Insights</span>
                             <h2>Latest Analysis</h2>

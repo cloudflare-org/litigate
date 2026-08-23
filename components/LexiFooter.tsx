@@ -1,28 +1,23 @@
 import React from "react";
 import Link from "next/link";
-import siteData from "@/data/siteData.json";
+import { FOOTER_OFFICES } from "@/data/footerOffices";
+import { SITE_DATA } from "@/data/site";
 
 export default function LexiFooter() {
-    const { company, contact, footer, nav } = siteData;
+    const { footer, nav } = SITE_DATA;
     return (
         <footer className="lexi-footer">
             <div className="footer-grid">
-                <div className="footer-col">
-                    <h4>New York</h4>
-                    <ul>
-                        <li><a href="tel:+12125551000">+1 (212) 555-1000</a></li>
-                        <li><a href="mailto:ny@lexfirmglobal.com">ny@lexfirmglobal.com</a></li>
-                        <li>Madison Avenue, New York, NY 10065</li>
-                    </ul>
-                </div>
-                <div className="footer-col">
-                    <h4>Chicago</h4>
-                    <ul>
-                        <li><a href={`tel:${contact.phone}`}>{contact.phone}</a></li>
-                        <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
-                        <li>{contact.address.street}, {contact.address.city}</li>
-                    </ul>
-                </div>
+                {FOOTER_OFFICES.map((office) => (
+                    <div className="footer-col" key={office.city}>
+                        <h4>{office.city}</h4>
+                        <ul>
+                            <li><a href={office.phoneHref}>{office.phone}</a></li>
+                            <li><a href={`mailto:${office.email}`}>{office.email}</a></li>
+                            <li>{office.address}</li>
+                        </ul>
+                    </div>
+                ))}
                 <div className="footer-col">
                     <h4>Quick Links</h4>
                     <ul>

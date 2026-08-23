@@ -27,6 +27,8 @@ export default function CardCarousel({ children, perView = 3 }: CarouselProps) {
 
     // Pointer drag
     const onPointerDown = (e: React.PointerEvent) => {
+        const target = e.target as HTMLElement;
+        if (target.closest("a, button")) return;
         dragStart.current = e.clientX;
         dragDelta.current = 0;
         (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
@@ -35,10 +37,13 @@ export default function CardCarousel({ children, perView = 3 }: CarouselProps) {
         if (dragStart.current === null) return;
         dragDelta.current = e.clientX - dragStart.current;
     };
-    const onPointerUp = () => {
+    const onPointerUp = (e: React.PointerEvent) => {
         if (dragStart.current === null) return;
         if (dragDelta.current < -50) next();
         else if (dragDelta.current > 50) prev();
+        if ((e.currentTarget as HTMLElement).hasPointerCapture(e.pointerId)) {
+            (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+        }
         dragStart.current = null;
         dragDelta.current = 0;
     };
@@ -80,6 +85,9 @@ export default function CardCarousel({ children, perView = 3 }: CarouselProps) {
                 .cc-track > * {
                     flex: 0 0 calc((100% - (var(--cc-per, 3) - 1) * 1.5rem) / var(--cc-per, 3));
                     min-width: 0;
+                }
+                .cc-track > a {
+                    cursor: pointer;
                 }
                 .cc-controls {
                     display: flex;

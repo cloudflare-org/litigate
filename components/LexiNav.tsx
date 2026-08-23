@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import siteData from "@/data/siteData.json";
+import { SITE_DATA } from "@/data/site";
 
 export default function LexiNav() {
     const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
-    const { company, nav } = siteData;
+    const { company, nav } = SITE_DATA;
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 80);

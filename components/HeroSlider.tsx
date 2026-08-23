@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import siteData from "@/data/siteData.json";
+import { SITE_DATA } from "@/data/site";
 
-const { cases, blog } = siteData;
+const { cases, blog, company } = SITE_DATA;
 
 interface TickerItem {
     id: string;
@@ -428,12 +428,12 @@ export default function HeroSlider() {
 
                     {/* LEFT — hero text */}
                     <div className="hs-text">
-                        <p className="hs-eyebrow">Founded by Howard Weitzman · Since 2013</p>
+                        <p className="hs-eyebrow">{company.heroSubtitle}</p>
                         <h1 className="hs-headline">
                             Counsel Without<br />Compromise.
                         </h1>
                         <p className="hs-body">
-                            Lex Firm Global serves a select group of clients who require the highest level of legal counsel and the strictest standards of confidentiality. We do not seek publicity. We seek results.
+                            {company.heroBody}
                         </p>
                         <div className="hs-btns">
                             <Link href="/contact" className="hs-btn-p">Request a Consultation</Link>

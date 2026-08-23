@@ -2,10 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
-import siteData from '@/data/siteData.json';
+import { SITE_DATA } from '@/data/site';
 
 const AboutSection = () => {
-    const { company, about } = siteData;
+    const { company, about } = SITE_DATA;
 
     return (
         <section style={{ padding: '8rem 3rem', background: 'var(--color-bg-tertiary)' }}>

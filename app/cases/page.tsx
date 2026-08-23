@@ -1,8 +1,8 @@
 import { LexiNav, LexiFooter } from "@/components/LexiLayout";
 import Link from "next/link";
-import siteData from "@/data/siteData.json";
+import { SITE_DATA } from "@/data/site";
 
-const { cases } = siteData;
+const { cases } = SITE_DATA;
 
 export default function CasesPage() {
     return (
@@ -18,28 +18,28 @@ export default function CasesPage() {
 
             <div className="disclaimer-bar">
                 <div className="disclaimer-bar-inner">
-                    <span style={{ color: "var(--color-accent-primary)", fontSize: "1rem", flexShrink: 0, marginTop: "2px" }}>&#9432;</span>
-                    <p style={{ color: "var(--color-text-secondary)", fontSize: ".875rem", lineHeight: "1.6" }}>All case descriptions have been anonymised or published with explicit client consent. Many of our most significant matters cannot be disclosed under any circumstances. The cases shown here represent a fraction of our work and are selected solely to illustrate the breadth and complexity of our practice.</p>
+                    <span className="page-disclaimer-icon">&#9432;</span>
+                    <p className="page-disclaimer-copy">All case descriptions have been anonymised or published with explicit client consent. Many of our most significant matters cannot be disclosed under any circumstances. The cases shown here represent a fraction of our work and are selected solely to illustrate the breadth and complexity of our practice.</p>
                 </div>
             </div>
 
             <section className="page-section">
                 <div className="page-section-inner">
-                    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2xl)" }}>
+                    <div className="list-stack-2xl">
                         {cases.map((c) => (
                             <Link key={c.slug} href={`/cases/${c.slug}`} className="case-list-card">
-                                <div style={{ display: "flex", alignItems: "center", gap: "var(--space-lg)", marginBottom: "var(--space-lg)", flexWrap: "wrap" }}>
-                                    <span style={{ fontSize: ".75rem", fontWeight: 600, color: "var(--color-accent-primary)", textTransform: "uppercase", letterSpacing: ".12em" }}>{c.year}</span>
-                                    <span style={{ color: "var(--color-text-tertiary)" }}>&#183;</span>
-                                    <span style={{ fontSize: ".75rem", color: "var(--color-text-tertiary)", textTransform: "uppercase", letterSpacing: ".1em" }}>{c.category}</span>
+                                <div className="case-list-header">
+                                    <span className="case-list-year">{c.year}</span>
+                                    <span className="case-list-dot">&#183;</span>
+                                    <span className="case-list-category">{c.category}</span>
                                 </div>
-                                <h2 style={{ fontSize: "clamp(1.2rem,3vw,1.8rem)", color: "var(--color-text-primary)", marginBottom: "var(--space-lg)" }}>{c.title}</h2>
-                                <p style={{ color: "var(--color-text-secondary)", fontSize: ".95rem", lineHeight: "1.8", marginBottom: "var(--space-xl)" }}>{c.summary}</p>
-                                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "var(--space-lg)" }}>
-                                    <div style={{ display: "flex", gap: "var(--space-sm)", flexWrap: "wrap" }}>
+                                <h2 className="case-list-title">{c.title}</h2>
+                                <p className="case-list-summary">{c.summary}</p>
+                                <div className="case-list-footer">
+                                    <div className="case-list-tags">
                                         {c.tags.map((t, i) => <span key={i} className="case-tag">{t}</span>)}
                                     </div>
-                                    <span style={{ fontSize: ".85rem", color: "var(--color-accent-primary)", fontWeight: 600 }}>Read full case &#8594;</span>
+                                    <span className="case-list-readmore">Read full case &#8594;</span>
                                 </div>
                             </Link>
                         ))}
